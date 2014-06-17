@@ -1,0 +1,11 @@
+<div class="panel panel-default" id="headings">
+  <div class="panel-heading">TOPページ</div>
+  <div class="panel-body">
+    <h2>ROOTページ一覧</h2>
+    <ul>
+      <% @pages.each do |page| %>
+        <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

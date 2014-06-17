@@ -1,0 +1,11 @@
+<div class="panel panel-default" id="headings">
+  <div class="panel-heading">最近更新されたページ</div>
+  <div class="panel-body">
+  <% @recently_updated_pages.each do |date, pages| %>
+    <h4><strong><%= date %></strong></h4>
+    <% pages.each do |page| %>
+      <p><%= link_to page.title, page.to_url %></p>
+    <% end %>
+  <% end %>
+  </div>
+</div>

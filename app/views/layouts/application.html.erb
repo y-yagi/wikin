@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wikin</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'header' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        <%= render 'side_menu' %>
+      </div>
+      <div class="col-lg-10">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
