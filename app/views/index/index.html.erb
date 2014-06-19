@@ -1,7 +1,6 @@
 <div class="panel panel-default" id="headings">
-  <div class="panel-heading">TOP</div>
+  <div class="panel-heading">全ページ</div>
   <div class="panel-body">
-    <h4>ROOTページ一覧</h4>
     <ul>
       <% @pages.each do |page| %>
         <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>

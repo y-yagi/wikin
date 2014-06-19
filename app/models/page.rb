@@ -8,7 +8,6 @@ class Page < ActiveRecord::Base
   scope :updated_recently, -> {  }
 
   validates :title, uniqueness_without_deleted: true, length: { in: 1..255 }
-  validates :body, presence: true
   validate :check_valid_title
   validate :check_parent_id
 
