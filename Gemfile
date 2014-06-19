@@ -20,6 +20,7 @@ gem 'paranoia_uniqueness_validator'
 gem 'rails-assets-bootstrap-theme-white-plum'
 
 gem 'redcarpet'
+gem 'dotenv-rails'
 
 group :test, :development do
   gem 'pry-rails'
