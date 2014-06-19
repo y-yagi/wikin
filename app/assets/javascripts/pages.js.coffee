@@ -1,5 +1,5 @@
 $ ->
-  $("#page_parent_id").autocomplete('/pages/titles.json', {
+  $("#page_parent_name").autocomplete('/pages/titles.json', {
     minChars: 2,
     remoteDataType: 'json'
   })

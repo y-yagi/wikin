@@ -9,7 +9,9 @@ class PagesController < ApplicationController
   def show
     paths = URI.unescape(request.path.force_encoding("UTF-8"))
     titles = paths.split('/').select(&:present?)
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
+
     @page = Page.find_by_titles(titles)
     render '404' unless @page
   end
@@ -25,7 +27,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page.url }
+        format.html { redirect_to @page.to_url }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -37,7 +39,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        format.html { redirect_to @page.to_url }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }

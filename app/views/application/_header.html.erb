@@ -22,7 +22,7 @@
       </ul>
       <span class="navbar-text navbar-right">
         <%= form_tag search_index_path, class: "form-inline", method: :get do |_| %>
-          <%= text_field '', :q, class: "form-control", placeholder: "サイト内検索", style: "width: 400px" %>
+          <%= text_field '', :search, class: "form-control", placeholder: "サイト内検索", style: "width: 400px" %>
           <%= submit_tag '検索', class: "btn btn-default" %>
         <% end %>
       </span>
