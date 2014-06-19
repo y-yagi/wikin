@@ -1,10 +1,11 @@
 <div class="panel panel-default" id="headings">
-  <div class="panel-heading">全ページ</div>
+  <div class="panel-heading">TOP</div>
   <div class="panel-body">
+    <h3>About Wikin</h3>
+    <p>wikiっぽいものです. 以下の特徴があります(予定含む).</p>
     <ul>
-      <% @pages.each do |page| %>
-        <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
-      <% end %>
+      <li>Markdown記法対応</li>
+      <li>専用のAndroidアプリ対応</li>
     </ul>
   </div>
 </div>

@@ -5,9 +5,8 @@ class Page < ActiveRecord::Base
   RECENT_PAGE_COUNT = 20
   INVALID_TITLE_PATTERN = %w(pages search admin user users)  # サービスで使用するので、使用不可にする
 
-  scope :updated_recently, -> {  }
-
   validates :title, uniqueness_without_deleted: true, length: { in: 1..255 }
+  validates :body, presence: true
   validate :check_valid_title
   validate :check_parent_id
 
