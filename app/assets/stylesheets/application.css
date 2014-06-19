@@ -15,6 +15,3 @@
  *= require jquery.autocomplete
  *= require_self
  */
-.container {
-  max-width: 1500px;
-}
