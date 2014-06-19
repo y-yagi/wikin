@@ -1,6 +1,5 @@
 class IndexController < ApplicationController
   def index
-    #@pages = Page.root
-    @pages = Page.all
+    @pages = Page.root
   end
 end
