@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/index'
   root 'index#index'
-
   resources :pages do
     get :titles, on: :collection
   end
