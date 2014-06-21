@@ -6,6 +6,13 @@ GIT
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
 
+GIT
+  remote: git://github.com/y-yagi/models-to-sql-rails.git
+  revision: 704b379a93d919defe75430372c6375e36f997ff
+  specs:
+    models-to-sql-rails (1.0.1)
+      rails (>= 1.2)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -177,6 +184,7 @@ DEPENDENCIES
   edge
   jbuilder (~> 2.0)
   jquery-rails
+  models-to-sql-rails!
   paranoia (~> 2.0)
   paranoia_uniqueness_validator
   pg

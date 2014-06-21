@@ -1,3 +1,4 @@
+require 'models_to_sql'
 class Page < ActiveRecord::Base
   acts_as_forest
   acts_as_paranoid

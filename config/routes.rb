@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/dump'
+
   get 'search/index'
   root 'index#index'
   resources :pages do
