@@ -20,7 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: wikin 
+  username: wikin
 
 development:
   <<: *default
@@ -28,8 +28,7 @@ development:
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
-  # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user that initialized the database.
+  # When left blank, postgres will use the default role. This is # the same name as the operating system user that initialized the database.
 
   # The password associated with the postgres role (username).
   #password:
@@ -80,6 +79,5 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: wikin
-  username: wikin
-  password: <%= ENV['WIKIN_DATABASE_PASSWORD'] %>
