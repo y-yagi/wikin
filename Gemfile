@@ -37,3 +37,7 @@ group :test, :development do
 #  gem 'rack-mini-profiler'
   gem 'xray-rails'
 end
+
+group :production do
+  gem 'rails_12factor'
+end

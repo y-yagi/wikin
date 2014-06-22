@@ -128,6 +128,11 @@ GEM
     rails-assets-bootstrap-theme-white-plum (0.3.0)
       rails-assets-bootstrap (= 3.0.0)
     rails-assets-jquery (2.1.1)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.1)
       actionpack (= 4.1.1)
       activesupport (= 4.1.1)
@@ -195,6 +200,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.1)
   rails-assets-bootstrap-theme-white-plum
+  rails_12factor
   redcarpet
   sass-rails (~> 4.0.3)
   spring
