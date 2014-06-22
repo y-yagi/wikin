@@ -41,7 +41,7 @@ class Page < ActiveRecord::Base
   end
 
   def to_url
-    url = '/' + (ancestors.map(&:title) + [title]).join('/')
+    url = URI.escape('/' + (ancestors.map(&:title) + [title]).join('/'))
   end
 
   def check_valid_title
