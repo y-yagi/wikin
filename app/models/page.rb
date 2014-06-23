@@ -19,7 +19,6 @@ class Page < ActiveRecord::Base
 
       return nil unless root
       return root if titles.empty?
-
       root.find_child(titles)
     end
 
@@ -31,7 +30,7 @@ class Page < ActiveRecord::Base
 
   def find_child(titles)
     title = titles.shift
-    page = children.find{|p| ERB::Util.url_encode(p.title) == title}
+    page = children.find{|p| p.title == title}
     return nil unless page
     if titles.empty?
       return page
@@ -55,7 +54,8 @@ class Page < ActiveRecord::Base
     if parent_page.blank?
       errors.add(:parent_name, :not_exist)
     else
-      parent_id = parent_page.id
+      self.parent_id = parent_page.id
     end
   end
+
 end
