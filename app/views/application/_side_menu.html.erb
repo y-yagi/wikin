@@ -4,7 +4,7 @@
   <% @recently_updated_pages.each do |date, pages| %>
     <h4><strong><%= date %></strong></h4>
     <% pages.each do |page| %>
-      <p><%= link_to page.title, page.to_url %></p>
+      <p><%= page.link %></p>
     <% end %>
   <% end %>
   </div>

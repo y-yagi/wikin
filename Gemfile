@@ -22,6 +22,7 @@ gem 'rails-assets-bootstrap-theme-white-plum'
 gem 'redcarpet'
 gem 'dotenv-rails'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
+gem 'active_decorator'
 
 group :test, :development do
   gem 'pry-rails'
