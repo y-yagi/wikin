@@ -1,11 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+grandparents:
+  title: grandparents_title
+  body: grandparents body
 
-one:
-  title: MyString
-  body: MyText
-  parent_id: 1
+parents:
+  title: parents_title
+  body: parents body
+  parent: grandparents
 
-two:
-  title: MyString
-  body: MyText
-  parent_id: 1
+child:
+  title: child_title
+  body: child body
+  parent: parents
+
+latest_page:
+  title: latest_page
+  body: latest_page body
+  updated_at: <%= Date.today + 1 %>
