@@ -33,9 +33,9 @@ class Page < ActiveRecord::Base
     page = children.find{|p| p.title == title}
     return nil unless page
     if titles.empty?
-      return page
+      page
     else
-      return page.find_child(titles)
+      page.find_child(titles)
     end
   end
 
@@ -57,5 +57,4 @@ class Page < ActiveRecord::Base
       self.parent_id = parent_page.id
     end
   end
-
 end
