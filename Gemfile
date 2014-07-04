@@ -38,6 +38,10 @@ group :test, :development do
 #  gem 'rack-mini-profiler'
   gem 'xray-rails'
   gem 'guard-minitest'
+
+  gem 'minitest-sound'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :production do

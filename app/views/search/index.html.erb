@@ -2,7 +2,7 @@
   <div class="panel-heading">検索結果</div>
   <div class="panel-body">
     <h4>「<%= @query %>」の検索結果</h4>
-    <ul>
+    <ul class="search-result">
       <% @pages.each do |page| %>
         <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
       <% end %>
