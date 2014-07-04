@@ -1,9 +1,15 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:edit, :update, :destroy]
-  before_action :set_root_pages, except: [:destroy]
 
   def index
-    @pages = Page.all.order(:parent_id)
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
+
+    if params[:recent_pages]
+      @pages = Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
+    else
+      @pages = Page.all.order(:title)
+    end
   end
 
   def show

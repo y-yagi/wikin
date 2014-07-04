@@ -1,4 +1,8 @@
-json.array!(@pages) do |page|
-  json.extract! page, :id, :title, :body, :parent_id
-  json.url page_url(page, format: :json)
+json.set! :pages do
+  json.array!(@pages) do |page|
+    json.extract! page, :id, :title
+    json.url page_url(page)
+    json.parsed_body @markdown.render(page.body)
+  end
 end
+json.set! :results_returned, @pages.count

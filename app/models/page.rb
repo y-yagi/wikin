@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
   acts_as_paranoid
 
   RECENT_PAGE_COUNT = 20
+  RECENT_PAGE_COUNT_SMT = 10
   INVALID_TITLE_PATTERN = %w(pages search admin user users rails)  # サービスで使用するので、使用不可にする
 
   validates :title, uniqueness_without_deleted: true, length: { in: 1..255 }
