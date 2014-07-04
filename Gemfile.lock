@@ -54,8 +54,15 @@ GEM
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
+    capybara (2.2.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -106,13 +113,23 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (5.3.5)
+    minitest-sound (0.0.4)
+      minitest (>= 5.0)
     multi_json (1.10.1)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
     paranoia (2.0.2)
       activerecord (~> 4.0)
     paranoia_uniqueness_validator (1.0.1)
       activerecord (>= 4.0.0)
     pg (0.17.1)
+    poltergeist (1.5.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyglot (0.3.5)
     pry (0.10.0)
       coderay (~> 1.1.0)
@@ -197,6 +214,9 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    websocket-driver (0.3.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
     xray-rails (0.1.14)
       coffee-rails
       rails (>= 3.1.0)
@@ -210,16 +230,19 @@ DEPENDENCIES
   annotate!
   better_errors
   binding_of_caller
+  capybara
   coffee-rails (~> 4.0.0)
   dotenv-rails
   edge
   guard-minitest
   jbuilder (~> 2.0)
   jquery-rails
+  minitest-sound
   models-to-sql-rails!
   paranoia (~> 2.0)
   paranoia_uniqueness_validator
   pg
+  poltergeist
   pry-byebug
   pry-doc
   pry-rails
