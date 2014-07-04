@@ -166,6 +166,8 @@ GEM
     rails-assets-bootstrap-theme-white-plum (0.3.0)
       rails-assets-bootstrap (= 3.0.0)
     rails-assets-jquery (2.1.1)
+    rails-footnotes (4.0.1)
+      rails (>= 3.2)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -250,6 +252,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.2)
   rails-assets-bootstrap-theme-white-plum
+  rails-footnotes (>= 4.0.0, < 5)
   rails_12factor
   redcarpet
   sass-rails (~> 4.0.3)

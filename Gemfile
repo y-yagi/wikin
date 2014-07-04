@@ -42,6 +42,8 @@ group :test, :development do
   gem 'minitest-sound'
   gem 'capybara'
   gem 'poltergeist'
+
+  gem 'rails-footnotes', '>= 4.0.0', '<5'
 end
 
 group :production do
