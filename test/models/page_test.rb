@@ -21,14 +21,14 @@ class PageTest < ActiveSupport::TestCase
   test 'create url by title' do
     page = Page.find_by(title: 'grandparents_title')
 
-    assert_equal '/' + page.title, page.to_url
+    assert_equal '/' + page.title, page.to_path
   end
 
   test 'url include parent title' do
     page = Page.find_by(title: 'child_title')
 
-    assert_match page.parent.title, page.to_url
-    assert_match page.parent.title, page.to_url
+    assert_match page.parent.title, page.to_path
+    assert_match page.parent.title, page.to_path
   end
 
   test 'validate error when set invalid title' do

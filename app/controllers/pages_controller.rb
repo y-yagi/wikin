@@ -14,6 +14,8 @@ class PagesController < ApplicationController
 
   def show
     paths = URI.unescape(request.path.force_encoding("UTF-8"))
+    paths = paths.delete('.json') if request.format.json?
+
     titles = paths.split('/').select(&:present?)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
     @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)

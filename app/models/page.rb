@@ -40,7 +40,7 @@ class Page < ActiveRecord::Base
     end
   end
 
-  def to_url
+  def to_path
     url = URI.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
   end
 

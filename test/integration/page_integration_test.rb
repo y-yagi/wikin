@@ -23,7 +23,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
 
     assert_equal Page.count, before_count + 1
 
-    visit Page.last.to_url
+    visit Page.last.to_path
     assert_match '新規ページタイトル', page.text
     assert_match '新規ページ本文', page.text
   end
@@ -31,14 +31,14 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   test 'update page' do
     old_page = Page.find_by(title: 'child_title')
 
-    visit old_page.to_url
+    visit old_page.to_path
     click_link '編集'
     fill_in 'page_title', with: 'child-title-update'
     fill_in 'page_body', with: 'child-body-update'
     click_button '更新する'
 
     old_page.reload
-    visit old_page.to_url
+    visit old_page.to_path
     assert_match 'child-title-update', page.text
     assert_match 'child-body-update', page.text
   end
