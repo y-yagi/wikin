@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   def index
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
@@ -35,7 +36,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page.to_url }
+        format.html { redirect_to @page.to_path }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page.to_url }
+        format.html { redirect_to @page.to_path }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
