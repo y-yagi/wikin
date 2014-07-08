@@ -33,13 +33,11 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
 
     visit old_page.to_path
     click_link '編集'
-    fill_in 'page_title', with: 'child-title-update'
     fill_in 'page_body', with: 'child-body-update'
     click_button '更新する'
 
     old_page.reload
     visit old_page.to_path
-    assert_match 'child-title-update', page.text
     assert_match 'child-body-update', page.text
   end
 
