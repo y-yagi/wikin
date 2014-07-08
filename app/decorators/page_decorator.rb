@@ -9,7 +9,7 @@ module PageDecorator
 
     ActiveDecorator::Decorator.instance.decorate(ancestors)
 
-    all_title = ancestors.map(&:link).join(' / ')
+    all_title = ancestors.map(&:link).reverse.join(' / ')
     all_title += ' / '  + title
     all_title.html_safe
   end
