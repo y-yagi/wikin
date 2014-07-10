@@ -37,7 +37,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page.to_path }
-        format.json { render :show, status: :created, location: @page }
+        format.json { head :created }
       else
         format.html { render :new }
         format.json { render json: @page.errors, status: :unprocessable_entity }
@@ -46,14 +46,15 @@ class PagesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to @page.to_path }
-        format.json { render :show, status: :ok, location: @page }
+    if @page.update(page_params)
+      if request.format.json?
+        @status = :ok
       else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+        redirect_to @page.to_path
       end
+    else
+      @status = :unprocessable_entity
+      render :edit
     end
   end
 
