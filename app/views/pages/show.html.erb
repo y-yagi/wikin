@@ -3,4 +3,15 @@
   <div class="panel-body">
     <%= @markdown.render(@page.body).html_safe %>
   </div>
+  <% if @page.children.count > 0 %>
+    <div class="panel-footer">
+      <h4>子ページ</h4>
+      <ul>
+        <% @page.children.each do |page| %>
+          <% ActiveDecorator::Decorator.instance.decorate(page) %>
+          <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
