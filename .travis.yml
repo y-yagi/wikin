@@ -1,19 +1,22 @@
 language: ruby
 rvm:
-  - 2.1.1
-
+- 2.1.1
 env:
-  - DB=postgresql
-
-bundler_args: --without development
-
+- DB=postgresql
+bundler_args: "--without development"
 cache: bundler
-
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
-  - xvfb-run bundle exec rake test
-
+- RAILS_ENV=test bundle exec rake db:migrate
+- bundle exec rake db:test:prepare
+- xvfb-run bundle exec rake test
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database database_test' -U postgres
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database database_test' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: FbM377caf4K+xnNhKmydoaBpjL6Cz7Ms+N3mfLrjFPe48+cmQuLJEsfOmCMhOMDg6jo9Hdc+GXyvFZc6whbcvOt0HR10eWHmQKHkkPoNynHI6RewjsmqbPLcIDZHC2G+m2lK8UhOCthrJ1qfBq+p6yWw6v4jqa1MHeNV144Vtkc=
+  app:
+    master: wikin
+  on:
+    repo: y-yagi/wikin
