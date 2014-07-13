@@ -44,4 +44,17 @@ class PageTest < ActiveSupport::TestCase
     assert_not page.valid?
     assert_not_nil page.errors.get(:parent_name)
   end
+
+  test 'can not create same title when parent is same' do
+    page = Page.new(title: 'child_title', body: 'body', parent: Page.find_by(title: 'parents_title'))
+
+    assert_not page.valid?
+    assert_not_nil page.errors.get(:title)
+  end
+
+  test 'can create same title when parent is different' do
+    page = Page.new(title: 'child_title', body: 'body', parent: Page.find_by(title: 'latest_page'))
+
+    assert page.valid?
+  end
 end

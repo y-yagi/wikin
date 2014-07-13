@@ -7,10 +7,11 @@ class Page < ActiveRecord::Base
   RECENT_PAGE_COUNT_SMT = 10
   INVALID_TITLE_PATTERN = %w(pages search admin user users rails)  # サービスで使用するので、使用不可にする
 
-  validates :title, uniqueness_without_deleted: true, length: { in: 1..255 }
+  validates :title, length: { in: 1..255 }
   validates :body, presence: true
   validate :check_valid_title
   validate :check_parent_id
+  validate :check_title_uniqueness
 
   attr_accessor :parent_name
 
@@ -57,5 +58,11 @@ class Page < ActiveRecord::Base
     else
       self.parent_id = parent_page.id
     end
+  end
+
+  def check_title_uniqueness
+    return if title.blank? || !title_changed?
+
+    errors.add(:title, :taken) if Page.find_by(parent_id: parent_id, title: title)
   end
 end
