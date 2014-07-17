@@ -3,18 +3,21 @@
 grandparents:
   title: grandparents_title
   body: grandparents body
+  updated_at: <%= Date.today %>
 
 parents:
   title: parents_title
   body: parents body
   parent: grandparents
+  updated_at: <%= Date.today %>
 
 child:
   title: child_title
   body: child body
   parent: parents
+  updated_at: <%= Date.today %>
 
 latest_page:
   title: latest_page
   body: latest_page body
-  updated_at: <%= Date.today + 1 %>
+  updated_at: <%= Date.today + 2 %>
