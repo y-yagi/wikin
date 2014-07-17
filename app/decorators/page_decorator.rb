@@ -4,7 +4,7 @@ module PageDecorator
     link_to(title, to_url)
   end
 
-  def page_title
+  def full_title_with_link
     return title if ancestors.empty?
 
     ActiveDecorator::Decorator.instance.decorate(ancestors)
