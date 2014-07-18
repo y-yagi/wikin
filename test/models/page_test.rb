@@ -5,7 +5,7 @@ class PageTest < ActiveSupport::TestCase
     pages = Page.recently_updated
 
     assert_equal 2, pages.count
-    assert_equal (Date.today + 1), pages.first[0]
+    assert_equal (Date.today + 2), pages.first[0]
     assert_equal (Date.today), pages.second[0]
   end
 
