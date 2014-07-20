@@ -44,6 +44,7 @@ group :test, :development do
   gem 'poltergeist'
 
   gem 'rails-footnotes', '>= 4.0.0', '<5'
+  gem 'coveralls', require: false
 end
 
 group :production do
