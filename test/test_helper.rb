@@ -2,6 +2,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'coveralls'
+Coveralls.wear!
 
 ENV["BASIC_AUTH_NAME"] = 'basic_auth_name'
 ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
