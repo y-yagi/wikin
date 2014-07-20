@@ -2,8 +2,8 @@
   <div class="panel-heading">全ページ</div>
   <div class="panel-body">
     <ul>
-      <% @pages.each do |page| %>
-        <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
+      <% @pages.to_a.sort_by(&:full_title).each do |page| %>
+        <li><a href="<%= page.to_url %>"><strong><%= page.full_title %></strong></a></li>
       <% end %>
     </ul>
   </div>
