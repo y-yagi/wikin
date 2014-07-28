@@ -1,5 +1,6 @@
 $ ->
-  $("#page_parent_name").autocomplete('/pages/titles.json', {
-    minChars: 2,
-    remoteDataType: 'json'
+  $('#page_parent_name').autocomplete({
+    serviceUrl: '/pages/titles.json',
+    onSelect: (suggestion) ->
+      $('#page_parent_id').val(suggestion.data)
   })
