@@ -67,9 +67,10 @@ class PagesController < ApplicationController
   end
 
   def titles
-    return [] if params[:q].blank?
-    @titles = Page.where('title like ?', "%#{params[:q]}%").pluck(:title)
-    render json: @titles
+    @pages = []
+    return if params[:query].blank?
+
+    @pages = Page.where('title like ?', "%#{params[:query]}%")
   end
 
   private

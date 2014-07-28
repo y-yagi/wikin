@@ -12,6 +12,5 @@
  *
  *= require_tree .
  *= require bootstrap-theme-white-plum
- *= require jquery.autocomplete
  *= require_self
  */
