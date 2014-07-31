@@ -21,3 +21,12 @@ latest_page:
   title: latest_page
   body: latest_page body
   updated_at: <%= Date.today + 2 %>
+
+search_text_include_title:
+  title: search_text_include_title
+  body: dummy
+
+search_text_include_body:
+  title: dummy
+  body: search_text_include_body
+
