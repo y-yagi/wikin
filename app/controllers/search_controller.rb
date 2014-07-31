@@ -8,7 +8,6 @@ class SearchController < ApplicationController
       @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
     end
 
-    @query = params[:query]
-    @pages = Page.where("title like ? OR body like ?", "%#{@query}%", "%#{@query}%")
+    @pages = Page::Search.new(params[:query]).matches
   end
 end
