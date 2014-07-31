@@ -73,6 +73,18 @@ class PagesController < ApplicationController
     @pages = Page.where('title like ?', "%#{params[:query]}%")
   end
 
+  def search
+    @pages = []
+    return if params[:query].blank?
+
+    if request.format.json?
+      renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+      @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
+    end
+
+    @pages = Page::Search.new(params[:query]).matches
+  end
+
   private
     def set_page
       @page = Page.find(params[:id])
