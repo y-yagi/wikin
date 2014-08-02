@@ -22,8 +22,13 @@
     <%= f.text_area :body, class: "form-control", style: 'height: 200px' %>
   </div>
   <div class="form-group">
-    <%= f.label :parent_name %><br>
-    <%= f.text_field :parent_name, class: "form-control", autocomplete: :off %>
+    <%= f.label :parent_name %>
+    <% if @page.parent %>
+      : <span class="text-warning"><%= @page.full_title %></span>
+    <% else %>
+      <br>
+      <%= f.text_field :parent_name, class: "form-control", autocomplete: :off %>
+    <% end %>
     <%= f.hidden_field :parent_id %>
   </div>
   <div class="actions">
