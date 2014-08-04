@@ -53,8 +53,11 @@ class PagesController < ApplicationController
         redirect_to @page.to_path
       end
     else
-      @status = :unprocessable_entity
-      render :edit
+      if request.format.json?
+        @status = :unprocessable_entity
+      else
+        render :edit
+      end
     end
   end
 
