@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
 
     @page = Page.find_by_titles(titles)
-    render '404' unless @page
+    render '404', status: :not_found unless @page
   end
 
   def new
@@ -34,14 +34,10 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page.to_path }
-        format.json { head :created }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.save
+      redirect_to @page.to_path
+    else
+      render :new
     end
   end
 
@@ -63,10 +59,7 @@ class PagesController < ApplicationController
 
   def destroy
     @page.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Page was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_url, notice: 'Page was successfully destroyed.'
   end
 
   def titles
@@ -95,9 +88,5 @@ class PagesController < ApplicationController
 
     def page_params
       params.require(:page).permit(:title, :body, :parent_id, :parent_name)
-    end
-
-    def set_root_pages
-      @root_pages = Page.root
     end
 end
