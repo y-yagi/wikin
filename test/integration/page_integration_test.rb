@@ -49,4 +49,15 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_match 'parents_title', result_text
     assert_match 'grandparents_title', result_text
   end
+
+  test 'destroy page' do
+    page_data = Page.find_by(title: 'child_title')
+    visit page_data.to_path
+    assert_equal 200, page.status_code
+    click_link '削除'
+
+    visit page_data.to_path
+    assert_equal 404, page.status_code
+  end
+
 end
