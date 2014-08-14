@@ -1,0 +1,7 @@
+{
+  "name": "Wikin",
+  "repository": "https://github.com/y-yagi/wikin",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  }
+}
