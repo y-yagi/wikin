@@ -60,4 +60,9 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal 404, page.status_code
   end
 
+  test 'invalid basic auth' do
+    page.driver.browser.authorize('invalid_name', 'invalid_password')
+    visit root_path
+    assert_equal 401, page.status_code
+  end
 end
