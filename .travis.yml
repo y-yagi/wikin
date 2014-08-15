@@ -12,6 +12,8 @@ script:
 before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database database_test' -U postgres
+- echo 'Asia/Tokyo' | sudo tee /etc/timezone
+- sudo dpkg-reconfigure --frontend noninteractive tzdata
 deploy:
   provider: heroku
   api_key:
