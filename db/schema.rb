@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140611001953) do
   enable_extension "plpgsql"
 
   create_table "pages", force: true do |t|
-    t.string   "title"
+    t.string   "title",      limit: 255
     t.text     "body"
     t.integer  "parent_id"
     t.datetime "deleted_at"
