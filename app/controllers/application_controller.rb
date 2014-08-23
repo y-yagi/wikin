@@ -5,10 +5,4 @@ class ApplicationController < ActionController::Base
   if ENV['BASIC_AUTH_NAME'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
     http_basic_authenticate_with name: ENV['BASIC_AUTH_NAME'], password: ENV['BASIC_AUTH_PASSWORD']
   end
-
-  before_action :set_recently_updated_pages
-
-  def set_recently_updated_pages
-    @recently_updated_pages  = Page.recently_updated
-  end
 end
