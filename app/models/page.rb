@@ -25,7 +25,7 @@ class Page < ActiveRecord::Base
     end
 
     def recently_updated
-      pages = order(:updated_at).limit(RECENT_PAGE_COUNT)
+      pages = order('updated_at DESC').limit(RECENT_PAGE_COUNT)
       pages.group_by{ |p| p.updated_at.to_date }.sort_by{ |k, v| k }.reverse
     end
   end
