@@ -52,7 +52,13 @@ class Page < ActiveRecord::Base
   def check_parent_id
     return if parent_name.blank?
     parent_page = Page.find_by(id: parent_id)
-    errors.add(:parent_name, :not_exist) if parent_page.blank?
+
+    if parent_page.blank?
+      errors.add(:parent_name, :not_exist)
+      return
+    end
+
+    errors.add('', :parent_cannnot_appoint_self) if parent_page.id == self.id
   end
 
   def check_title_uniqueness

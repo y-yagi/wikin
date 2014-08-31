@@ -124,6 +124,7 @@ ja:
       other_than: "は%{count}以外の値にしてください。"
       cannot_use: を使用出来ません。他の値を使用してください。
       not_exist: は存在しません。タイトルを確認してください。
+      parent_cannnot_appoint_self: 親ページに自分自身は指定出来ません。違うページを指定して下さい。
     template:
       body: 次の項目を確認してください。
       header:
