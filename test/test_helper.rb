@@ -11,6 +11,18 @@ ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
 
 class ActiveSupport::TestCase
   fixtures :all
+
+  def assert_valid(record, message = nil)
+    message ||= "Expected #{record.inspect} to be valid"
+    assert record.valid?, message
+  end
+
+  def assert_invalid(record, options = {})
+    assert record.invalid?, "Expected #{record.inspect} to be invalid"
+    options.each do |attribute, message|
+      assert_includes record.errors[attribute], message
+    end
+  end
 end
 
 class ActionDispatch::IntegrationTest
@@ -20,6 +32,8 @@ class ActionDispatch::IntegrationTest
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
 end
+
+
 
 Minitest::Sound.success = '/home/yaginuma/Dropbox/tmp/music/other/sey.mp3'
 Minitest::Sound.failure = '/home/yaginuma/Dropbox/tmp/music/other/mdai.mp3'
