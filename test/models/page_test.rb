@@ -34,27 +34,26 @@ class PageTest < ActiveSupport::TestCase
   test 'validate error when set invalid title' do
     page = Page.new(title: 'admin', body: 'test')
 
-    assert_not page.valid?
-    assert_not_nil page.errors.get(:title)
+    assert_invalid page,
+      title: 'を使用出来ません。他の値を使用してください。'
   end
 
   test 'validate error when set invalid parent name' do
     page = Page.new(title: 'test', body: 'test', parent_name: 'not_exist')
 
-    assert_not page.valid?
-    assert_not_nil page.errors.get(:parent_name)
+    assert_invalid page,
+      parent_name: 'は存在しません。タイトルを確認してください。'
   end
 
   test 'can not create same title when parent is same' do
     page = Page.new(title: 'child_title', body: 'body', parent: Page.find_by(title: 'parents_title'))
 
-    assert_not page.valid?
-    assert_not_nil page.errors.get(:title)
+    assert_invalid page, title: 'はすでに存在します。'
   end
 
   test 'can create same title when parent is different' do
     page = Page.new(title: 'child_title', body: 'body', parent: Page.find_by(title: 'latest_page'))
 
-    assert page.valid?
+    assert_valid page
   end
 end
