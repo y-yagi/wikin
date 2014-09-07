@@ -3,7 +3,6 @@ require 'test_helper'
 class PageTest < ActiveSupport::TestCase
   test 'recently updated pages group by date' do
     pages = Page.recently_updated
-
     assert_equal 2, pages.count
     assert_equal (Date.today + 2), pages.first[0]
     assert_equal (Date.today), pages.second[0]
@@ -11,7 +10,7 @@ class PageTest < ActiveSupport::TestCase
 
   test 'find page when use valid title' do
     assert_instance_of Page, Page.find_by_titles(%w(grandparents_title parents_title child_title))
-    assert_equal Page.find_by(title: 'child_title'), Page.find_by_titles(%w(grandparents_title parents_title child_title))
+    assert_equal pages(:child), Page.find_by_titles(%w(grandparents_title parents_title child_title))
   end
 
   test 'do not find page when use invalid title' do
@@ -19,13 +18,12 @@ class PageTest < ActiveSupport::TestCase
   end
 
   test 'create url by title' do
-    page = Page.find_by(title: 'grandparents_title')
-
+    page = pages(:grandparents)
     assert_equal '/' + page.title, page.to_path
   end
 
   test 'url include parent title' do
-    page = Page.find_by(title: 'child_title')
+    page = pages(:child)
 
     assert_match page.parent.title, page.to_path
     assert_match page.parent.title, page.to_path
@@ -46,13 +44,13 @@ class PageTest < ActiveSupport::TestCase
   end
 
   test 'can not create same title when parent is same' do
-    page = Page.new(title: 'child_title', body: 'body', parent: Page.find_by(title: 'parents_title'))
+    page = Page.new(title: 'child_title', body: 'body', parent: pages(:parents))
 
     assert_invalid page, title: 'はすでに存在します。'
   end
 
   test 'can create same title when parent is different' do
-    page = Page.new(title: 'child_title', body: 'body', parent: Page.find_by(title: 'latest_page'))
+    page = Page.new(title: 'child_title', body: 'body', parent: pages(:latest_page))
 
     assert_valid page
   end

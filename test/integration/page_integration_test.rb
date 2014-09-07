@@ -29,7 +29,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test 'update page' do
-    old_page = Page.find_by(title: 'child_title')
+    old_page = pages(:child)
 
     visit old_page.to_path
     click_link '編集'
@@ -51,9 +51,10 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test 'destroy page' do
-    page_data = Page.find_by(title: 'child_title')
+    page_data = pages(:child)
     visit page_data.to_path
     assert_equal 200, page.status_code
+
     click_link '削除'
 
     visit page_data.to_path
