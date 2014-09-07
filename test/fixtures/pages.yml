@@ -30,3 +30,8 @@ search_text_include_body:
   title: dummy
   body: search_text_include_body
 
+<% 15.times do |i| %>
+page_<%= i %>:
+  title: title<%= i %>
+  body: body<%= i %>
+<% end %>

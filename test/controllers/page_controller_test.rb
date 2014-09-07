@@ -5,8 +5,6 @@ class PagesControllerTest < ActionController::TestCase
     @request.env['HTTP_AUTHORIZATION'] =
       ActionController::HttpAuthentication::Basic.encode_credentials(
         ENV["BASIC_AUTH_NAME"], ENV["BASIC_AUTH_PASSWORD"])
-
-    15.times { |i|  Page.create!(title: "title#{i}", body: "body#{i}") }
   end
 
   test 'should get index in json format' do
@@ -47,7 +45,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should update page with valid parameters' do
-    @page = Page.find_by(title: "title1")
+    @page = pages(:page_1)
     patch :update, id: @page.id, page: { title: 'new_title1', body: 'new_body1' }, format: :json
 
     json = JSON.parse(@response.body)
@@ -60,7 +58,8 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should not update page with invalid parameters' do
-    @page = Page.find_by(title: "title1")
+    @page = pages(:page_1)
+
     patch :update, id: @page.id, page: { title: '', body: 'new_body1' }, format: :json
 
     json = JSON.parse(@response.body)
