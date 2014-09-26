@@ -5,6 +5,9 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'minitest/slow_test'
+
+Minitest::SlowTest.long_test_time = 0.5
 
 ENV["BASIC_AUTH_NAME"] = 'basic_auth_name'
 ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
