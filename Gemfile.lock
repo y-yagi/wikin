@@ -7,6 +7,13 @@ GIT
       rake (>= 0.8.7)
 
 GIT
+  remote: git://github.com/y-yagi/minitest-slow_test.git
+  revision: a4015cef87bab56d859eb5249a43e3340c193410
+  specs:
+    minitest-slow_test (0.0.1)
+      minitest (>= 5.0)
+
+GIT
   remote: git://github.com/y-yagi/models-to-sql-rails.git
   revision: 704b379a93d919defe75430372c6375e36f997ff
   specs:
@@ -59,17 +66,18 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (2.7.0)
-      columnize (~> 0.3)
+    byebug (3.4.0)
+      columnize (~> 0.8)
       debugger-linecache (~> 1.2)
-    capybara (2.4.1)
+      slop (~> 3.6)
+    capybara (2.4.3)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    celluloid (0.15.2)
-      timers (~> 1.1.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -98,9 +106,9 @@ GEM
       activerecord (>= 3.2.0)
     erubis (2.7.0)
     execjs (2.2.1)
-    ffi (1.9.3)
+    ffi (1.9.4)
     formatador (0.2.5)
-    globalid (0.2.3)
+    globalid (0.3.0)
       activesupport (>= 4.1.0)
     guard (2.6.1)
       formatador (>= 0.2.4)
@@ -112,11 +120,12 @@ GEM
       guard (~> 2.0)
       minitest (>= 3.0)
     hike (1.2.3)
+    hitimes (1.2.2)
     i18n (0.7.0.beta1)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-rails (3.1.1)
+    jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
@@ -135,7 +144,7 @@ GEM
       minitest (>= 5.0)
     multi_json (1.10.1)
     netrc (0.7.7)
-    newrelic_rpm (3.9.3.241)
+    newrelic_rpm (3.9.4.245)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     paranoia (2.0.2)
@@ -152,8 +161,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (1.3.3)
-      byebug (~> 2.7)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
       pry (~> 0.10)
     pry-doc (0.6.0)
       pry (~> 0.9)
@@ -190,7 +199,7 @@ GEM
       activesupport
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-footnotes (4.0.2)
+    rails-footnotes (4.1.1)
       rails (>= 3.2)
     rails_12factor (0.0.2)
       rails_serve_static_assets
@@ -210,20 +219,20 @@ GEM
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    sass (3.4.2)
+    sass (3.4.5)
     sass-rails (5.0.0.beta1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.2)
       sprockets (~> 2.12)
       sprockets-rails (>= 2.0, < 4.0)
-    simplecov (0.9.0)
+    simplecov (0.9.1)
       docile (~> 1.1.0)
-      multi_json
+      multi_json (~> 1.0)
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.6.0)
     spring (1.1.3)
-    sprockets (2.12.1)
+    sprockets (2.12.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -239,8 +248,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timers (1.1.0)
-    tins (1.3.2)
+    timers (4.0.1)
+      hitimes
+    tins (1.3.3)
     turbolinks (2.3.0)
       coffee-rails
     tzinfo (1.2.2)
@@ -272,6 +282,7 @@ DEPENDENCIES
   guard-minitest
   jbuilder (~> 2.0)
   jquery-rails
+  minitest-slow_test!
   minitest-sound
   models-to-sql-rails!
   newrelic_rpm
