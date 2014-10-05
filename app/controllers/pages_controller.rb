@@ -59,7 +59,17 @@ class PagesController < ApplicationController
 
   def destroy
     @page.destroy
-    redirect_to root_url, notice: 'Page was successfully destroyed.'
+    flash[:info] =
+      "ページの削除が完了しました。誤って削除した場合、" \
+      "#{view_context.link_to('こちら', restore_page_path(@page))}" \
+      "から復旧して下さい。"
+    redirect_to root_url
+  end
+
+  def restore
+    Page.only_deleted.find(params[:id]).update_attributes!(deleted_at: nil)
+    flash[:info] = "ページの復旧が完了しました"
+    redirect_to root_url
   end
 
   def titles

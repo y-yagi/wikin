@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'header' %>
+<%= render 'header' %>
+
   <div class="container">
     <div class="row">
+      <%= render 'flash' %>
       <div class="col-lg-2">
         <%= render 'side_menu' %>
       </div>
