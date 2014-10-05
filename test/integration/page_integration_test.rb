@@ -61,6 +61,18 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal 404, page.status_code
   end
 
+  test 'restore page' do
+    page_data = pages(:child)
+    visit page_data.to_path
+    assert_equal 200, page.status_code
+    click_link '削除'
+
+    click_link 'こちら'
+    visit page_data.to_path
+    assert_equal 200, page.status_code
+    assert_match 'child_title', page.text
+  end
+
   test 'invalid basic auth' do
     page.driver.browser.authorize('invalid_name', 'invalid_password')
     visit root_path
