@@ -67,7 +67,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
     click_link '削除'
 
-    click_link 'こちら'
+    click_link '削除の取り消し'
     visit page_data.to_path
     assert_equal 200, page.status_code
     assert_match 'child_title', page.text
