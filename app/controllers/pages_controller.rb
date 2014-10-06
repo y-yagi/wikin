@@ -60,9 +60,8 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     flash[:info] =
-      "ページの削除が完了しました。誤って削除した場合、" \
-      "#{view_context.link_to('こちら', restore_page_path(@page))}" \
-      "から復旧して下さい。"
+      "ページの削除が完了しました。 " \
+      "#{view_context.link_to('削除の取り消し。', restore_page_path(@page))}"
     redirect_to root_url
   end
 
