@@ -61,6 +61,15 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_equal 404, page.status_code
   end
 
+  test 'cannot destroy page when page has child page' do
+    page_data = pages(:grandparents)
+    visit page_data.to_path
+    click_link '削除'
+
+    assert_equal 200, page.status_code
+    assert_match 'ページの削除は出来ません', page.text
+  end
+
   test 'restore page' do
     page_data = pages(:child)
     visit page_data.to_path
