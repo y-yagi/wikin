@@ -66,4 +66,8 @@ class Page < ActiveRecord::Base
 
     errors.add(:title, :taken) if Page.find_by(parent_id: parent_id, title: title)
   end
+
+  def can_destory?
+    children.empty?
+  end
 end

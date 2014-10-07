@@ -54,4 +54,14 @@ class PageTest < ActiveSupport::TestCase
 
     assert_valid page
   end
+
+  test '`can_destory?` return false when page has child page' do
+    page = pages(:grandparents)
+    assert_equal false, page.can_destory?
+  end
+
+  test '`can_destory?` return true when page dosent have child page' do
+    page = pages(:child)
+    assert_equal true, page.can_destory?
+  end
 end

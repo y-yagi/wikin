@@ -58,6 +58,13 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    unless @page.can_destory?
+      flash[:warning] =
+        "子ページがあるページの削除は出来ません。 " \
+        "先に子ページの削除を実施して下さい。 "
+      return redirect_to @page.to_path
+    end
+
     @page.destroy
     flash[:info] =
       "ページの削除が完了しました。 " \
