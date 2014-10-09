@@ -197,6 +197,7 @@ GEM
     rails-assets-bootstrap-theme-white-plum (0.3.0)
       rails-assets-bootstrap (= 3.0.0)
     rails-assets-jquery (2.1.1)
+    rails-assets-markdown-js (0.6.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.3)
@@ -303,6 +304,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.0.beta2)
   rails-assets-bootstrap-theme-white-plum
+  rails-assets-markdown-js
   rails-footnotes (>= 4.0.0, < 5)
   rails_12factor
   redcarpet

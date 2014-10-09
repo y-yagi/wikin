@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.autocomplete.min
+//= require markdown-js/dist/markdown.js
 //= require_tree .
