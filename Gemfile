@@ -17,6 +17,7 @@ gem 'edge'
 gem 'paranoia', '~> 2.0'
 gem 'paranoia_uniqueness_validator'
 gem 'rails-assets-bootstrap-theme-white-plum'
+gem 'rails-assets-markdown-js'
 
 gem 'redcarpet'
 gem 'dotenv-rails'
