@@ -3,14 +3,12 @@ class PagesController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
-    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
-
-    if params[:recent_pages]
-      @pages = Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
-    else
-      @pages = Page.all.order(:title)
-    end
+    set_redcarpet
+    @pages = if params[:recent_pages]
+               Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
+             else
+               Page.all.order(:title)
+             end
   end
 
   def show
@@ -18,8 +16,7 @@ class PagesController < ApplicationController
     paths = paths.delete('.json') if request.format.json?
 
     titles = paths.split('/').select(&:present?)
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
-    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
+    set_redcarpet
 
     @page = Page.find_by_titles(titles)
     render '404', status: :not_found unless @page
@@ -89,11 +86,7 @@ class PagesController < ApplicationController
     @pages = []
     return if params[:query].blank?
 
-    if request.format.json?
-      renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
-      @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
-    end
-
+    set_redcarpet if request.format.json?
     @pages = Page::Search.new(params[:query]).matches
   end
 

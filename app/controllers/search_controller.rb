@@ -3,11 +3,7 @@ class SearchController < ApplicationController
     @pages = []
     return if params[:query].blank?
 
-    if request.format.json?
-      renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
-      @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
-    end
-
+    set_redcarpet if request.format.json?
     @pages = Page::Search.new(params[:query]).matches
   end
 end

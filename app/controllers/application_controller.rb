@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
   if ENV['BASIC_AUTH_NAME'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
     http_basic_authenticate_with name: ENV['BASIC_AUTH_NAME'], password: ENV['BASIC_AUTH_PASSWORD']
   end
+
+  def set_redcarpet
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true)
+  end
 end
