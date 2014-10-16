@@ -7,7 +7,7 @@ $ ->
   })
 
   $('#preview_link').click ->
-    html = markdown.toHTML($("#page_body").val())
+    html = markdown.toHTML($("#page_body").val().replace(/\r?\n/g, "  \n"))
     $('#preview_body').html(html)
 
     $('#page_body').hide()
