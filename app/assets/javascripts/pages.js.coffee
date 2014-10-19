@@ -7,6 +7,7 @@ $ ->
   })
 
   $('#preview_link').click ->
+    # match the output with a server side
     html = markdown.toHTML($("#page_body").val().replace(/\r?\n/g, "  \n"))
     $('#preview_body').html(html)
 
