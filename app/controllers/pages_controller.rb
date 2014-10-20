@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @pages = if params[:recent_pages]
                Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
              else
-               Page.all.order(:title)
+               Page.find_forest
              end
   end
 
