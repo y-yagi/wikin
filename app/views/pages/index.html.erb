@@ -4,7 +4,7 @@
     <ul>
       <% @pages.to_a.sort_by(&:title).each do |root| %>
         <li><a href="<%= root.to_url %>"><strong><%= root.full_title %></strong></a></li>
-        <% root.children.each do |page| %>
+        <% root.descendants.each do |page| %>
           <% ActiveDecorator::Decorator.instance.decorate(page) %>
           <li><a href="<%= page.to_url %>"><strong><%= page.full_title %></strong></a></li>
         <% end %>
