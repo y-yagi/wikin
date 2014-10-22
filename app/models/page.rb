@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   acts_as_forest
   acts_as_paranoid
 
-  RECENT_PAGE_COUNT = 20
+  RECENT_PAGE_COUNT = 10
   RECENT_PAGE_COUNT_SMT = 10
   INVALID_TITLE_PATTERN = %w(pages search admin user users rails)  # サービスで使用するので、使用不可にする
 
