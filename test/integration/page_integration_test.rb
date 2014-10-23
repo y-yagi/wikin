@@ -14,7 +14,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_match 'latest_page', page.text
   end
 
-  test 'create new page'do
+  test 'create new page' do
     before_count = Page.count
     click_link 'ページ作成'
     fill_in 'page_title', with: '新規ページタイトル'
@@ -86,5 +86,12 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     page.driver.browser.authorize('invalid_name', 'invalid_password')
     visit root_path
     assert_equal 401, page.status_code
+  end
+
+  test 'page index' do
+    visit pages_path
+
+    assert_match 'search_text_include_title', page.text
+    assert_match 'grandparents_title / parents_title / child_title', page.text
   end
 end
