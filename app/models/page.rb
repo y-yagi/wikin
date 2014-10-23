@@ -28,6 +28,12 @@ class Page < ActiveRecord::Base
       pages = order('updated_at DESC').limit(RECENT_PAGE_COUNT)
       pages.group_by{ |p| p.updated_at.to_date }.sort_by{ |k, v| k }.reverse
     end
+
+    def sort_by_full_title(pages)
+      pages.to_a.sort_by do |page|
+        page.ancestors.map(&:title).reverse.join(' / ') + ' / ' + page.title
+      end
+    end
   end
 
   def find_child(titles)
