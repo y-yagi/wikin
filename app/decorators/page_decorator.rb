@@ -4,24 +4,11 @@ module PageDecorator
     link_to(title, to_url)
   end
 
-  def full_title(with_link: false)
+  def full_link
     return title if ancestors.empty?
 
     ActiveDecorator::Decorator.instance.decorate(ancestors)
-    if (with_link)
-      all_title = ancestors.map(&:link).reverse.join(' / ')
-    else
-      all_title = ancestors.map(&:title).reverse.join(' / ')
-    end
-    all_title += ' / '  + title
-    all_title.html_safe
-  end
-
-  def full_title_without_self
-    return '' if ancestors.empty?
-
-    ActiveDecorator::Decorator.instance.decorate(ancestors)
-    ancestors.map(&:title).reverse.join(' / ')
+    (ancestors.map(&:link).reverse.join(' / ') + ' / ' + title).html_safe
   end
 
   def to_url

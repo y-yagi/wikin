@@ -30,9 +30,7 @@ class Page < ActiveRecord::Base
     end
 
     def sort_by_full_title(pages)
-      pages.to_a.sort_by do |page|
-        page.ancestors.map(&:title).reverse.join(' / ') + ' / ' + page.title
-      end
+      pages.to_a.sort_by(&:full_title)
     end
   end
 
@@ -75,5 +73,15 @@ class Page < ActiveRecord::Base
 
   def can_destory?
     children.empty?
+  end
+
+  def full_title(include_self: true)
+    return title if ancestors.empty?
+
+    if include_self
+      ancestors.map(&:title).reverse.join(' / ') + ' / ' + title
+    else
+      ancestors.map(&:title).reverse.join(' / ')
+    end
   end
 end

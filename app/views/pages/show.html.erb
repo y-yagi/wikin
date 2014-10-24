@@ -1,5 +1,5 @@
 <div class="panel panel-default" id="headings">
-  <div class="panel-heading"><%= @page.full_title(with_link: true) %></div>
+  <div class="panel-heading"><%= @page.full_link %></div>
   <div class="panel-body">
     <%= @markdown.render(@page.body).html_safe %>
   </div>

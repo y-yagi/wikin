@@ -64,4 +64,14 @@ class PageTest < ActiveSupport::TestCase
     page = pages(:child)
     assert_equal true, page.can_destory?
   end
+
+  test '`full_title` return tile including the parent pages' do
+    page = pages(:child)
+    assert_equal 'grandparents_title / parents_title / child_title', page.full_title
+  end
+
+  test '`full_title(include_self: false)` return tile including the parent pages without self' do
+    page = pages(:child)
+    assert_equal 'grandparents_title / parents_title', page.full_title(include_self: false)
+  end
 end
