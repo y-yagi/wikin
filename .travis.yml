@@ -16,7 +16,7 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    secure: FbM377caf4K+xnNhKmydoaBpjL6Cz7Ms+N3mfLrjFPe48+cmQuLJEsfOmCMhOMDg6jo9Hdc+GXyvFZc6whbcvOt0HR10eWHmQKHkkPoNynHI6RewjsmqbPLcIDZHC2G+m2lK8UhOCthrJ1qfBq+p6yWw6v4jqa1MHeNV144Vtkc=
+    secure: IY/9uoCL7nmVCAq64rTw0t9x5hjySFdMJQWWQ43opvV3BOpzM9WlkqxibpCDjRD9en4itMV9OlaQJlGO/q2XwOseQQcQHuJCCUkTt4E9CdI2paaPnZaVT/CL5SD2ZYa3n7omUIPfftM9giOr7qRzr71tH95PuFQ8yw3IBO9rIA8=
   app:
     master: wikin
   on:
