@@ -7,22 +7,8 @@ GIT
       rake (>= 0.8.7)
 
 GIT
-  remote: git://github.com/y-yagi/minitest-slow_test.git
-  revision: 31404a052cb26abbf712fba1d8b664f95e5d85f5
-  specs:
-    minitest-slow_test (0.0.1)
-      minitest (>= 5.0)
-
-GIT
-  remote: git://github.com/y-yagi/models-to-sql-rails.git
-  revision: 704b379a93d919defe75430372c6375e36f997ff
-  specs:
-    models-to-sql-rails (1.0.1)
-      rails (>= 1.2)
-
-GEM
-  remote: https://rubygems.org/
-  remote: https://rails-assets.org/
+  remote: git://github.com/rails/rails.git
+  revision: 8b611b705b668d98ad2b7cf166f7e99cffca6ba3
   specs:
     actionmailer (4.2.0.beta4)
       actionpack (= 4.2.0.beta4)
@@ -43,7 +29,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.4)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_decorator (0.3.4)
     activejob (4.2.0.beta4)
       activesupport (= 4.2.0.beta4)
       globalid (>= 0.3.0)
@@ -60,6 +45,42 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    rails (4.2.0.beta4)
+      actionmailer (= 4.2.0.beta4)
+      actionpack (= 4.2.0.beta4)
+      actionview (= 4.2.0.beta4)
+      activejob (= 4.2.0.beta4)
+      activemodel (= 4.2.0.beta4)
+      activerecord (= 4.2.0.beta4)
+      activesupport (= 4.2.0.beta4)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 4.2.0.beta4)
+      sprockets-rails (~> 3.0.0.beta1)
+    railties (4.2.0.beta4)
+      actionpack (= 4.2.0.beta4)
+      activesupport (= 4.2.0.beta4)
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+
+GIT
+  remote: git://github.com/y-yagi/minitest-slow_test.git
+  revision: 31404a052cb26abbf712fba1d8b664f95e5d85f5
+  specs:
+    minitest-slow_test (0.0.1)
+      minitest (>= 5.0)
+
+GIT
+  remote: git://github.com/y-yagi/models-to-sql-rails.git
+  revision: 704b379a93d919defe75430372c6375e36f997ff
+  specs:
+    models-to-sql-rails (1.0.1)
+      rails (>= 1.2)
+
+GEM
+  remote: https://rubygems.org/
+  remote: https://rails-assets.org/
+  specs:
+    active_decorator (0.3.4)
     arel (6.0.0.beta2)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -179,17 +200,6 @@ GEM
     rack (1.6.0.beta)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.2.0.beta4)
-      actionmailer (= 4.2.0.beta4)
-      actionpack (= 4.2.0.beta4)
-      actionview (= 4.2.0.beta4)
-      activejob (= 4.2.0.beta4)
-      activemodel (= 4.2.0.beta4)
-      activerecord (= 4.2.0.beta4)
-      activesupport (= 4.2.0.beta4)
-      bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.0.beta4)
-      sprockets-rails (~> 3.0.0.beta1)
     rails-assets-bootstrap (3.0.0)
       rails-assets-jquery (>= 1.9.0)
     rails-assets-bootstrap-theme-white-plum (0.3.0)
@@ -211,11 +221,6 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
-    railties (4.2.0.beta4)
-      actionpack (= 4.2.0.beta4)
-      activesupport (= 4.2.0.beta4)
-      rake (>= 0.8.7)
-      thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
@@ -300,7 +305,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   quiet_assets
-  rails (= 4.2.0.beta4)
+  rails!
   rails-assets-bootstrap-theme-white-plum
   rails-assets-markdown-js
   rails-footnotes (>= 4.0.0, < 5)
