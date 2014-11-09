@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PageIntegrationTest < ActionDispatch::IntegrationTest
   def setup
-    page.driver.browser.authorize(ENV["BASIC_AUTH_NAME"], ENV["BASIC_AUTH_PASSWORD"])
+    page.driver.browser.authorize(ENV["BASIC_AUTH_USER"], ENV["BASIC_AUTH_PASSWORD"])
     visit root_path
   end
 

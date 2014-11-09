@@ -3,5 +3,9 @@
   "repository": "https://github.com/y-yagi/wikin",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "BASIC_AUTH_USER": "",
+    "BASIC_AUTH_PASSWORD": ""
   }
 }
