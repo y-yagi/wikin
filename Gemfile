@@ -27,6 +27,8 @@ gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
 gem 'newrelic_rpm'
 
+gem 'jquery-turbolinks'
+
 group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
