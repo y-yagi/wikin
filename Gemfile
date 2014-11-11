@@ -27,6 +27,8 @@ gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
 gem 'newrelic_rpm'
 
+gem 'jquery-turbolinks'
+
 group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
@@ -39,7 +41,7 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'annotate', github: 'ctran/annotate_models'
 #  gem 'rack-mini-profiler'
-  gem 'xray-rails'
+#  gem 'xray-rails'
   gem 'guard-minitest'
 
   gem 'minitest-sound'
