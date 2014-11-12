@@ -61,8 +61,6 @@ class Page < ActiveRecord::Base
       errors.add(:parent_name, :not_exist)
       return
     end
-
-    errors.add('', :parent_cannnot_appoint_self) if parent_page.id == self.id
   end
 
   def check_title_uniqueness
