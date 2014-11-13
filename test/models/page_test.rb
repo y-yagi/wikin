@@ -74,4 +74,12 @@ class PageTest < ActiveSupport::TestCase
     page = pages(:child)
     assert_equal 'grandparents_title / parents_title', page.full_title(include_self: false)
   end
+
+  test 'cannot set self id to parent id' do
+    page = pages(:child)
+    page.parent_id = page.id
+
+    assert_invalid page,
+      parent_id: '親ページに自分自身は指定出来ません。違うページを指定して下さい。'
+  end
 end
