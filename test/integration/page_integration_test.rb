@@ -28,6 +28,15 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_match '新規ページ本文', page.text
   end
 
+  test 'display error message when going to make it with unjust data' do
+    click_link 'ページ作成'
+    fill_in 'page_title', with: ''
+    fill_in 'page_body', with: '新規ページ本文'
+    click_button '登録する'
+
+    assert_match 'error', page.text
+  end
+
   test 'update page' do
     old_page = pages(:child)
 
@@ -39,6 +48,16 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     old_page.reload
     visit old_page.to_path
     assert_match 'child-body-update', page.text
+  end
+
+  test 'display error message when going to update it with unjust data' do
+    old_page = pages(:child)
+    visit old_page.to_path
+    click_link '編集'
+    fill_in 'page_body', with: ''
+    click_button '更新する'
+
+    assert_match 'error', page.text
   end
 
   test 'search pages' do
