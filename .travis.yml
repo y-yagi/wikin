@@ -3,7 +3,6 @@ rvm:
 - 2.1.4
 env:
 - DB=postgresql
-- STACK=cedar-14
 bundler_args: "--without development"
 cache: bundler
 script:
@@ -16,6 +15,7 @@ before_script:
 - sudo dpkg-reconfigure --frontend noninteractive tzdata
 deploy:
   provider: heroku
+  strategy: api
   api_key:
     secure: IY/9uoCL7nmVCAq64rTw0t9x5hjySFdMJQWWQ43opvV3BOpzM9WlkqxibpCDjRD9en4itMV9OlaQJlGO/q2XwOseQQcQHuJCCUkTt4E9CdI2paaPnZaVT/CL5SD2ZYa3n7omUIPfftM9giOr7qRzr71tH95PuFQ8yw3IBO9rIA8=
   app:
