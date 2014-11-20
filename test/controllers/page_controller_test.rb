@@ -2,9 +2,7 @@ require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
   def setup
-    @request.env['HTTP_AUTHORIZATION'] =
-      ActionController::HttpAuthentication::Basic.encode_credentials(
-        ENV["BASIC_AUTH_USER"], ENV["BASIC_AUTH_PASSWORD"])
+    set_authorization
   end
 
   test 'should get index in json format' do

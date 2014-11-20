@@ -26,6 +26,12 @@ class ActiveSupport::TestCase
       assert_includes record.errors[attribute], message
     end
   end
+
+  def set_authorization
+    @request.env['HTTP_AUTHORIZATION'] =
+      ActionController::HttpAuthentication::Basic.encode_credentials(
+        ENV["BASIC_AUTH_USER"], ENV["BASIC_AUTH_PASSWORD"])
+  end
 end
 
 class ActionDispatch::IntegrationTest
