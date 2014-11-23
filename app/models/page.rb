@@ -77,10 +77,9 @@ class Page < ActiveRecord::Base
   def full_title(include_self: true)
     return title if ancestors.empty?
 
-    if include_self
-      ancestors.map(&:title).reverse.join(' / ') + ' / ' + title
-    else
-      ancestors.map(&:title).reverse.join(' / ')
-    end
+    full_title = ancestors.map(&:title).reverse.join(' / ')
+    full_title = full_title + ' / ' + title if include_self
+
+    full_title
   end
 end
