@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     get :restore, on: :member
   end
 
-  get '*path', to: 'pages#show', constraints: Constraints::PathConstraint.new
+  get '*path', to: 'pages#show', constraints: PathConstraint.new
 end
