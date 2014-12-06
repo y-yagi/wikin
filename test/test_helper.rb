@@ -44,4 +44,4 @@ end
 
 Minitest::Sound.success = '/home/yaginuma/Dropbox/tmp/music/other/sey.mp3'
 Minitest::Sound.failure = '/home/yaginuma/Dropbox/tmp/music/other/mdai.mp3'
-Minitest::Sound.during_test = '/home/yaginuma/tmp/during_test.mp3'
+Minitest::Sound.during_test = '/home/yaginuma/Dropbox/tmp/music/other/rs1_25_beatthemup.mp3'
