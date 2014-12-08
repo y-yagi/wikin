@@ -9,6 +9,7 @@ class PagesController < ApplicationController
              else
                Page.find_forest
              end
+    fresh_when(@pages)
   end
 
   def show
