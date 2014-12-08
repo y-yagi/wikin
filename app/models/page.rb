@@ -30,7 +30,7 @@ class Page < ActiveRecord::Base
     end
 
     def sort_by_full_title(pages)
-      pages.to_a.sort_by(&:full_title)
+      pages.to_a.reject(&:deleted?).sort_by(&:full_title)
     end
   end
 
