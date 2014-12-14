@@ -14,4 +14,10 @@ class AdminControllerTest < ActionController::TestCase
     id = Page.last.id
     assert_match "SELECT SETVAL('pages_id_seq', #{id});", @response.body
   end
+
+  test 'redirec to root when page data is empty' do
+    Page.delete_all
+    get :dump
+    assert_redirected_to root_path
+  end
 end
