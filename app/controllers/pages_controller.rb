@@ -71,7 +71,7 @@ class PagesController < ApplicationController
   end
 
   def restore
-    Page.only_deleted.find(params[:id]).update_attributes!(deleted_at: nil)
+    Page.restore(params[:id])
     flash[:info] = "ページの復旧が完了しました"
     redirect_to root_url
   end
