@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20140611001953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pages", force: true do |t|
-    t.string   "title",      limit: 255
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
     t.text     "body"
     t.integer  "parent_id"
     t.datetime "deleted_at"
