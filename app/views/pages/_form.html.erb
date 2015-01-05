@@ -24,7 +24,7 @@
   <div class="form-group">
     <%= f.label :parent_name %>
     <% if @page.id.present? %>
-      : <span class="text-warning"><%= @page.full_title(include_self: false) %></span>
+      : <span class="text-warning"><%= @page.full_title(include_self: false) if @page.parent.present? %></span>
     <% else %>
       <br>
       <%= f.text_field :parent_name, class: "form-control" %>
