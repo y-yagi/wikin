@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:edit, :update, :destroy]
+  before_action :set_page, only: [:edit, :update, :destroy, :undo]
   protect_from_forgery with: :null_session
 
   def index
@@ -44,6 +44,9 @@ class PagesController < ApplicationController
       if request.format.json?
         @status = :ok
       else
+        flash[:info] =
+          "ページの更新が完了しました。 " \
+          "#{view_context.link_to('更新を取り消す。', undo_page_path(@page))}"
         redirect_to @page.to_path
       end
     else
@@ -53,6 +56,12 @@ class PagesController < ApplicationController
         render :edit
       end
     end
+  end
+
+  def undo
+    @page.undo!
+    flash[:info] = "更新を取り消しました"
+    redirect_to @page.to_path
   end
 
   def destroy

@@ -82,4 +82,14 @@ class PageTest < ActiveSupport::TestCase
     assert_invalid page,
       parent_id: '親ページに自分自身は指定出来ません。違うページを指定して下さい。'
   end
+
+  test 'can go back up in contents before the update' do
+    page = pages(:child)
+    before_body = page.body
+    page.update!(body: 'update body')
+    assert_equal 'update body', page.body
+
+    page.undo!
+    assert_equal page.body, before_body
+  end
 end

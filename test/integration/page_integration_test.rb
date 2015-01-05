@@ -50,6 +50,21 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_match 'child-body-update', page.text
   end
 
+  test 'undo update' do
+    old_page = pages(:child)
+    title = old_page.title
+    visit old_page.to_path
+    click_link '編集'
+    fill_in 'page_body', with: 'child-body-update'
+    click_button '更新する'
+    click_link '更新を取り消す。'
+    visit old_page.to_path
+
+    assert_no_match 'child-body-update', page.text
+    assert_match title, page.text
+  end
+
+
   test 'display error message when going to update it with unjust data' do
     old_page = pages(:child)
     visit old_page.to_path
