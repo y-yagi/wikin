@@ -5,7 +5,7 @@ class Page < ActiveRecord::Base
 
   RECENT_PAGE_COUNT = 10
   RECENT_PAGE_COUNT_SMT = 10
-  INVALID_TITLE_PATTERN = %w(pages search admin user users rails)  # サービスで使用するので、使用不可にする
+  INVALID_TITLE_PATTERN = %w(pages search admin user users rails)  # use it in service
 
   validates :title, length: { in: 1..255 }
   validates :body, presence: true
