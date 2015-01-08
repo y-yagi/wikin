@@ -57,22 +57,19 @@ class PagesController < ApplicationController
 
   def destroy
     unless @page.can_destory?
-      flash[:warning] =
-        "子ページがあるページの削除は出来ません。 " \
-        "先に子ページの削除を実施して下さい。 "
+      flash[:warning] = messages(:have_child_page)
       return redirect_to @page.to_path
     end
 
     @page.destroy
-    flash[:info] =
-      "ページの削除が完了しました。 " \
-      "#{view_context.link_to('削除の取り消し。', restore_page_path(@page))}"
+    flash[:info] = messages(:destroy_completed) +
+      "#{view_context.link_to(messages(:restore_page_link), restore_page_path(@page))}"
     redirect_to root_url
   end
 
   def restore
     Page.restore(params[:id])
-    flash[:info] = "ページの復旧が完了しました"
+    flash[:info] = messages(:restore_page)
     redirect_to root_url
   end
 
