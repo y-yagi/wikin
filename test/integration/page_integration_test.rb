@@ -57,7 +57,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     click_link '編集'
     fill_in 'page_body', with: 'child-body-update'
     click_button '更新する'
-    click_link '更新を取り消す。'
+    click_link '更新の取り消し'
     visit old_page.to_path
 
     assert_no_match 'child-body-update', page.text

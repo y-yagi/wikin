@@ -44,9 +44,8 @@ class PagesController < ApplicationController
       if request.format.json?
         @status = :ok
       else
-        flash[:info] =
-          "ページの更新が完了しました。 " \
-          "#{view_context.link_to('更新を取り消す。', undo_page_path(@page))}"
+        flash[:info] = messages(:update_page) +
+          "#{view_context.link_to(messages(:undo_page_link), undo_page_path(@page))}"
         redirect_to @page.to_path
       end
     else
@@ -60,7 +59,7 @@ class PagesController < ApplicationController
 
   def undo
     @page.undo!
-    flash[:info] = "更新を取り消しました"
+    flash[:info] = messages(:undo_page)
     redirect_to @page.to_path
   end
 
@@ -71,7 +70,7 @@ class PagesController < ApplicationController
     end
 
     @page.destroy
-    flash[:info] = messages(:destroy_completed) +
+    flash[:info] = messages(:destroy_page) +
       "#{view_context.link_to(messages(:restore_page_link), restore_page_path(@page))}"
     redirect_to root_url
   end

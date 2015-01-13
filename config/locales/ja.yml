@@ -206,7 +206,10 @@ ja:
         parent_id: 親ページ
         parent_name: 親ページ
   messages:
-    destroy_completed: ページの削除が完了しました。
+    destroy_page: ページの削除が完了しました。
     restore_page_link: 削除の取り消し
     restore_page: ページの復旧が完了しました
     have_child_page: 子ページがあるページの削除は出来ません。 先に子ページの削除を実施して下さい。
+    update_page: ページの更新が完了しました。
+    undo_page_link: 更新の取り消し
+    undo_page: 更新を取り消しました
