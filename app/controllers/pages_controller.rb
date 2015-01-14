@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:edit, :update, :destroy]
+  before_action :set_page, only: [:edit, :update, :destroy, :undo]
   protect_from_forgery with: :null_session
 
   def index
@@ -44,6 +44,8 @@ class PagesController < ApplicationController
       if request.format.json?
         @status = :ok
       else
+        flash[:info] = messages(:update_page) +
+          "#{view_context.link_to(messages(:undo_page_link), undo_page_path(@page))}"
         redirect_to @page.to_path
       end
     else
@@ -55,6 +57,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def undo
+    @page.undo!
+    flash[:info] = messages(:undo_page)
+    redirect_to @page.to_path
+  end
+
   def destroy
     unless @page.can_destory?
       flash[:warning] = messages(:have_child_page)
@@ -62,7 +70,7 @@ class PagesController < ApplicationController
     end
 
     @page.destroy
-    flash[:info] = messages(:destroy_completed) +
+    flash[:info] = messages(:destroy_page) +
       "#{view_context.link_to(messages(:restore_page_link), restore_page_path(@page))}"
     redirect_to root_url
   end

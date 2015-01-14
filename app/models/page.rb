@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
   acts_as_forest
   acts_as_paranoid
 
+  has_one :old_page
+
   RECENT_PAGE_COUNT = 10
   RECENT_PAGE_COUNT_SMT = 10
   INVALID_TITLE_PATTERN = %w(pages search admin user users rails)  # use it in service
@@ -12,6 +14,8 @@ class Page < ActiveRecord::Base
   validate :check_valid_title
   validate :check_parent_id
   validate :check_title_uniqueness
+
+  before_update :create_old_page
 
   attr_accessor :parent_name
 
@@ -81,5 +85,14 @@ class Page < ActiveRecord::Base
     full_title = full_title + ' / ' + title if include_self
 
     full_title
+  end
+
+  def create_old_page
+    OldPage.find_or_initialize_by(page: self).update!(body: body_was)
+  end
+
+  def undo!
+    return unless old_page
+    update!(body: old_page.body)
   end
 end
