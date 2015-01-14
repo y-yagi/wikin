@@ -44,9 +44,9 @@ class PagesController < ApplicationController
       if request.format.json?
         @status = :ok
       else
-        flash[:info] = messages(:update_page) +
+        msg = messages(:update_page) +
           "#{view_context.link_to(messages(:undo_page_link), undo_page_path(@page))}"
-        redirect_to @page.to_path
+        redirect_to @page.to_path, info: msg
       end
     else
       if request.format.json?
@@ -59,20 +59,19 @@ class PagesController < ApplicationController
 
   def undo
     @page.undo!
-    flash[:info] = messages(:undo_page)
-    redirect_to @page.to_path
+    redirect_to @page.to_path, info: messages(:undo_page)
   end
 
   def destroy
     unless @page.can_destory?
-      flash[:warning] = messages(:have_child_page)
-      return redirect_to @page.to_path
+      return redirect_to @page.to_path, warning: messages(:have_child_page)
     end
 
     @page.destroy
-    flash[:info] = messages(:destroy_page) +
+
+    msg = messages(:destroy_page) +
       "#{view_context.link_to(messages(:restore_page_link), restore_page_path(@page))}"
-    redirect_to root_url
+    redirect_to root_url, info: msg
   end
 
   def restore
