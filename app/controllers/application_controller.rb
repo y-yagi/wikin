@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   add_flash_types :info, :warning
+  before_filter :set_locale
 
   if ENV['BASIC_AUTH_USER'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
     http_basic_authenticate_with name: ENV['BASIC_AUTH_USER'],
@@ -15,4 +16,9 @@ class ApplicationController < ActionController::Base
   def messages(key, message_values = {})
     I18n.t(key, message_values, scope: [:messages])
   end
+
+  private
+    def set_locale
+      I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    end
 end

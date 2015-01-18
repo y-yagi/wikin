@@ -28,12 +28,12 @@ gem 'active_decorator'
 gem 'newrelic_rpm'
 
 gem 'jquery-turbolinks'
+gem 'http_accept_language'
 
 group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-stack_explorer'
-  gem 'pry-byebug'
   gem 'tapp'
 
   gem 'better_errors'
