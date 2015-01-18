@@ -33,7 +33,6 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-stack_explorer'
-  gem 'pry-byebug'
   gem 'tapp'
 
   gem 'better_errors'
