@@ -65,4 +65,17 @@ class PagesControllerTest < ActionController::TestCase
     assert_equal 1, json['errors'].count
     assert_equal 'title', json['errors'].first.first
   end
+
+  test 'should get preview' do
+    xhr :get, :preview, page_body: %(**test**\n\n* 1\n* 2), format: :js
+    expect = <<-'EOS'.strip_heredoc
+      $("#preview_body").html("<p><strong>test<\/strong><\/p>\n\n<ul>\n<li>1<\/li>\n<li>2<\/li>\n<\/ul>\n");
+      $('#page_body').hide()
+
+      $('#preview_link').hide()
+      $('#preview_body').show()
+      $('#edit_link').show()
+    EOS
+    assert_equal expect, @response.body
+  end
 end

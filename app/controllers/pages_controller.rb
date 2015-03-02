@@ -95,6 +95,11 @@ class PagesController < ApplicationController
     @pages = Page::Search.new(params[:query]).matches
   end
 
+  def preview
+    set_redcarpet
+    @markdown_body = @markdown.render(params[:page_body]).html_safe
+  end
+
   private
     def set_page
       @page = Page.find(params[:id])

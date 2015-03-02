@@ -3,10 +3,16 @@ Rails.application.routes.draw do
 
   get 'admin/dump'
   resources :pages do
-    get :titles, on: :collection
-    get :search, on: :collection
-    get :restore, on: :member
-    get :undo, on: :member
+    collection do
+      get :titles
+      get :search
+      post :preview
+    end
+
+    member do
+      get :restore
+      get :undo
+    end
   end
 
   get '*path', to: 'pages#show', constraints: PathConstraint.new
