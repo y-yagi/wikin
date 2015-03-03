@@ -1,4 +1,17 @@
 $ ->
+  Preview =
+    search: (page_body) ->
+      defer = $.Deferred()
+      $.ajax(
+        url: "/pages/preview",
+        type: 'POST',
+        success: defer.resolve,
+        error: defer.reject,
+        data: { page_body: page_body }
+      )
+      defer.promise()
+
+
   $('#page_parent_name').autocomplete({
     serviceUrl: '/pages/titles.json',
     triggerSelectOnValidInput: false,
@@ -7,14 +20,8 @@ $ ->
   })
 
   $('#preview_link').click ->
-    # match the output with a server side
-    html = markdown.toHTML($("#page_body").val().replace(/\r?\n/g, "  \n"))
-    $('#preview_body').html(html)
-
-    $('#page_body').hide()
-    $('#preview_link').hide()
-    $('#preview_body').show()
-    $('#edit_link').show()
+    page_body = $("#page_body").val()
+    Preview.search(page_body)
 
   $('#edit_link').click ->
     $('#page_body').show()
