@@ -19,7 +19,6 @@ gem 'edge'
 gem 'paranoia', '~> 2.0'
 gem 'paranoia_uniqueness_validator'
 gem 'rails-assets-bootstrap-theme-white-plum'
-gem 'rails-assets-markdown-js'
 
 gem 'redcarpet'
 gem 'dotenv-rails'
@@ -34,14 +33,11 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-stack_explorer'
-  gem 'tapp'
 
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'annotate', github: 'ctran/annotate_models'
-#  gem 'rack-mini-profiler'
-#  gem 'xray-rails'
   gem 'guard'
   gem 'guard-minitest'
 
