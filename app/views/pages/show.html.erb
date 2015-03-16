@@ -1,5 +1,12 @@
 <div class="panel panel-default" id="headings">
-  <div class="panel-heading"><%= @page.full_link %></div>
+  <div class="panel-heading"><%= @page.full_link %>
+    <%= link_to edit_page_path(@page), title: '編集' do  %>
+      <i class="fa fa-pencil fa-plum header-icon"></i>
+    <% end %>
+    <%= link_to @page, method: :delete, data: { confirm: 'ページを削除します。宜しいですか?' }, title: '削除'  do  %>
+      <i class="fa fa-trash fa-plum header-icon"></i>
+    <% end %>
+  </div>
   <div class="panel-body">
     <%= @markdown.render(@page.body).html_safe %>
   </div>

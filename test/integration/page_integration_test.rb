@@ -41,7 +41,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     old_page = pages(:child)
 
     visit old_page.to_path
-    click_link '編集'
+    first("a[title='編集']").click
     fill_in 'page_body', with: 'child-body-update'
     click_button '更新する'
 
@@ -54,7 +54,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     old_page = pages(:child)
     title = old_page.title
     visit old_page.to_path
-    click_link '編集'
+    first("a[title='編集']").click
     fill_in 'page_body', with: 'child-body-update'
     click_button '更新する'
     click_link '更新の取り消し'
@@ -68,7 +68,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   test 'display error message when going to update it with unjust data' do
     old_page = pages(:child)
     visit old_page.to_path
-    click_link '編集'
+    first("a[title='編集']").click
     fill_in 'page_body', with: ''
     click_button '更新する'
 
@@ -89,7 +89,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     visit page_data.to_path
     assert_equal 200, page.status_code
 
-    click_link '削除'
+    first("a[title='削除']").click
 
     visit page_data.to_path
     assert_equal 404, page.status_code
@@ -98,7 +98,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   test 'cannot destroy page when page has child page' do
     page_data = pages(:grandparents)
     visit page_data.to_path
-    click_link '削除'
+    first("a[title='削除']").click
 
     assert_equal 200, page.status_code
     assert_match 'ページの削除は出来ません', page.text
@@ -108,7 +108,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     page_data = pages(:child)
     visit page_data.to_path
     assert_equal 200, page.status_code
-    click_link '削除'
+    first("a[title='削除']").click
 
     click_link '削除の取り消し'
     visit page_data.to_path

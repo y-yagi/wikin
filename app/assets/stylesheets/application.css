@@ -12,8 +12,18 @@
  *
  *= require_tree .
  *= require bootstrap-theme-white-plum
+ *= require font-awesome
  *= require_self
  */
 html.turbolinks-progress-bar::before {
   background-color: #7a62d3 !important;
+}
+
+.fa-plum {
+    color: #7a62d3;
+    font-size: 1.1em;
+}
+
+.header-icon {
+  margin-left: 15px;
 }
