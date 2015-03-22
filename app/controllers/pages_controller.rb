@@ -33,9 +33,18 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-      redirect_to @page.to_path
+      if request.format.json?
+        @status = :ok
+      else
+        redirect_to @page.to_path
+      end
     else
-      render :new
+      if request.format.json?
+        @status = :bad_request
+        render status: :bad_request
+      else
+        render :new
+      end
     end
   end
 
