@@ -42,6 +42,24 @@ class PagesControllerTest < ActionController::TestCase
     assert_equal 'latest_page', json['suggestions'].first['value']
   end
 
+  test 'should create page with valid parameters' do
+    post :create, page: { title: 'new_title1', body: 'new_body1' }, format: :json
+
+    json = JSON.parse(@response.body)
+    assert_equal 'ok', json['status']
+    assert_equal 0, json['errors'].count
+  end
+
+  test 'should not create page with invalid parameters' do
+    patch :create, page: { title: '', body: 'new_body1' }, format: :json
+    json = JSON.parse(@response.body)
+
+    assert_response :bad_request
+    assert_equal 'bad_request', json['status']
+    assert_equal 1, json['errors'].count
+    assert_equal 'title', json['errors'].first.first
+  end
+
   test 'should update page with valid parameters' do
     @page = pages(:page_1)
     patch :update, id: @page.id, page: { title: 'new_title1', body: 'new_body1' }, format: :json
