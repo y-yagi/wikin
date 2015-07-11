@@ -311,8 +311,8 @@ DEPENDENCIES
   pry-stack_explorer
   quiet_assets
   rails (= 4.2.3)
-  rails-assets-bootstrap-theme-white-plum
-  rails-assets-font-awesome
+  rails-assets-bootstrap-theme-white-plum!
+  rails-assets-font-awesome!
   rails-footnotes (>= 4.0.0, < 5)
   rails_12factor
   redcarpet
@@ -323,4 +323,4 @@ DEPENDENCIES
   unicorn
 
 BUNDLED WITH
-   1.10.4
+   1.10.5
