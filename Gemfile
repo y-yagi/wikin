@@ -1,7 +1,6 @@
 ruby '2.2.2'
 
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0.0'
@@ -18,7 +17,6 @@ gem 'pg'
 gem 'edge'
 gem 'paranoia', '~> 2.0'
 gem 'paranoia_uniqueness_validator'
-gem 'rails-assets-bootstrap-theme-white-plum'
 
 gem 'redcarpet'
 gem 'dotenv-rails'
@@ -28,7 +26,7 @@ gem 'newrelic_rpm'
 
 gem 'jquery-turbolinks'
 gem 'http_accept_language'
-gem 'rails-assets-font-awesome'
+
 
 group :test, :development do
   gem 'pry-rails'
@@ -54,4 +52,9 @@ end
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-theme-white-plum'
+  gem 'rails-assets-font-awesome'
 end
