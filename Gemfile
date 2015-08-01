@@ -15,8 +15,6 @@ gem 'spring',        group: :development
 gem 'pg'
 
 gem 'edge'
-gem 'paranoia', '~> 2.0'
-gem 'paranoia_uniqueness_validator'
 
 gem 'redcarpet'
 gem 'dotenv-rails'

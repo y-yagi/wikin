@@ -76,6 +76,8 @@ class PagesController < ApplicationController
       return redirect_to @page.to_path, warning: messages(:have_child_page)
     end
 
+    # NOTE: create old page for restore
+    @page.create_old_page
     @page.destroy
 
     msg = messages(:destroy_page) +
@@ -84,7 +86,7 @@ class PagesController < ApplicationController
   end
 
   def restore
-    Page.restore(params[:id])
+    Page.restore!(params[:id])
     flash[:info] = messages(:restore_page)
     redirect_to root_url
   end

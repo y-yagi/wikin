@@ -1,7 +1,6 @@
 require 'models_to_sql'
 class Page < ActiveRecord::Base
   acts_as_forest
-  acts_as_paranoid
 
   has_one :old_page
 
@@ -34,7 +33,16 @@ class Page < ActiveRecord::Base
     end
 
     def sort_by_full_title(pages)
-      pages.to_a.reject(&:deleted?).sort_by(&:full_title)
+      pages.to_a.sort_by(&:full_title)
+    end
+
+    def restore!(id)
+      old_page = OldPage.find_by!(page_id: id)
+      Page.create!(
+        title: old_page.title,
+        body: old_page.body,
+        parent_id: old_page.parent_id
+      )
     end
   end
 
@@ -88,11 +96,15 @@ class Page < ActiveRecord::Base
   end
 
   def create_old_page
-    OldPage.find_or_initialize_by(page: self).update!(body: body_was)
+    OldPage.find_or_initialize_by(page: self).update!(
+      body: body_was, title: title,
+      parent_id: parent_id, page_id: id
+    )
   end
 
   def undo!
     return unless old_page
     update!(body: old_page.body)
   end
+
 end
