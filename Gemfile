@@ -22,7 +22,6 @@ gem 'redcarpet'
 gem 'dotenv-rails', github: 'y-yagi/dotenv'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
-gem 'newrelic_rpm'
 
 gem 'jquery-turbolinks'
 gem 'http_accept_language'
