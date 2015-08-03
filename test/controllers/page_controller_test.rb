@@ -6,12 +6,12 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should get index in json format' do
-    get :index, format: :json
+    get :index, params: { format: :json }
     assert_response :success
   end
 
   test 'should get index in json format with recent_pages params' do
-    get :index, format: :json, recent_pages: true
+    get :index, params: { format: :json, recent_pages: true }
     json = JSON.parse(@response.body)
 
     assert_equal Page::RECENT_PAGE_COUNT_SMT, json['results_returned']
@@ -19,12 +19,12 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should get search in json format' do
-    get :search, format: :json
+    get :search, params: { format: :json }
     assert_response :success
   end
 
   test 'should get search data which I appointed at query' do
-    get :search, format: :json, query: 'latest'
+    get :search, params: { format: :json, query: 'latest' }
     json = JSON.parse(@response.body)
 
     assert_equal 1, json['results_returned']
@@ -32,18 +32,18 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should get titles in json format' do
-    get :titles, format: :json
+    get :titles, params: { format: :json }
     assert_response :success
   end
 
   test 'should get title data which I appointed at query' do
-    get :titles, format: :json, query: 'latest'
+    get :titles, params: { format: :json, query: 'latest' }
     json = JSON.parse(@response.body)
     assert_equal 'latest_page', json['suggestions'].first['value']
   end
 
   test 'should create page with valid parameters' do
-    post :create, page: { title: 'new_title1', body: 'new_body1' }, format: :json
+    post :create, params: { page: { title: 'new_title1', body: 'new_body1' }, format: :json }
 
     json = JSON.parse(@response.body)
     assert_equal 'ok', json['status']
@@ -51,7 +51,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should not create page with invalid parameters' do
-    patch :create, page: { title: '', body: 'new_body1' }, format: :json
+    patch :create, params: { page: { title: '', body: 'new_body1' }, format: :json }
     json = JSON.parse(@response.body)
 
     assert_response :bad_request
@@ -62,7 +62,7 @@ class PagesControllerTest < ActionController::TestCase
 
   test 'should update page with valid parameters' do
     @page = pages(:page_1)
-    patch :update, id: @page.id, page: { title: 'new_title1', body: 'new_body1' }, format: :json
+    patch :update, params: { id: @page.id, page: { title: 'new_title1', body: 'new_body1' }, format: :json }
 
     json = JSON.parse(@response.body)
     assert_equal 'ok', json['status']
@@ -76,7 +76,7 @@ class PagesControllerTest < ActionController::TestCase
   test 'should not update page with invalid parameters' do
     @page = pages(:page_1)
 
-    patch :update, id: @page.id, page: { title: '', body: 'new_body1' }, format: :json
+    patch :update, params: { id: @page.id, page: { title: '', body: 'new_body1' }, format: :json }
 
     json = JSON.parse(@response.body)
     assert_equal 'unprocessable_entity', json['status']
@@ -85,7 +85,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test 'should get preview' do
-    xhr :get, :preview, page_body: %(**test**\n\n* 1\n* 2), format: :js
+    get :preview, params: { page_body: %(**test**\n\n* 1\n* 2), format: :js }, xhr: true
     expect = <<-'EOS'.strip_heredoc
       $("#preview_body").html("<p><strong>test<\/strong><\/p>\n\n<ul>\n<li>1<\/li>\n<li>2<\/li>\n<\/ul>\n");
       $('#page_body').hide()

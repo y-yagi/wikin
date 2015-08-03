@@ -2,7 +2,9 @@ ruby '2.2.2'
 
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.3'
+gem 'rails', github: "rails/rails"
+gem 'sprockets-rails', github: "rails/sprockets-rails"
+gem 'arel', github: "rails/arel"
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -17,10 +19,9 @@ gem 'pg'
 gem 'edge'
 
 gem 'redcarpet'
-gem 'dotenv-rails'
+gem 'dotenv-rails', github: 'y-yagi/dotenv'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
-gem 'newrelic_rpm'
 
 gem 'jquery-turbolinks'
 gem 'http_accept_language'
@@ -34,7 +35,6 @@ group :test, :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
-  gem 'annotate', github: 'ctran/annotate_models'
   gem 'guard'
   gem 'guard-minitest'
 
