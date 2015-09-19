@@ -25,6 +25,7 @@ gem 'newrelic_rpm'
 gem 'jquery-turbolinks'
 gem 'http_accept_language'
 
+gem 'rake-guardian'
 
 group :test, :development do
   gem 'pry-rails'
