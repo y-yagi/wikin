@@ -58,7 +58,7 @@ class Page < ActiveRecord::Base
   end
 
   def to_path
-    url = URI.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
+    URI.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
   end
 
   def check_valid_title
