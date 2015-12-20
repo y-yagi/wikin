@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   add_flash_types :info, :warning
-  before_filter :set_locale
+  before_action :set_locale
 
   if ENV['BASIC_AUTH_USER'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
     http_basic_authenticate_with name: ENV['BASIC_AUTH_USER'],
