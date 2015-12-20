@@ -39,7 +39,7 @@ group :test, :development do
 
   gem 'minitest-sound'
   gem 'minitest-slow_test'
-  gem 'capybara'
+  gem 'capybara', github: 'jnicklas/capybara'
   gem 'poltergeist'
 
   gem 'rails-footnotes', '>= 4.0.0', '<5'
