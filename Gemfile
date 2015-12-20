@@ -37,7 +37,7 @@ group :test, :development do
   gem 'guard'
   gem 'guard-minitest'
 
-  gem 'minitest-sound'
+  gem 'minitest-sound', github: 'y-yagi/minitest-sound'
   gem 'minitest-slow_test'
   gem 'capybara', github: 'jnicklas/capybara'
   gem 'poltergeist'

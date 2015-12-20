@@ -20,6 +20,13 @@ GIT
       railties (>= 4.0.0)
 
 GIT
+  remote: git://github.com/y-yagi/minitest-sound.git
+  revision: 08ee5f2a97e52c896b39244389cffa64556e1f4d
+  specs:
+    minitest-sound (0.0.7)
+      minitest (>= 5.0)
+
+GIT
   remote: git://github.com/y-yagi/models-to-sql-rails.git
   revision: 704b379a93d919defe75430372c6375e36f997ff
   specs:
@@ -192,8 +199,6 @@ GEM
     minitest (5.8.4)
     minitest-slow_test (0.1.0)
       minitest (>= 5.0)
-    minitest-sound (0.0.7)
-      minitest (>= 5.0)
     multi_json (1.11.2)
     nenv (0.2.0)
     netrc (0.11.0)
@@ -343,7 +348,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   minitest-slow_test
-  minitest-sound
+  minitest-sound!
   models-to-sql-rails!
   nokogiri (>= 1.6.7.2)
   pg
