@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: git://github.com/y-yagi/dotenv.git
-  revision: 36c0958f3c9035f83588a4e474d1dbbd2f06081f
-  branch: can_use_rails_5
+  revision: f29ec36611cfbdd00cf7e892fa0a4bf992b41965
+  branch: rails_5_0
   specs:
     dotenv (2.0.2)
     dotenv-rails (2.0.2)
@@ -32,6 +32,14 @@ GIT
   specs:
     models-to-sql-rails (1.0.1)
       rails (>= 1.2)
+
+GIT
+  remote: git://github.com/y-yagi/rails-footnotes.git
+  revision: c892d33eb51116d23b80c5555b8322e87ad6efc9
+  branch: fix_undefined_method_in_rails_5
+  specs:
+    rails-footnotes (4.1.7)
+      rails (>= 3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -249,9 +257,13 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
+<<<<<<< HEAD
     rails-footnotes (4.1.8)
       rails (>= 3.2)
     rails-html-sanitizer (1.0.3)
+=======
+    rails-html-sanitizer (1.0.2)
+>>>>>>> use my branch
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
@@ -358,7 +370,13 @@ DEPENDENCIES
   pry-stack_explorer
   quiet_assets
   rails (= 5.0.0.beta1)
+<<<<<<< HEAD
   rails-footnotes (>= 4.0.0, < 5)
+=======
+  rails-assets-bootstrap-theme-white-plum!
+  rails-assets-font-awesome (= 4.3.0)!
+  rails-footnotes!
+>>>>>>> use my branch
   rails_12factor
   rake-guardian
   redcarpet

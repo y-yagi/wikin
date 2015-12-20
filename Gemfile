@@ -17,7 +17,7 @@ gem 'pg'
 gem 'edge'
 
 gem 'redcarpet'
-gem 'dotenv-rails', github: 'y-yagi/dotenv', branch: 'can_use_rails_5'
+gem 'dotenv-rails', github: 'y-yagi/dotenv', branch: 'rails_5_0'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
 
@@ -42,7 +42,7 @@ group :test, :development do
   gem 'capybara', github: 'jnicklas/capybara'
   gem 'poltergeist'
 
-  gem 'rails-footnotes', '>= 4.0.0', '<5'
+  gem 'rails-footnotes', github: 'y-yagi/rails-footnotes', branch: 'fix_undefined_method_in_rails_5'
   gem 'coveralls', require: false
 end
 
