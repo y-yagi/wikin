@@ -27,13 +27,10 @@ gem 'http_accept_language'
 gem 'rake-guardian'
 
 group :test, :development do
-  gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-stack_explorer'
+  gem 'byebug'
 
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'quiet_assets'
   gem 'guard'
   gem 'guard-minitest'
 
@@ -42,7 +39,6 @@ group :test, :development do
   gem 'capybara', github: 'jnicklas/capybara'
   gem 'poltergeist'
 
-  gem 'rails-footnotes', github: 'y-yagi/rails-footnotes', branch: 'fix_undefined_method_in_rails_5'
   gem 'coveralls', require: false
 end
 
