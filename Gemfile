@@ -57,3 +57,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-theme-white-plum'
   gem 'rails-assets-font-awesome', '4.3.0'
 end
+
+gem 'nokogiri', '>= 1.6.7.2'
