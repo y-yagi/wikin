@@ -6,6 +6,7 @@ gem 'rails', '4.2.5'
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'browserify-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -51,11 +52,6 @@ end
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
-end
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap-theme-white-plum'
-  gem 'rails-assets-font-awesome', '4.3.0'
 end
 
 gem 'nokogiri', '>= 1.6.7.2'

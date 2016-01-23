@@ -17,3 +17,5 @@
 
 .env
 coverage
+.byebug_history
+node_modules/
