@@ -18,7 +18,4 @@
 .env
 coverage
 .byebug_history
-<<<<<<< HEAD
 node_modules/
-=======
->>>>>>> add byebug_history

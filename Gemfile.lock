@@ -1,8 +1,9 @@
 GIT
   remote: git://github.com/jnicklas/capybara.git
-  revision: bad6d566f86d63f06671b867ca08941814419fba
+  revision: 23b10e76f2bcfc69c8499b465367388a31b21b31
   specs:
-    capybara (2.6.0.dev)
+    capybara (2.7.0.dev)
+      addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -90,22 +91,8 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    capybara (2.6.2)
-      addressable
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-    celluloid (0.17.3)
-=======
-=======
     byebug (8.2.1)
->>>>>>> cleanup gems
-    celluloid (0.17.2)
->>>>>>> use capybara master
+    celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
       celluloid-fsm
@@ -243,13 +230,7 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-<<<<<<< HEAD
-    rails-footnotes (4.1.8)
-      rails (>= 3.2)
     rails-html-sanitizer (1.0.3)
-=======
-    rails-html-sanitizer (1.0.2)
->>>>>>> use my branch
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
@@ -352,16 +333,6 @@ DEPENDENCIES
   pg
   poltergeist
   rails (= 5.0.0.beta1)
-<<<<<<< HEAD
-  rails-footnotes (>= 4.0.0, < 5)
-=======
-  rails-assets-bootstrap-theme-white-plum!
-  rails-assets-font-awesome (= 4.3.0)!
-<<<<<<< HEAD
-  rails-footnotes!
->>>>>>> use my branch
-=======
->>>>>>> cleanup gems
   rails_12factor
   rake-guardian
   redcarpet
