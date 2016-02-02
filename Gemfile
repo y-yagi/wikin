@@ -17,7 +17,7 @@ gem 'pg'
 gem 'edge'
 
 gem 'redcarpet'
-gem 'dotenv-rails', github: 'y-yagi/dotenv', branch: 'rails_5_0'
+gem 'dotenv-rails'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
 
@@ -36,7 +36,7 @@ group :test, :development do
 
   gem 'minitest-sound', github: 'y-yagi/minitest-sound'
   gem 'minitest-slow_test'
-  gem 'capybara', github: 'jnicklas/capybara'
+  gem 'capybara'
   gem 'poltergeist'
 
   gem 'coveralls', require: false

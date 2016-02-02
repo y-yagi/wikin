@@ -1,26 +1,4 @@
 GIT
-  remote: git://github.com/jnicklas/capybara.git
-  revision: d5ce08812a085947c870db3f0ac1630303e890b0
-  specs:
-    capybara (2.7.0.dev)
-      addressable
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-
-GIT
-  remote: git://github.com/y-yagi/dotenv.git
-  revision: f29ec36611cfbdd00cf7e892fa0a4bf992b41965
-  branch: rails_5_0
-  specs:
-    dotenv (2.0.2)
-    dotenv-rails (2.0.2)
-      dotenv (= 2.0.2)
-      railties (>= 4.0.0)
-
-GIT
   remote: git://github.com/y-yagi/minitest-sound.git
   revision: 08ee5f2a97e52c896b39244389cffa64556e1f4d
   specs:
@@ -87,6 +65,13 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.2)
+    capybara (2.6.2)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.1.1)
@@ -108,6 +93,10 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20160128)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.0)
+    dotenv-rails (2.1.0)
+      dotenv (= 2.1.0)
+      railties (>= 4.0, < 5.1)
     edge (0.4.4)
       activerecord (>= 4.0.0)
     erubis (2.7.0)
@@ -282,10 +271,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   byebug
-  capybara!
+  capybara
   coffee-rails
   coveralls
-  dotenv-rails!
+  dotenv-rails
   edge
   guard
   guard-minitest
