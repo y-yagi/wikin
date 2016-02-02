@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jnicklas/capybara.git
-  revision: 23b10e76f2bcfc69c8499b465367388a31b21b31
+  revision: d5ce08812a085947c870db3f0ac1630303e890b0
   specs:
     capybara (2.7.0.dev)
       addressable
@@ -86,7 +86,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (8.2.1)
+    byebug (8.2.2)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.1.1)
