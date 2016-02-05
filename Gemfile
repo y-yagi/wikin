@@ -38,6 +38,7 @@ group :test, :development do
   gem 'minitest-slow_test'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'rails-footnotes'
 
   gem 'coveralls', require: false
 end
