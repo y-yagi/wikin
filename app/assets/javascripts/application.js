@@ -15,6 +15,6 @@
 //= require jquery_ujs
 //= require jquery.autocomplete.min
 //= require turbolinks
+//= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
-var _ = require('bootstrap');
 Turbolinks.enableProgressBar();
