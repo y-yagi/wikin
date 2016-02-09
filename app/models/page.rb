@@ -21,8 +21,9 @@ class Page < ActiveRecord::Base
   class << self
     def find_by_titles(titles)
       root = Page.root.find_by(title: titles.shift)
-
       return nil unless root
+
+      root = Page.find_tree(root)
       return root if titles.empty?
       root.find_child(titles)
     end
