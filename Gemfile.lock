@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/MiniProfiler/rack-mini-profiler.git
+  revision: a073d1d33a7c4de9d0690b0772bbe56e3898dbe2
+  specs:
+    rack-mini-profiler (0.9.8)
+      rack (>= 1.2.0)
+
+GIT
   remote: git://github.com/y-yagi/minitest-sound.git
   revision: 08ee5f2a97e52c896b39244389cffa64556e1f4d
   specs:
@@ -290,6 +297,7 @@ DEPENDENCIES
   nokogiri (>= 1.6.7.2)
   pg
   poltergeist
+  rack-mini-profiler!
   rails (= 5.0.0.beta2)
   rails-footnotes
   rails_12factor
