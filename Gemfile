@@ -39,6 +39,7 @@ group :test, :development do
   gem 'capybara'
   gem 'poltergeist'
   gem 'rails-footnotes'
+  gem 'rack-mini-profiler', github: 'MiniProfiler/rack-mini-profiler'
 
   gem 'coveralls', require: false
 end
