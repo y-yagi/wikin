@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/MiniProfiler/rack-mini-profiler.git
-  revision: a073d1d33a7c4de9d0690b0772bbe56e3898dbe2
+  revision: 973971f511f5d95ec5b87c2e0908727c0fa70c74
   specs:
     rack-mini-profiler (0.9.8)
       rack (>= 1.2.0)
@@ -141,9 +141,9 @@ GEM
       turbolinks
     json (1.8.3)
     kgio (2.10.0)
-    listen (3.0.5)
+    listen (3.0.6)
       rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
+      rb-inotify (>= 0.9.7)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.10)
