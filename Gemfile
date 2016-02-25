@@ -2,7 +2,7 @@ ruby '2.3.0'
 
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.0.beta2'
+gem 'rails', '5.0.0.beta3'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
@@ -19,7 +19,7 @@ gem 'edge'
 gem 'redcarpet'
 gem 'dotenv-rails'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
-gem 'active_decorator'
+gem 'active_decorator', github: 'y-yagi/active_decorator', branch: 'make_work_with_rails_5.0.0.beta3'
 
 gem 'jquery-turbolinks'
 gem 'http_accept_language'
