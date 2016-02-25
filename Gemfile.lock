@@ -6,6 +6,13 @@ GIT
       rack (>= 1.2.0)
 
 GIT
+  remote: git://github.com/y-yagi/active_decorator.git
+  revision: 1a3f781d2429dad0706aee6581e4981379779152
+  branch: make_work_with_rails_5.0.0.beta3
+  specs:
+    active_decorator (0.7.0)
+
+GIT
   remote: git://github.com/y-yagi/minitest-sound.git
   revision: 08ee5f2a97e52c896b39244389cffa64556e1f4d
   specs:
@@ -45,7 +52,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_decorator (0.7.0)
     activejob (5.0.0.beta3)
       activesupport (= 5.0.0.beta3)
       globalid (>= 0.3.6)
@@ -274,7 +280,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_decorator
+  active_decorator!
   better_errors
   binding_of_caller
   byebug
