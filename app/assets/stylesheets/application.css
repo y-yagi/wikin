@@ -14,8 +14,9 @@
  *= require bootstrap-theme-white-plum
  *= require_self
  */
-html.turbolinks-progress-bar::before {
-  background-color: #7a62d3 !important;
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #7a62d3;
 }
 
 .fa-plum {
