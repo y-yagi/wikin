@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/y-yagi/active_decorator.git
-  revision: 2978fa0bcb468304f2514aa6b2e15d1816de1ca3
+  revision: 4b3a8db1f0fd99090ce7055aebd86551fc7c3aa3
   branch: make_work_with_rails_5.0.0.beta3
   specs:
     active_decorator (0.7.0)
@@ -209,7 +209,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.15.0)
+    raindrops (0.16.0)
     rake (10.5.0)
     rake-guardian (0.1.0)
       activesupport
