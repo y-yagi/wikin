@@ -1,4 +1,4 @@
-$ ->
+$(document).on('ready turbolinks:load',  ->
   Preview =
     search: (page_body) ->
       defer = $.Deferred()
@@ -28,3 +28,4 @@ $ ->
     $('#preview_link').show()
     $('#preview_body').hide()
     $('#edit_link').hide()
+)

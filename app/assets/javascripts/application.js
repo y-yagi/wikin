@@ -11,10 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.autocomplete.min
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
-Turbolinks.enableProgressBar();
