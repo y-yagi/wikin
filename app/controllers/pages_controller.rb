@@ -77,8 +77,10 @@ class PagesController < ApplicationController
     end
 
     # NOTE: create old page for restore
-    @page.create_old_page
-    @page.destroy
+    Page.transaction do
+      @page.create_old_page
+      @page.destroy!
+    end
 
     msg = messages(:destroy_page) +
       "#{view_context.link_to(messages(:restore_page_link), restore_page_path(@page))}"
