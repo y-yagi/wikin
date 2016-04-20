@@ -1,12 +1,16 @@
-App.page = App.cable.subscriptions.create "PageChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+$(document).on('ready turbolinks:load',  ->
+  App.page = App.cable.subscriptions.create { channel: "PageChannel", id: $('#page_id').val() },
+    connected: ->
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+    disconnected: ->
 
-  received: (data) ->
-    # Called when there's incoming data on the websocket for this channel
+    received: (data) ->
+      @setTitle(data['connection_count'])
 
-  notice: ->
-    @perform 'notice'
+    setTitle: (connectionCount) ->
+      console.log(connectionCount)
+      if connectionCount > 1
+        document.title = "(同時編集中です) Wikin"
+      else
+        document.title = "Wikin"
+)

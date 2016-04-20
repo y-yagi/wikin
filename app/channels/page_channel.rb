@@ -1,13 +1,12 @@
 # Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
 class PageChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    @page = Page.find(params[:id])
+    stream_for(@page)
+    PageChannel.broadcast_to @page, { connection_count: ActionCable.server.connections.count }
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-  end
-
-  def notice
+    PageChannel.broadcast_to @page, { connection_count: ActionCable.server.connections.count }
   end
 end

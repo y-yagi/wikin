@@ -15,4 +15,4 @@
 //= require jquery.autocomplete.min
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap.min
-//= require_tree .
+//= require pages
