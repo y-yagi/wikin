@@ -25,6 +25,7 @@ gem 'http_accept_language'
 
 gem 'rake-guardian'
 
+gem 'puma'
 gem 'sprockets', '~> 4.x'
 
 group :test, :development do
@@ -46,7 +47,6 @@ group :test, :development do
 end
 
 group :production do
-  gem 'unicorn'
   gem 'rails_12factor'
 end
 
