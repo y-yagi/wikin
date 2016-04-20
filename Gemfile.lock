@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/MiniProfiler/rack-mini-profiler.git
-  revision: f580d609677c0792b9685d555ffa7c1378c15787
+  revision: 9b2f5da8940a5ffcf31a488510f92c0acaf1a72c
   specs:
     rack-mini-profiler (0.9.9.2)
       rack (>= 1.2.0)
@@ -75,7 +75,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (8.2.4)
+    byebug (8.2.5)
     capybara (2.7.0)
       addressable
       mime-types (>= 1.16)
@@ -137,7 +137,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     kgio (2.10.0)
-    listen (3.0.6)
+    listen (3.1.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
     loofah (2.0.3)
@@ -153,7 +153,7 @@ GEM
     minitest (5.8.4)
     minitest-slow_test (0.1.0)
       minitest (>= 5.0)
-    multi_json (1.11.2)
+    multi_json (1.11.3)
     nenv (0.3.0)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
