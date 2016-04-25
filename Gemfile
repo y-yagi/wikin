@@ -27,6 +27,7 @@ gem 'rake-guardian'
 
 gem 'puma'
 gem 'sprockets', '~> 4.x'
+gem 'redis'
 
 group :test, :development do
   gem 'byebug'
