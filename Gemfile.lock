@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: git://github.com/y-yagi/minitest-sound.git
-  revision: c2e09db76178c9cceaec7f9f4d491b6866e5b13c
+  revision: 9fe8d58cbf63e6c0889d25e69fa7c33ce3d6d163
   specs:
     minitest-sound (0.0.8)
       minitest (>= 5.0)
