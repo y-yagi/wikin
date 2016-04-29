@@ -28,6 +28,7 @@ class PagesController < ApplicationController
   end
 
   def edit
+    @use_action_cable = true
   end
 
   def create
