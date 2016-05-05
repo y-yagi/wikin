@@ -5,12 +5,9 @@ $(document).on('ready turbolinks:load',  ->
     disconnected: ->
 
     received: (data) ->
-      @setTitle(data['connection_count'])
+      @displayWarning()
 
-    setTitle: (connectionCount) ->
-      console.log(connectionCount)
-      if connectionCount > 1
-        document.title = "(同時編集中です) Wikin"
-      else
-        document.title = "Wikin"
+    displayWarning: () ->
+      $('#page-update-warning').show()
+      $("#page-update-button").prop("disabled", true)
 )

@@ -54,6 +54,7 @@ class PagesController < ApplicationController
       if request.format.json?
         @status = :ok
       else
+        PageChannel.broadcast_to @page, { body: @page.body }
         msg = messages(:update_page) +
           "#{view_context.link_to(messages(:undo_page_link), undo_page_path(@page))}"
         redirect_to @page.to_path, info: msg

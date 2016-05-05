@@ -5,10 +5,8 @@ class PageChannel < ApplicationCable::Channel
 
     @page = Page.find(params[:id])
     stream_for(@page)
-    PageChannel.broadcast_to @page, { connection_count: ActionCable.server.connections.count }
   end
 
   def unsubscribed
-    PageChannel.broadcast_to @page, { connection_count: ActionCable.server.connections.count }
   end
 end
