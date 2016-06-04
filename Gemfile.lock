@@ -75,7 +75,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (9.0.4)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -128,7 +128,7 @@ GEM
       minitest (>= 3.0)
     http_accept_language (2.0.5)
     i18n (0.7.0)
-    jbuilder (2.4.1)
+    jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     jquery-rails (4.1.1)
