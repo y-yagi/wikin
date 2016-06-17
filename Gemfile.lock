@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/MiniProfiler/rack-mini-profiler.git
-  revision: 1fbbf492f743b8f28dec7fc5287ca5123fd4835a
+  revision: 770665a2025e1ab76b8def6f13108ae1324b3b5c
   specs:
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
@@ -123,7 +123,7 @@ GEM
       shellany (~> 0.0)
       thor (>= 0.18.1)
     guard-compat (1.2.1)
-    guard-minitest (2.4.4)
+    guard-minitest (2.4.5)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
     http_accept_language (2.0.5)
