@@ -6,6 +6,8 @@ class PagesController < ApplicationController
     set_redcarpet
     @pages = if params[:recent_pages]
                Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
+             elsif params[:tag]
+               Page.order('updated_at DESC').tag(params[:tag])
              else
                Page.find_forest
              end

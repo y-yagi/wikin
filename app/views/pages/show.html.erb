@@ -9,7 +9,9 @@
     <% if @page.tags %>
       <span class="header-icon">
         <% @page.tags.each do |tag| %>
-          <span class="label label-info box"><%= tag %></span>
+          <span class="label label-info box">
+            <%= link_to tag, pages_path(tag: tag) %>
+          </span>
         <% end %>
       </span>
     <% end %>

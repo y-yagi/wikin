@@ -28,6 +28,10 @@
 .header-icon {
   margin-left: 15px;
 }
-.box   {
+.box {
   border-radius:10px 10px 10px 10px;
+}
+
+.box > a {
+  color: #ffffff;
 }

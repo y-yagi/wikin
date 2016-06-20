@@ -130,4 +130,11 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_match 'search_text_include_title', page.text
     assert_match 'grandparents_title / parents_title / child_title', page.text
   end
+
+  test 'page index with tag parameter' do
+    visit pages_path(tag: 'tag1')
+
+    assert_match 'tags_page_title', page.text
+    assert_no_match 'search_text_include_title', page.text
+  end
 end

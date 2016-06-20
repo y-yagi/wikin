@@ -27,6 +27,13 @@ search_text_include_body:
   title: dummy
   body: search_text_include_body
 
+include_tags:
+  title: tags_page_title
+  body: include tags
+  tags:
+    - tag1
+    - tag2
+
 <% 15.times do |i| %>
 page_<%= i %>:
   title: title<%= i %>

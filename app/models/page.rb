@@ -16,6 +16,10 @@ class Page < ActiveRecord::Base
 
   before_update :create_old_page
 
+  scope :tag, ->(tag) do
+    where('tags @> ARRAY[?]::varchar[]', [tag])
+  end
+
   attr_accessor :parent_name
 
   class << self
