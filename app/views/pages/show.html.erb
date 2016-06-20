@@ -6,6 +6,13 @@
     <%= link_to @page, method: :delete, data: { confirm: 'ページを削除します。宜しいですか?' }, title: '削除'  do  %>
       <i class="fa fa-trash fa-plum header-icon"></i>
     <% end %>
+    <% if @page.tags %>
+      <span class="header-icon">
+        <% @page.tags.each do |tag| %>
+          <span class="label label-info box"><%= tag %></span>
+        <% end %>
+      </span>
+    <% end %>
     <span class="pull-right">
       最終更新日時： <%= I18n.l(@page.updated_at, format: :short) %>
     </span>

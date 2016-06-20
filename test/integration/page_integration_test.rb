@@ -19,6 +19,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     click_link 'ページ作成'
     fill_in 'page_title', with: '新規ページタイトル'
     fill_in 'page_body', with: '新規ページ本文'
+    fill_in 'page_tags', with: 'タグ'
     click_button '登録する'
 
     assert_equal Page.count, before_count + 1
@@ -26,6 +27,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     visit Page.last.to_path
     assert_match '新規ページタイトル', page.text
     assert_match '新規ページ本文', page.text
+    assert_match 'タグ', page.text
   end
 
   test 'display error message when going to make it with unjust data' do

@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require bootstrap-theme-white-plum
+ *= require bootstrap-tagsinput/dist/bootstrap-tagsinput
  *= require_self
  */
 .turbolinks-progress-bar {
@@ -26,4 +27,7 @@
 
 .header-icon {
   margin-left: 15px;
+}
+.box   {
+  border-radius:10px 10px 10px 10px;
 }

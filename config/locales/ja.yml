@@ -203,6 +203,7 @@ ja:
       page:
         title: タイトル
         body: 本文
+        tags: タグ
         parent_id: 親ページ
         parent_name: 親ページ
   messages:

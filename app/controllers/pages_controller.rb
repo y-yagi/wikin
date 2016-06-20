@@ -119,6 +119,7 @@ class PagesController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:title, :body, :parent_id, :parent_name)
+      params[:page][:tags] = params[:page][:tags].split(',') if params[:page][:tags]
+      params.require(:page).permit(:title, :body, :parent_id, :parent_name, tags: [])
     end
 end
