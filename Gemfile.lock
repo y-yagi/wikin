@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/MiniProfiler/rack-mini-profiler.git
-  revision: 770665a2025e1ab76b8def6f13108ae1324b3b5c
+  revision: 0f0fad057ec2b86727c485a8f60dbb22e47c9a49
   specs:
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
