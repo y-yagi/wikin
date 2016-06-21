@@ -4,6 +4,7 @@ json.set! :pages do
     json.url page.to_url
     json.body page.body
     json.extracted_body @markdown.render(page.body)
+    json.tags page.tags
   end
 end
 json.set! :results_returned, @pages.count
