@@ -28,4 +28,6 @@ $(document).on('ready turbolinks:load',  ->
     $('#preview_link').show()
     $('#preview_body').hide()
     $('#edit_link').hide()
+
+  $('#page_tags').tagsinput()
 )

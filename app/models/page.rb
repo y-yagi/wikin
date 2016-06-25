@@ -16,6 +16,10 @@ class Page < ActiveRecord::Base
 
   before_update :create_old_page
 
+  scope :tag, ->(tag) do
+    where('tags @> ARRAY[?]::varchar[]', [tag])
+  end
+
   attr_accessor :parent_name
 
   class << self
@@ -42,6 +46,7 @@ class Page < ActiveRecord::Base
       Page.create!(
         title: old_page.title,
         body: old_page.body,
+        tags: old_page.tags,
         parent_id: old_page.parent_id
       )
     end
@@ -98,7 +103,7 @@ class Page < ActiveRecord::Base
 
   def create_old_page
     OldPage.find_or_initialize_by(page: self).update!(
-      body: body_was, title: title,
+      body: body_was, title: title, tags: tags_was,
       parent_id: parent_id, page_id: id
     )
   end

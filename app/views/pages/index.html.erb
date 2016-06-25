@@ -1,5 +1,5 @@
 <div class="panel panel-default" id="headings">
-  <div class="panel-heading">全ページ</div>
+  <div class="panel-heading"><%= pages_heading %></div>
   <div class="panel-body">
     <ul>
       <% @pages.to_a.sort_by(&:title).each do |root| %>

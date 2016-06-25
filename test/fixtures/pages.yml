@@ -17,6 +17,9 @@ child:
 latest_page:
   title: latest_page
   body: latest_page body
+  tags:
+    - tag1
+    - tag2
   updated_at: <%= 2.days.since %>
 
 search_text_include_title:
@@ -26,6 +29,13 @@ search_text_include_title:
 search_text_include_body:
   title: dummy
   body: search_text_include_body
+
+include_tags:
+  title: tags_page_title
+  body: include tags
+  tags:
+    - tag1
+    - tag2
 
 <% 15.times do |i| %>
 page_<%= i %>:
