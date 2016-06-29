@@ -9,7 +9,7 @@ gem 'coffee-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.0.0.beta'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 
 gem 'spring',        group: :development
 gem 'pg'
@@ -19,7 +19,7 @@ gem 'edge'
 gem 'redcarpet'
 gem 'dotenv-rails'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
-gem 'active_decorator', github: 'y-yagi/active_decorator', branch: 'make_work_with_rails_5.0.0.beta3'
+gem 'active_decorator'
 
 gem 'http_accept_language'
 
@@ -35,12 +35,12 @@ group :test, :development do
   gem 'guard'
   gem 'guard-minitest'
 
-  gem 'minitest-sound', github: 'y-yagi/minitest-sound'
+  gem 'minitest-sound'
   gem 'minitest-slow_test'
   gem 'capybara'
   gem 'poltergeist'
   gem 'rails-footnotes'
-  gem 'rack-mini-profiler', github: 'MiniProfiler/rack-mini-profiler'
+  gem 'rack-mini-profiler'
 
   gem 'coveralls', require: false
 end

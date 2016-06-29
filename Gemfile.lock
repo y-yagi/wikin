@@ -1,25 +1,4 @@
 GIT
-  remote: git://github.com/MiniProfiler/rack-mini-profiler.git
-  revision: bcf73809db9a9dd8c4924abc51ec30237413cd35
-  specs:
-    rack-mini-profiler (0.10.1)
-      rack (>= 1.2.0)
-
-GIT
-  remote: git://github.com/y-yagi/active_decorator.git
-  revision: 4b3a8db1f0fd99090ce7055aebd86551fc7c3aa3
-  branch: make_work_with_rails_5.0.0.beta3
-  specs:
-    active_decorator (0.7.0)
-
-GIT
-  remote: git://github.com/y-yagi/minitest-sound.git
-  revision: 9fe8d58cbf63e6c0889d25e69fa7c33ce3d6d163
-  specs:
-    minitest-sound (0.0.8)
-      minitest (>= 5.0)
-
-GIT
   remote: git://github.com/y-yagi/models-to-sql-rails.git
   revision: 913bc5034ade3ac928584b7f221b4d6d3278d40e
   specs:
@@ -52,6 +31,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_decorator (0.7.1)
     activejob (5.0.0.rc2)
       activesupport (= 5.0.0.rc2)
       globalid (>= 0.3.6)
@@ -154,6 +134,8 @@ GEM
     minitest (5.9.0)
     minitest-slow_test (0.1.0)
       minitest (>= 5.0)
+    minitest-sound (0.0.8)
+      minitest (>= 5.0)
     multi_json (1.12.1)
     nenv (0.3.0)
     nio4r (1.2.1)
@@ -175,6 +157,8 @@ GEM
       slop (~> 3.4)
     rack (2.0.0.rc1)
       json
+    rack-mini-profiler (0.10.1)
+      rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.rc2)
@@ -266,7 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_decorator!
+  active_decorator
   better_errors
   binding_of_caller
   byebug
@@ -278,15 +262,15 @@ DEPENDENCIES
   guard
   guard-minitest
   http_accept_language
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   minitest-slow_test
-  minitest-sound!
+  minitest-sound
   models-to-sql-rails!
   nokogiri (>= 1.6.8)
   pg
   poltergeist
-  rack-mini-profiler!
+  rack-mini-profiler
   rails (= 5.0.0.rc2)
   rails-footnotes
   rails_12factor
