@@ -2,13 +2,13 @@ ruby '2.3.1'
 
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.0.rc2'
-gem 'sass-rails', '~> 6.x'
+gem 'rails', '5.0.0'
+gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5.0.0.beta'
+gem 'turbolinks'
 gem 'jbuilder'
 
 gem 'spring',        group: :development
