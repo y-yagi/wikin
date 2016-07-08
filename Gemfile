@@ -27,7 +27,7 @@ gem 'rake-guardian'
 
 gem 'sprockets', '~> 4.x'
 
-gem 'coderay'
+gem 'rouge'
 
 group :test, :development do
   gem 'byebug'
