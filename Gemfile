@@ -28,6 +28,8 @@ gem 'rake-guardian'
 gem 'sprockets', '~> 4.x'
 
 gem 'rouge'
+gem 'skylight'
+
 
 group :test, :development do
   gem 'byebug'
