@@ -1,4 +1,4 @@
-class CreateOldPages < ActiveRecord::Migration
+class CreateOldPages < ActiveRecord::Migration[4.2]
   def change
     create_table :old_pages do |t|
       t.text :body
