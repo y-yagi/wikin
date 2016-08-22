@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'index#index'
 
   get 'admin/dump'
+  namespace :admin do
+    resource :setting, only: [:edit, :update]
+  end
   resources :pages do
     collection do
       get :titles
