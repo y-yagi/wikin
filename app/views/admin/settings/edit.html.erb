@@ -1,5 +1,29 @@
 <div class="panel panel-default" id="headings">
   <div class="panel-heading">設定</div>
+
   <div class="panel-body">
+    <%= form_for(@setting, url: admin_setting_path(@setting)) do |f| %>
+      <fieldset>
+        <legend>2段階認証</legend>
+        <% if @setting.errors.any? %>
+          <div id="error_explanation">
+            <h2 class="text-danger"><%= pluralize(@setting.errors.count, "error") %></h2>
+            <ul>
+            <% @setting.errors.full_messages.each do |message| %>
+              <li class="text-danger"><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :enable_one_time_password, '使用する' %>
+          <%= f.check_box :enable_one_time_password %>
+        </div>
+        <div class="actions">
+          <%= f.submit class: "btn btn-default", data: { disable_with: "Please wait..." } %>
+        </div>
+      </fieldset>
+    <% end %>
   </div>
 </div>
