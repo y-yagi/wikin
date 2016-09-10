@@ -29,6 +29,7 @@ gem 'sprockets', '~> 4.x'
 
 gem 'rouge'
 gem 'skylight'
+gem 'rotp'
 
 
 group :test, :development do
