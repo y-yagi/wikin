@@ -1,0 +1,8 @@
+json = {}
+json[:suggestions] = @pages.map do |page|
+  {
+    value: page.full_title,
+    data: page.id
+  }
+end
+json

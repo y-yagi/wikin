@@ -1,0 +1,13 @@
+json = {}
+json[:pages] = @pages.map do |page|
+  {
+    id: page.id,
+    title: page.title,
+    url: page.to_url,
+    body: page.body,
+    extracted_body: @markdown.render(page.body),
+    tags: page.tags
+  }
+end
+json[:results_returned] = @pages.count
+json
