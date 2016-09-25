@@ -118,6 +118,8 @@ GEM
       minitest (>= 3.0)
     http_accept_language (2.0.5)
     i18n (0.7.0)
+    jb (0.4.1)
+      multi_json
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -266,6 +268,7 @@ DEPENDENCIES
   guard
   guard-minitest
   http_accept_language
+  jb
   jbuilder
   jquery-rails
   minitest-slow_test
@@ -293,4 +296,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.0

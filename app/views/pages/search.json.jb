@@ -1,0 +1,4 @@
+json = {}
+json[:pages] = render partial: 'page', collection: @pages, as: :page, locals: { markdown: @markdown }
+json[:results_returned] = @pages.count
+json
