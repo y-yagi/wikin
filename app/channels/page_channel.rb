@@ -1,4 +1,3 @@
-# Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
 class PageChannel < ApplicationCable::Channel
   def subscribed
     return if params[:id].blank?
