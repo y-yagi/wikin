@@ -16,6 +16,7 @@ class PagesControllerTest < ActionController::TestCase
 
     assert_equal Page::RECENT_PAGE_COUNT_SMT, json['results_returned']
     assert_equal 'latest_page', json['pages'].first['title']
+    assert_equal %w(tag1 tag2), json['pages'].first['tags']
   end
 
   test 'should get search in json format' do
@@ -29,6 +30,7 @@ class PagesControllerTest < ActionController::TestCase
 
     assert_equal 1, json['results_returned']
     assert_equal 'latest_page', json['pages'].first['title']
+    assert_equal %w(tag1 tag2), json['pages'].first['tags']
   end
 
   test 'should get titles in json format' do

@@ -15,4 +15,5 @@
 //= require jquery.autocomplete.min
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap.min
+//= require bootstrap-tagsinput/dist/bootstrap-tagsinput.min
 //= require pages

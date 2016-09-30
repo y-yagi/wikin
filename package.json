@@ -3,7 +3,8 @@
   "dependencies": {
     "bootstrap": "*",
     "browserify": "^10.2.6",
-    "browserify-incremental": "^3.0.1"
+    "browserify-incremental": "^3.0.1",
+    "bootstrap-tagsinput": "*"
   },
   "license": "MIT",
   "engines": {
