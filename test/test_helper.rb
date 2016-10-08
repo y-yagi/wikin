@@ -1,5 +1,11 @@
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!('rails')
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter 'app/channels/'
+end
+
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)

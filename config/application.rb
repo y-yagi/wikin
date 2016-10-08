@@ -22,5 +22,6 @@ module Wikin
     config.i18n.default_locale = :ja
 
     config.assets.paths << Rails.root.join('node_modules')
+    config.action_cable.worker_pool_size = 1
   end
 end

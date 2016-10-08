@@ -16,4 +16,4 @@
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap.min
 //= require bootstrap-tagsinput/dist/bootstrap-tagsinput.min
-//= require_tree .
+//= require pages
