@@ -149,6 +149,7 @@ GEM
       minitest (>= 5.0)
     minitest-sound (0.0.8)
       minitest (>= 5.0)
+    minitest-sub_test_case (0.1.0)
     multi_json (1.12.1)
     nenv (0.3.0)
     nio4r (1.2.1)
@@ -274,6 +275,7 @@ DEPENDENCIES
   jquery-rails
   minitest-slow_test
   minitest-sound
+  minitest-sub_test_case
   models-to-sql-rails!
   nokogiri (>= 1.6.8)
   pg

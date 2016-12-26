@@ -42,6 +42,7 @@ group :test, :development do
 
   gem 'minitest-sound'
   gem 'minitest-slow_test'
+  gem 'minitest-sub_test_case'
   gem 'capybara'
   gem 'poltergeist'
   gem 'rails-footnotes'
