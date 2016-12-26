@@ -29,30 +29,32 @@ class PageTest < ActiveSupport::TestCase
     assert_match page.parent.title, page.to_path
   end
 
-  test 'validate error when set invalid title' do
-    page = Page.new(title: 'admin', body: 'test')
+  sub_test_case 'validation' do
+    test 'validate error when set invalid title' do
+      page = Page.new(title: 'admin', body: 'test')
 
-    assert_invalid page,
-      title: 'を使用出来ません。他の値を使用してください。'
-  end
+      assert_invalid page,
+        title: 'を使用出来ません。他の値を使用してください。'
+    end
 
-  test 'validate error when set invalid parent name' do
-    page = Page.new(title: 'test', body: 'test', parent_name: 'not_exist')
+    test 'validate error when set invalid parent name' do
+      page = Page.new(title: 'test', body: 'test', parent_name: 'not_exist')
 
-    assert_invalid page,
-      parent_name: 'は存在しません。タイトルを確認してください。'
-  end
+      assert_invalid page,
+        parent_name: 'は存在しません。タイトルを確認してください。'
+    end
 
-  test 'can not create same title when parent is same' do
-    page = Page.new(title: 'child_title', body: 'body', parent: pages(:parents))
+    test 'can not create same title when parent is same' do
+      page = Page.new(title: 'child_title', body: 'body', parent: pages(:parents))
 
-    assert_invalid page, title: 'はすでに存在します。'
-  end
+      assert_invalid page, title: 'はすでに存在します。'
+    end
 
-  test 'can create same title when parent is different' do
-    page = Page.new(title: 'child_title', body: 'body', parent: pages(:latest_page))
+    test 'can create same title when parent is different' do
+      page = Page.new(title: 'child_title', body: 'body', parent: pages(:latest_page))
 
-    assert_valid page
+      assert_valid page
+    end
   end
 
   test '`can_destory?` return false when page has child page' do
