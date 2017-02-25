@@ -40,6 +40,10 @@ group :test, :development do
   gem 'rack-mini-profiler'
 
   gem 'coveralls', require: false
+
+  # TODO: remove update after Rails 5.1.0.beta2
+  # REf: https://github.com/rails/rails/pull/28160
+  gem 'puma'
 end
 
 group :production do
