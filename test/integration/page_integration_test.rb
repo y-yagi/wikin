@@ -78,7 +78,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test 'search pages' do
-    fill_in '_query', with: 'parents'
+    fill_in 'query', with: 'parents'
     click_button '検索'
     result_text = find(:css, '.search-result').text
 
