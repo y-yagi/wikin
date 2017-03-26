@@ -169,7 +169,6 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (3.8.2)
     rack (2.0.1)
     rack-mini-profiler (0.10.2)
       rack (>= 1.2.0)
@@ -282,7 +281,6 @@ DEPENDENCIES
   nokogiri (>= 1.6.8)
   pg
   poltergeist
-  puma
   rack-mini-profiler
   rails (= 5.1.0.rc1)
   rails-footnotes
