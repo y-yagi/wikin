@@ -274,6 +274,7 @@ DEPENDENCIES
   jb
   jbuilder
   jquery-rails
+  minitest (= 5.10.1)
   minitest-slow_test
   minitest-sound
   minitest-sub_test_case
@@ -295,7 +296,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
-
 
 RUBY VERSION
    ruby 2.4.0p0
