@@ -274,7 +274,6 @@ DEPENDENCIES
   jb
   jbuilder
   jquery-rails
-  minitest (= 5.10.1)
   minitest-slow_test
   minitest-sound
   minitest-sub_test_case
