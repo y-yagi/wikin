@@ -22,6 +22,8 @@ gem 'rake-guardian'
 gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.6.8'
+# NOTE: https://github.com/rails/rails/pull/29022
+gem 'minitest', '5.10.1'
 
 group :test, :development do
   gem 'byebug'
