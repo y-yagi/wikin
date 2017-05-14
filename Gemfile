@@ -2,7 +2,7 @@ ruby '2.4.0'
 
 source 'https://rubygems.org'
 
-gem 'rails', '5.1.0'
+gem 'rails', '5.1.1'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
@@ -22,8 +22,6 @@ gem 'rake-guardian'
 gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.6.8'
-# NOTE: https://github.com/rails/rails/pull/29022
-gem 'minitest', '5.10.1'
 
 group :test, :development do
   gem 'byebug'
