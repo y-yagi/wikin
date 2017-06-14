@@ -22,6 +22,7 @@ gem 'rake-guardian'
 gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.6.8'
+gem 'graphql'
 
 group :test, :development do
   gem 'byebug'
