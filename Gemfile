@@ -23,6 +23,7 @@ gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.6.8'
 gem 'graphql'
+gem 'graphiql-rails', group: :development
 
 group :test, :development do
   gem 'byebug'

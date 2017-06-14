@@ -105,6 +105,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.1)
+      rails
     graphql (1.6.3)
     guard (2.14.1)
       formatador (>= 0.2.4)
@@ -269,6 +271,7 @@ DEPENDENCIES
   coveralls
   dotenv-rails
   edge
+  graphiql-rails
   graphql
   guard
   guard-minitest
