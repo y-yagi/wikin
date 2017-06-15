@@ -13,9 +13,17 @@ Types::QueryType = GraphQL::ObjectType.define do
   end
 
   field :pages, types[Types::PageType] do
-    description "get Pages"
+    description "Get Pages"
     resolve ->(obj, args, ctx) do
       Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
+    end
+  end
+
+  field :search, types[Types::PageType] do
+    argument :query, !types.String
+    description "Search Pages"
+    resolve ->(obj, args, ctx) do
+      Page::Search.new(args["query"]).matches
     end
   end
 end
