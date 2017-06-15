@@ -3,11 +3,19 @@ Types::QueryType = GraphQL::ObjectType.define do
   # Add root-level fields here.
   # They will be entry points for queries on your schema.
 
-  # TODO: remove me
-  field :testField, types.String do
-    description "An example field added by the generator"
-    resolve ->(obj, args, ctx) {
-      "Hello World!"
-    }
+  field :page do
+    type Types::PageType
+    argument :id, !types.ID
+    description "Find a Page by ID"
+    resolve ->(obj, args, ctx) do
+      Page.find(args["id"])
+    end
+  end
+
+  field :pages, types[Types::PageType] do
+    description "get Pages"
+    resolve ->(obj, args, ctx) do
+      Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
+    end
   end
 end

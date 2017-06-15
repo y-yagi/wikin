@@ -2,10 +2,7 @@ class GraphqlController < ApplicationController
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]
-    context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
-    }
+    context = { }
     result = WikinSchema.execute(query, variables: variables, context: context)
     render json: result
   end
