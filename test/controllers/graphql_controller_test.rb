@@ -43,7 +43,6 @@ class GraphqlControllerTest < ActionController::TestCase
 
     post :execute, params: { query: query }
     json = JSON.parse(@response.body)
-    p json
     assert json['data']['page']
 
     response_page = json['data']['page']
@@ -72,5 +71,30 @@ class GraphqlControllerTest < ActionController::TestCase
     assert page['id']
     assert_equal 'latest_page', page['title']
     assert_equal 'latest_page body', page['body']
+  end
+
+  test 'should update page' do
+    page = pages(:page_1)
+
+    query = <<-EOS
+      mutation {
+        updatePage(input: {
+          id: #{page.id},
+          title: "new_title1",
+          body: "new_body1"
+        }) {
+          id
+        }
+      }
+    EOS
+
+    post :execute, params: { query: query }
+    json = JSON.parse(@response.body)
+
+    assert_equal page.id, json['data']['updatePage']['id'].to_i
+
+    page.reload
+    assert_equal 'new_title1', page.title
+    assert_equal 'new_body1', page.body
   end
 end
