@@ -2,9 +2,9 @@
   "name": "wikin",
   "dependencies": {
     "bootstrap": "*",
-    "browserify": "^10.2.6",
-    "browserify-incremental": "^3.0.1",
-    "bootstrap-tagsinput": "*"
+    "bootstrap-tagsinput": "*",
+    "browserify": "^14.4.0",
+    "browserify-incremental": "^3.0.1"
   },
   "license": "MIT",
   "engines": {
