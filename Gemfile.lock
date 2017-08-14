@@ -104,7 +104,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    graphiql-rails (1.4.3)
+    graphiql-rails (1.4.4)
       rails
     graphql (1.6.6)
     guard (2.14.1)
