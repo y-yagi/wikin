@@ -21,7 +21,7 @@ gem 'http_accept_language'
 gem 'rake-guardian'
 gem 'sprockets', '~> 4.x'
 gem 'rouge'
-gem 'nokogiri', '>= 1.6.8'
+gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
 gem 'graphiql-rails', group: :development
 
