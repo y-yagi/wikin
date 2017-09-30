@@ -24,6 +24,8 @@ gem 'rouge'
 gem 'nokogiri', '>= 1.6.8'
 gem 'graphql'
 gem 'graphiql-rails', group: :development
+gem 'derailed_benchmarks', group: :development
+gem 'stackprof', group: :development
 
 group :test, :development do
   gem 'byebug'
