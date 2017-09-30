@@ -6,7 +6,6 @@ module PageDecorator
   def full_link
     return title if ancestors.empty?
 
-    ActiveDecorator::Decorator.instance.decorate(ancestors)
     (ancestors.map(&:link).reverse.join(' / ') + ' / ' + title).html_safe
   end
 
