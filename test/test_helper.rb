@@ -38,8 +38,7 @@ class ActionDispatch::IntegrationTest
   fixtures :all
   include Capybara::DSL
 
-  require 'capybara/poltergeist'
-  Capybara.javascript_driver = :poltergeist
+  Capybara.javascript_driver = :selenium_chrome_headless
 end
 
 Minitest::Sound.success = '/home/yaginuma/Dropbox/tmp/music/other/sey.mp3'

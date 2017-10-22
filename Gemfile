@@ -37,7 +37,8 @@ group :test, :development do
   gem 'minitest-slow_test'
   gem 'minitest-sub_test_case'
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
   gem 'rails-footnotes'
   gem 'rack-mini-profiler'
 
