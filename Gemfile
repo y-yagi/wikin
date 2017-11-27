@@ -39,7 +39,6 @@ group :test, :development do
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
-  gem 'rails-footnotes'
   gem 'rack-mini-profiler'
 
   gem 'coveralls', require: false
