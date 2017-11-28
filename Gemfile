@@ -10,7 +10,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'jb'
-gem 'spring', group: :development
 gem 'pg'
 gem 'edge'
 gem 'redcarpet'
@@ -23,7 +22,11 @@ gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
-gem 'graphiql-rails', group: :development
+
+group :development do
+  gem 'spring'
+  gem 'graphiql-rails'
+end
 
 group :test, :development do
   gem 'byebug'
