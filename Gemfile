@@ -2,7 +2,7 @@ ruby '2.4.1'
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1.4'
+gem 'rails', '5.2.0.beta2'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
@@ -10,7 +10,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'jb'
-gem 'spring', group: :development
 gem 'pg'
 gem 'edge'
 gem 'redcarpet'
@@ -23,7 +22,11 @@ gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
-gem 'graphiql-rails', group: :development
+
+group :development do
+  gem 'spring'
+  gem 'graphiql-rails'
+end
 
 group :test, :development do
   gem 'byebug'
@@ -39,7 +42,6 @@ group :test, :development do
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
-  gem 'rails-footnotes'
   gem 'rack-mini-profiler'
 
   gem 'coveralls', require: false
