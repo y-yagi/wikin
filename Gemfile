@@ -22,6 +22,7 @@ gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
+gem 'puma'
 
 group :development do
   gem 'spring'
@@ -49,6 +50,5 @@ end
 
 group :production do
   gem 'skylight'
-  gem 'unicorn'
   gem 'rails_12factor'
 end
