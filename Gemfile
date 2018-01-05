@@ -30,6 +30,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'minitest', '~> 5.10.0'
   gem 'byebug'
 
   gem 'better_errors'
