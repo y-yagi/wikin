@@ -161,7 +161,7 @@ GEM
     mimemagic (0.3.2)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.3)
     minitest-slow_test (0.2.0)
       minitest (>= 5.0)
     minitest-sound (0.0.8)
@@ -291,7 +291,7 @@ DEPENDENCIES
   jb
   jbuilder
   jquery-rails
-  minitest (~> 5.10.0)
+  minitest (~> 5.11.3)
   minitest-slow_test
   minitest-sound
   minitest-sub_test_case
