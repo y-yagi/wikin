@@ -1,5 +1,5 @@
 require 'models_to_sql'
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   acts_as_forest
 
   has_one :old_page
