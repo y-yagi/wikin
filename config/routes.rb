@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     member do
       get :restore
       get :undo
+      post :archive
+    end
+
+    resources :archive_pages, only: [:index, :show, :create, :destroy] do
+      member do
+        post :restore
+      end
     end
   end
 

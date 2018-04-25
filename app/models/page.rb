@@ -113,4 +113,16 @@ class Page < ApplicationRecord
     update!(body: old_page.body)
   end
 
+  def archive!
+    attr = self.attributes
+
+    attr.delete("id")
+    attr["original_created_at"] = attr.delete("created_at")
+    attr["original_updated_at"] = attr.delete("updated_at")
+
+    ApplicationRecord.transaction do
+      ArchivePage.create!(attr)
+      destroy!
+    end
+  end
 end

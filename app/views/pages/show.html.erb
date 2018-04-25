@@ -6,6 +6,9 @@
     <%= link_to @page, method: :delete, data: { confirm: 'ページを削除します。宜しいですか?' }, title: '削除'  do  %>
       <i class="fa fa-trash fa-plum header-icon"></i>
     <% end %>
+    <%= link_to archive_page_path(@page), method: :post, data: { confirm: 'ページをアーカイブ。宜しいですか?' }, title: 'アーカイブ'  do  %>
+      <i class="fa fa-archive fa-plum header-icon"></i>
+    <% end %>
     <% if @page.tags %>
       <span class="header-icon">
         <% @page.tags.each do |tag| %>

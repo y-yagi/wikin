@@ -95,6 +95,13 @@ class PagesController < ApplicationController
     redirect_to root_url
   end
 
+  def archive
+    page = Page.find(params[:id])
+    page.archive!
+    flash[:info] = messages(:archive_page)
+    redirect_to root_url
+  end
+
   def titles
     @pages = []
     return if params[:query].blank?
