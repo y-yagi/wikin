@@ -1,6 +1,6 @@
-class CreateArchivePages < ActiveRecord::Migration[5.2]
+class CreateArchivedPages < ActiveRecord::Migration[5.2]
   def change
-    create_table :archive_pages, id: :serial do |t|
+    create_table :archived_pages, id: :serial do |t|
       t.string :title
       t.text :body
       t.integer :parent_id

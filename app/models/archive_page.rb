@@ -1,2 +1,0 @@
-class ArchivePage < ApplicationRecord
-end

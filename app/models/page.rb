@@ -121,7 +121,7 @@ class Page < ApplicationRecord
     attr["original_updated_at"] = attr.delete("updated_at")
 
     ApplicationRecord.transaction do
-      ArchivePage.create!(attr)
+      ArchivedPage.create!(attr)
       destroy!
     end
   end
