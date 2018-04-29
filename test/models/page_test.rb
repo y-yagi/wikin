@@ -99,7 +99,7 @@ class PageTest < ActiveSupport::TestCase
     page = pages(:include_tags)
 
     page.archive!
-    archive_page = ArchivePage.find_by!(title: page.title, body: page.body)
+    archive_page = ArchivedPage.find_by!(title: page.title, body: page.body)
 
     assert_not_equal archive_page.id, page.id
     assert_equal archive_page.tags, page.tags
