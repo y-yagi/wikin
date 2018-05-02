@@ -8,15 +8,13 @@ class ArchivedPagesController < ApplicationController
     set_redcarpet
 
     @page = ArchivedPage.find(params[:id])
-    render '404', status: :not_found unless @page
   end
 
   def destroy
-    @page = ArchivedPage.find(params[:id])
-    @page.destroy!
+    page = ArchivedPage.find(params[:id])
+    page.destroy!
 
-    msg = messages(:destroy_page)
-    redirect_to root_url, info: msg
+    redirect_to root_url, info: messages(:destroy_page)
   end
 
   def restore
