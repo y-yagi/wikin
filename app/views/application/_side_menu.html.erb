@@ -5,7 +5,7 @@
       <% @recently_updated_pages.each do |date, pages| %>
         <strong><%= date %></strong>
         <% pages.each do |page| %>
-          <p><%= page.link %></p>
+          <div class="mb-2"><%= page.link %></div>
         <% end %>
       <% end %>
     </div>
