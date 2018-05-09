@@ -1,0 +1,8 @@
+include_tags:
+  title: archive_paged_include_tags
+  body: body
+  original_created_at: <%= 3.days.ago %>
+  original_updated_at: <%= 1.days.ago %>
+  tags:
+    - tag1
+    - tag2

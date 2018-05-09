@@ -1,3 +1,3 @@
-class OldPage < ActiveRecord::Base
+class OldPage < ApplicationRecord
   belongs_to :page
 end

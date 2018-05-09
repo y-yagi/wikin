@@ -94,4 +94,16 @@ class PageTest < ActiveSupport::TestCase
     page.undo!
     assert_equal page.body, before_body
   end
+
+  test '#archive!' do
+    page = pages(:include_tags)
+
+    page.archive!
+    archived_page = ArchivedPage.find_by!(title: page.title, body: page.body)
+
+    assert_not_equal archived_page.id, page.id
+    assert_equal archived_page.tags, page.tags
+    assert_equal archived_page.original_created_at, page.created_at
+    assert_equal archived_page.original_updated_at, page.updated_at
+  end
 end

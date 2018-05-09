@@ -1,5 +1,5 @@
 require 'models_to_sql'
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   acts_as_forest
 
   has_one :old_page
@@ -113,4 +113,16 @@ class Page < ActiveRecord::Base
     update!(body: old_page.body)
   end
 
+  def archive!
+    attr = self.attributes
+
+    attr.delete("id")
+    attr["original_created_at"] = attr.delete("created_at")
+    attr["original_updated_at"] = attr.delete("updated_at")
+
+    ApplicationRecord.transaction do
+      ArchivedPage.create!(attr)
+      destroy!
+    end
+  end
 end

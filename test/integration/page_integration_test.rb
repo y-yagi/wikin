@@ -137,4 +137,13 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     assert_match 'tags_page_title', page.text
     assert_no_match 'search_text_include_title', page.text
   end
+
+  test 'archive page' do
+    page_data = pages(:child)
+    visit page_data.to_path
+    assert_equal 200, page.status_code
+
+    first("a[title='アーカイブ']").click
+    assert_match 'ページをアーカイブしました', page.text
+  end
 end

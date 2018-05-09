@@ -228,3 +228,4 @@ en:
     restore_page_link: cancellation of the deletion
     restore_page: restoration of the page was completed
     have_child_page: Can't delete the page with the child page. Please carry out the deletion of the child page earlier.
+    archive_page: archive page
