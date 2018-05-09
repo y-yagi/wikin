@@ -1,10 +1,10 @@
-<div class="panel panel-default" id="headings">
-  <div class="panel-heading"><%= @page.title %>
+<div class="card border-primary" id="headings">
+  <div class="card-header"><%= @page.title %>
     <%= link_to @page, method: :delete, data: { confirm: 'ページを削除します。宜しいですか?' }, title: '削除'  do  %>
-      <i class="fa fa-trash fa-plum header-icon"></i>
+      <i class="fa fa-trash header-icon"></i>
     <% end %>
     <%= link_to restore_archived_page_path(@page), method: :post, data: { confirm: 'ページをリストアします。宜しいですか?' }, title: 'リストア'  do  %>
-      <i class="fa fa-undo fa-plum header-icon"></i>
+      <i class="fa fa-undo header-icon"></i>
     <% end %>
     <% if @page.tags %>
       <span class="header-icon">
@@ -16,7 +16,9 @@
       </span>
     <% end %>
   </div>
-  <div class="panel-body">
-    <%= @markdown.render(@page.body).html_safe %>
+  <div class="card-body">
+    <div class="card-text">
+      <%= @markdown.render(@page.body).html_safe %>
+    </div>
   </div>
 </div>
