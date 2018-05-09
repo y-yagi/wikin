@@ -9,6 +9,8 @@ cache:
   bundler: true
   directories:
     - $HOME/.yarn-cache
+before_install:
+  - gem install bundler
 addons:
   chrome: stable
 script:
