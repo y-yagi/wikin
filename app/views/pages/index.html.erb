@@ -1,14 +1,16 @@
-<div class="panel panel-default" id="headings">
-  <div class="panel-heading"><%= pages_heading %></div>
-  <div class="panel-body">
-    <ul>
-      <% @pages.to_a.sort_by(&:title).each do |root| %>
-        <li><a href="<%= root.to_url %>"><strong><%= root.full_title %></strong></a></li>
-        <% Page.sort_by_full_title(root.descendants).each do |page| %>
-          <% ActiveDecorator::Decorator.instance.decorate(page) %>
-          <li><a href="<%= page.to_url %>"><strong><%= page.full_title %></strong></a></li>
+<div class="card border-primary" id="headings">
+  <div class="card-header"><%= pages_heading %></div>
+  <div class="card-body">
+    <div class="card-text">
+      <ul>
+        <% @pages.to_a.sort_by(&:title).each do |root| %>
+          <li><a href="<%= root.to_url %>"><strong><%= root.full_title %></strong></a></li>
+          <% Page.sort_by_full_title(root.descendants).each do |page| %>
+            <% ActiveDecorator::Decorator.instance.decorate(page) %>
+            <li><a href="<%= page.to_url %>"><strong><%= page.full_title %></strong></a></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>

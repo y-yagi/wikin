@@ -11,18 +11,14 @@
  * file per style scope.
  *
  *= require_tree .
- *= require bootstrap-theme-white-plum
+//= require bootstrap/dist/css/bootstrap.min
+//= require boots
  *= require bootstrap-tagsinput/dist/bootstrap-tagsinput
  *= require_self
  */
 .turbolinks-progress-bar {
   height: 3px;
-  background-color: #7a62d3;
-}
-
-.fa-plum {
-    color: #7a62d3;
-    font-size: 1.1em;
+  background-color: #18BC9C;
 }
 
 .header-icon {
@@ -32,6 +28,6 @@
   border-radius:10px 10px 10px 10px;
 }
 
-.box > a {
-  color: #ffffff;
+.bootstrap-tagsinput .tag {
+  color: #128f76;
 }

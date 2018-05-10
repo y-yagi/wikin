@@ -1,11 +1,12 @@
-<div class="panel panel-default" id="headings">
-  <div class="panel-heading">検索結果</div>
-  <div class="panel-body">
-    <h4>「<%= params[:query] %>」の検索結果</h4>
-    <ul class="search-result">
-      <% @pages.each do |page| %>
-        <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
-      <% end %>
-    </ul>
+<div class="card border-primary" id="headings">
+  <div class="card-header"><strong>「<%= params[:query] %>」</strong>の検索結果</div>
+  <div class="card-body">
+    <div class="card-text">
+      <ul class="search-result">
+        <% @pages.each do |page| %>
+          <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

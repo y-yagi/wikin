@@ -13,13 +13,13 @@
   <div class="form-group">
     <% unless @page.id %>
       <%= f.label :title %><br>
-      <%= f.text_field :title, class: "form-control" %>
+      <%= f.text_field :title, class: "form-control", required: true %>
     <% end %>
   </div>
   <div class="form-group"  data-turbolinks="false">
     <%= f.label :body %> (<%= link_to 'プレビュー', '#', id: 'preview_link' %><%= link_to '編集', '#', id: 'edit_link', style: 'display: none;' %>)<br>
-    <%= f.text_area :body, class: "form-control", style: 'height: 350px' %>
-    <div id="preview_body" class="panel panel-default panel-body" style="display: none;"></div><br>
+    <%= f.text_area :body, class: "form-control", style: 'height: 350px', required: true%>
+    <div id="preview_body" class="card border-info card-body" style="display: none;"></div><br>
   </div>
   <div class="form-group">
     <%= f.label :tags %>
@@ -37,6 +37,6 @@
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-default", data: { disable_with: "Please wait..." } %>
+    <%= f.submit class: "btn btn-primary", data: { disable_with: "Please wait..." } %>
   </div>
 <% end %>

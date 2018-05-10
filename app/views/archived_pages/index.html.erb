@@ -1,10 +1,12 @@
-<div class="panel panel-default" id="headings">
-  <div class="panel-heading">アーカイブページ</div>
-  <div class="panel-body">
-    <ul>
-      <% @pages.each do |page| %>
-        <li><%= link_to(page.title, page) %></li>
-      <% end %>
-    </ul>
+<div class="card border-primary" id="headings">
+  <div class="card-header">アーカイブページ</div>
+  <div class="card-body">
+    <div class="card-text">
+      <ul>
+        <% @pages.each do |page| %>
+          <li><%= link_to(page.title, page) %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

@@ -1,18 +1,18 @@
-<div class="panel panel-default" id="headings">
-  <div class="panel-heading"><%= @page.full_link %>
+<div class="card border-primary" id="headings">
+  <div class="card-header"><%= @page.full_link %>
     <%= link_to edit_page_path(@page), title: '編集' do  %>
-      <i class="fa fa-pencil fa-plum header-icon"></i>
+      <i class="fa fa-pencil header-icon"></i>
     <% end %>
     <%= link_to @page, method: :delete, data: { confirm: 'ページを削除します。宜しいですか?' }, title: '削除'  do  %>
-      <i class="fa fa-trash fa-plum header-icon"></i>
+      <i class="fa fa-trash header-icon"></i>
     <% end %>
     <%= link_to archive_page_path(@page), method: :post, data: { confirm: 'ページをアーカイブします。宜しいですか?' }, title: 'アーカイブ'  do  %>
-      <i class="fa fa-archive fa-plum header-icon"></i>
+      <i class="fa fa-archive header-icon"></i>
     <% end %>
     <% if @page.tags %>
       <span class="header-icon">
         <% @page.tags.each do |tag| %>
-          <span class="label label-info box">
+          <span class="label label-info">
             <%= link_to tag, pages_path(tag: tag) %>
           </span>
         <% end %>
@@ -22,18 +22,20 @@
       最終更新日時： <%= I18n.l(@page.updated_at, format: :short) %>
     </span>
   </div>
-  <div class="panel-body">
-    <%= @markdown.render(@page.body).html_safe %>
-  </div>
-  <% if @page.children.present? %>
-    <div class="panel-footer">
-      <h4>子ページ</h4>
-      <ul>
-        <% @page.children.each do |page| %>
-          <% ActiveDecorator::Decorator.instance.decorate(page) %>
-          <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
-        <% end %>
-      </ul>
+  <div class="card-body">
+    <div class="card-text">
+      <%= @markdown.render(@page.body).html_safe %>
     </div>
-  <% end %>
+    <% if @page.children.present? %>
+      <div class="card-footer">
+        <p class="text-info">子ページ</p>
+        <ul>
+          <% @page.children.each do |page| %>
+            <% ActiveDecorator::Decorator.instance.decorate(page) %>
+            <li><a href="<%= page.to_url %>"><strong><%= page.title %></strong></a></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>
