@@ -18,5 +18,5 @@
       "sizes": "192x192"
     }
   ],
-  "start_url": "/?launcher=true"
+  "start_url": "https://wikin.herokuapp.com?launcher=true"
 }
