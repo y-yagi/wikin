@@ -27,6 +27,10 @@ gem 'puma'
 group :development do
   gem 'spring'
   gem 'graphiql-rails'
+  gem 'peek'
+  gem 'peek-gc'
+  gem 'peek-pg'
+  gem 'peek-rblineprof'
 end
 
 group :test, :development do
