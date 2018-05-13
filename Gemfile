@@ -23,14 +23,14 @@ gem 'rouge'
 gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
 gem 'puma'
+gem 'peek'
+gem 'peek-gc'
+gem 'peek-pg'
+gem 'peek-rblineprof'
 
 group :development do
   gem 'spring'
   gem 'graphiql-rails'
-  gem 'peek'
-  gem 'peek-gc'
-  gem 'peek-pg'
-  gem 'peek-rblineprof'
 end
 
 group :test, :development do
@@ -48,7 +48,7 @@ group :test, :development do
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
-  gem 'rack-mini-profiler'
+#  gem 'rack-mini-profiler'
 
   gem 'coveralls', require: false
 end
