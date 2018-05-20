@@ -23,6 +23,7 @@ gem 'rouge'
 gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
 gem 'puma'
+gem 'bootsnap'
 
 group :development do
   gem 'spring'
