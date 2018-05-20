@@ -17,11 +17,11 @@ class PagesController < ApplicationController
   def show
     paths = URI.unescape(request.path.force_encoding("UTF-8"))
     paths = paths.delete('.json') if request.format.json?
+
     titles = paths.split('/').select(&:present?)
     set_redcarpet
 
     @page = Page.find_by_titles(titles)
-byebug
     render '404', status: :not_found unless @page
   end
 
