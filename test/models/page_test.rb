@@ -34,7 +34,14 @@ class PageTest < ActiveSupport::TestCase
       page = Page.new(title: 'admin', body: 'test')
 
       assert_invalid page,
-        title: 'を使用出来ません。他の値を使用してください。'
+        title: 'に「admin」は使用出来ません。他の値を使用してください。'
+    end
+
+    test 'validate error when use format to title' do
+      page = Page.new(title: '1.js', body: 'test')
+
+      assert_invalid page,
+        title: 'に「.js」は使用出来ません。他の値を使用してください。'
     end
 
     test 'validate error when set invalid parent name' do

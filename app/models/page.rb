@@ -68,7 +68,15 @@ class Page < ApplicationRecord
   end
 
   def check_valid_title
-    errors.add(:title, :cannot_use) if INVALID_TITLE_PATTERN.include?(title)
+    errors.add(:title, :cannot_use, invalid: title) if INVALID_TITLE_PATTERN.include?(title)
+
+    Mime::SET.each do |m|
+      format =  ".#{m.symbol}"
+      if title.end_with?(format)
+        errors.add(:title, :cannot_use, invalid: format)
+        return
+      end
+    end
   end
 
   def check_parent_id

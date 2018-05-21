@@ -123,7 +123,7 @@ ja:
       too_short: は%{count}文字以上で入力してください。
       wrong_length: は%{count}文字で入力してください。
       other_than: "は%{count}以外の値にしてください。"
-      cannot_use: を使用出来ません。他の値を使用してください。
+      cannot_use: に「%{invalid}」は使用出来ません。他の値を使用してください。
       not_exist: は存在しません。タイトルを確認してください。
       parent_cannnot_appoint_self: 親ページに自分自身は指定出来ません。違うページを指定して下さい。
     template:
