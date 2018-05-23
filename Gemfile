@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jbuilder'
 gem 'jb'
 gem 'pg', '< 2.0.0'
 gem 'edge'
@@ -16,6 +17,7 @@ gem 'dotenv-rails'
 gem 'models-to-sql-rails', github: 'y-yagi/models-to-sql-rails'
 gem 'active_decorator'
 gem 'http_accept_language'
+gem 'rake-guardian'
 gem 'sprockets', '~> 4.x'
 gem 'rouge'
 gem 'nokogiri', '>= 1.8.1'
@@ -29,11 +31,13 @@ group :development do
 end
 
 group :test, :development do
-  gem 'minitest'
+  gem 'minitest', '~> 5.11.3'
   gem 'byebug'
 
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard'
+  gem 'guard-minitest'
 
   gem 'minitest-sound'
   gem 'minitest-slow_test'
@@ -48,4 +52,5 @@ end
 
 group :production do
   gem 'skylight'
+  gem 'rails_12factor'
 end
