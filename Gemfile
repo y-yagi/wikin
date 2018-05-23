@@ -48,4 +48,5 @@ end
 
 group :production do
   gem 'skylight'
+  gem 'rails_12factor'
 end
