@@ -39,8 +39,8 @@ group :test, :development do
   gem 'minitest-slow_test'
   gem 'minitest-sub_test_case'
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'rack-mini-profiler'
 
   gem 'coveralls', require: false
