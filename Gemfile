@@ -22,6 +22,7 @@ gem 'nokogiri', '>= 1.8.1'
 gem 'graphql'
 gem 'puma'
 gem 'bootsnap'
+gem 'serviceworker-rails'
 
 group :development do
   gem 'spring'

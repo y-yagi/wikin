@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap.min
 //= require bootstrap-tagsinput/dist/bootstrap-tagsinput.min
+//= require serviceworker-companion
 //= require_tree .
