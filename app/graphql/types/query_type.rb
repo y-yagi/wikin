@@ -1,29 +1,29 @@
-Types::QueryType = GraphQL::ObjectType.define do
-  name "Query"
-  # Add root-level fields here.
-  # They will be entry points for queries on your schema.
-
-  field :page do
-    type Types::PageType
-    argument :id, !types.ID
-    description "Find a Page by ID"
-    resolve ->(obj, args, ctx) do
-      Page.find(args["id"])
+module Types
+  class QueryType < Types::BaseObject
+    field :page, Types::PageType, null: true do
+      argument :id, ID, required: true
+      description "Find a Page by ID"
     end
-  end
 
-  field :pages, types[Types::PageType] do
-    description "Get Pages"
-    resolve ->(obj, args, ctx) do
+    field :pages, [Types::PageType], null: true do
+      description "Get Pages"
+    end
+
+    field :search, [Types::PageType], null: true do
+      argument :query, String, required: true
+      description "Search Pages"
+    end
+
+    def page(id:)
+      Page.find(id)
+    end
+
+    def pages
       Page.order('updated_at DESC').limit(Page::RECENT_PAGE_COUNT_SMT)
     end
-  end
 
-  field :search, types[Types::PageType] do
-    argument :query, !types.String
-    description "Search Pages"
-    resolve ->(obj, args, ctx) do
-      Page::Search.new(args["query"]).matches
+    def search(query:)
+      Page::Search.new(query).matches
     end
   end
 end

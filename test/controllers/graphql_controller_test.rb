@@ -12,20 +12,24 @@ class GraphqlControllerTest < ActionController::TestCase
           id,
           title,
           body,
-          extracted_body
+          extractedBody,
+          url
         }
       }
     EOS
 
     post :execute, params: { query: query }
     json = JSON.parse(@response.body)
+    assert_not json["errors"], json.to_s
+
     assert_equal Page::RECENT_PAGE_COUNT_SMT, json['data']['pages'].count
 
     page =  json['data']['pages'].first
     assert page['id']
     assert_equal 'latest_page', page['title']
     assert_equal 'latest_page body', page['body']
-    assert_equal '<p>latest_page body</p>', page['extracted_body'].strip
+    assert_equal '<p>latest_page body</p>', page['extractedBody'].strip
+    assert_equal '/latest_page', page['url']
   end
 
   test 'should get page' do

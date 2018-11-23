@@ -1,5 +1,5 @@
-Types::MutationType = GraphQL::ObjectType.define do
-  name "Mutation"
-
-  field :updatePage, field: Mutations::UpdatePage.field
+module Types
+  class MutationType < Types::BaseObject
+    field :updatePage, field: Mutations::UpdatePage.field
+  end
 end
