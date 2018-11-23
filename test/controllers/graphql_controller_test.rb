@@ -95,6 +95,7 @@ class GraphqlControllerTest < ActionController::TestCase
     post :execute, params: { query: query }
     json = JSON.parse(@response.body)
 
+    assert_not json["errors"], json.to_s
     assert_equal page.id, json['data']['updatePage']['id'].to_i
 
     page.reload

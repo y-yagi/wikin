@@ -1,5 +1,5 @@
 module Types
   class MutationType < Types::BaseObject
-    field :updatePage, field: Mutations::UpdatePage.field
+    field :updatePage, mutation: Mutations::UpdatePage
   end
 end
