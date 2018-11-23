@@ -1,21 +1,19 @@
-Mutations::UpdatePage = GraphQL::Relay::Mutation.define do
-  name "UpdatePage"
+module Mutations
+  class UpdatePage < GraphQL::Schema::RelayClassicMutation
+    field :id, ID, null: false
 
-  input_field :id, !types.ID
-  input_field :title, types.String
-  input_field :body, types.String
+    argument :id, ID, required: true
+    argument :title, String, required: false
+    argument :body, String, required: false
 
-  return_field :id, !types.ID
 
-  # The resolve proc is where you alter the system state.
-  resolve ->(object, inputs, ctx) {
-    page = Page.find(inputs[:id])
-    page.title = inputs[:title] if inputs[:title]
-    page.body = inputs[:body] if inputs[:body]
-    page.save!
+    def resolve(id:, title:, body:)
+      page = Page.find(id)
+      page.title = title if title
+      page.body = body if body
+      page.save!
 
-    response = {
-      id: page.id
-    }
-  }
+      { id: page.id }
+    end
+  end
 end

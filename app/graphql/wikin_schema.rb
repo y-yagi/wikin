@@ -1,4 +1,4 @@
-WikinSchema = GraphQL::Schema.define do
-  query(Types::QueryType)
+class WikinSchema < GraphQL::Schema
   mutation(Types::MutationType)
+  query(Types::QueryType)
 end
