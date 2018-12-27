@@ -12,7 +12,7 @@ module Types
 
     def extracted_body
       renderer = Rouger.new(hard_wrap: true)
-      markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true)
+      markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true, strikethrough: true)
       markdown.render(object.body)
     end
   end
