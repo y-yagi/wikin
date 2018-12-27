@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def set_redcarpet
     renderer = Rouger.new(hard_wrap: true)
-    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true)
+    @markdown = Redcarpet::Markdown.new(renderer, autolink: true, tables: true, fenced_code_blocks: true, strikethrough: true)
   end
 
   def messages(key, message_values = {})
