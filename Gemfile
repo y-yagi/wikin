@@ -43,8 +43,6 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'rack-mini-profiler'
-
-  gem 'coveralls', require: false
 end
 
 group :production do
