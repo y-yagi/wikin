@@ -129,7 +129,7 @@ GEM
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
-    jb (0.6.0)
+    jb (0.6.1)
       multi_json
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
