@@ -3,7 +3,7 @@ ruby '2.6.0'
 source 'https://rubygems.org'
 
 gem 'rails', '6.0.0.beta1'
-gem 'sass-rails', github: 'rails/sass-rails'
+gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 gem 'jquery-rails'

@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/rails/sass-rails.git
-  revision: 409d871c2a971691eac86c5a32e614e2941c72b8
-  specs:
-    sass-rails (6.0.0.beta1)
-      sassc-rails (>= 2.1.0)
-
-GIT
   remote: git://github.com/y-yagi/models-to-sql-rails.git
   revision: 23c32025ceb5f0161d0197df98eee2c8328d6fa7
   specs:
@@ -276,7 +269,7 @@ DEPENDENCIES
   rails (= 6.0.0.beta1)
   redcarpet
   rouge
-  sass-rails!
+  sassc-rails
   selenium-webdriver
   serviceworker-rails
   skylight
