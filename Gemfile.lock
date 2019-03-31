@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/amatsuda/jb.git
+  revision: d342b9215e9d0fc3c459c7a18b41ce443b07a459
+  specs:
+    jb (0.6.1)
+      multi_json
+
+GIT
   remote: git://github.com/y-yagi/models-to-sql-rails.git
   revision: 23c32025ceb5f0161d0197df98eee2c8328d6fa7
   specs:
@@ -120,8 +127,6 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
-    jb (0.6.0)
-      multi_json
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -256,7 +261,7 @@ DEPENDENCIES
   graphiql-rails
   graphql
   http_accept_language
-  jb
+  jb!
   jquery-rails
   listen
   minitest

@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jb'
+gem 'jb', github: "amatsuda/jb"
 gem 'pg', '< 2.0.0'
 gem 'edge'
 gem 'redcarpet'
