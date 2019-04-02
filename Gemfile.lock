@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/amatsuda/jb.git
-  revision: d342b9215e9d0fc3c459c7a18b41ce443b07a459
+  revision: 7fca2c721fc6f70a5b4b7f8d43024a50388aa33c
   specs:
     jb (0.6.1)
       multi_json
