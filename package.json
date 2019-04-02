@@ -1,11 +1,15 @@
 {
   "name": "wikin",
   "dependencies": {
+    "@rails/webpacker": "^4.0.2",
     "bootstrap": "*",
     "bootstrap-tagsinput": "*"
   },
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.2.1"
   }
 }

@@ -23,6 +23,7 @@ gem 'graphql'
 gem 'puma'
 gem 'bootsnap'
 gem 'serviceworker-rails'
+gem 'webpacker'
 
 group :development do
   gem 'spring'
