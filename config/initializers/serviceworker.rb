@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.serviceworker.routes.draw do
-    match "/serviceworker.js"
-    match "/manifest.json"
+    match "/serviceworker.js", pack: true
+    match "/manifest.json", pack: true
   end
 end

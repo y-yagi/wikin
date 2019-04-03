@@ -13,7 +13,7 @@
  *= require_tree .
 //= require bootstrap/dist/css/bootstrap.min
 //= require boots
- *= require bootstrap-tagsinput/dist/bootstrap-tagsinput
+//= require tags-input/tags-input.css
  *= require_self
  */
 .turbolinks-progress-bar {

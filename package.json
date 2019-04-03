@@ -1,11 +1,21 @@
 {
   "name": "wikin",
   "dependencies": {
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "^4.0.2",
+    "autocomplete.js": "^0.36.0",
     "bootstrap": "*",
-    "bootstrap-tagsinput": "*"
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "popper.js": "^1.14.7",
+    "tags-input": "^1.1.1",
+    "turbolinks": "^5.2.0"
   },
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.2.1"
   }
 }
