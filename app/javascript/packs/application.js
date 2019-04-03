@@ -7,5 +7,4 @@ window.$ = $;
 require("bootstrap")
 require("devbridge-autocomplete")
 
-require("./pages")
-require("./serviceworker-companion")
+import "controllers"
