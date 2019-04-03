@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '6.0.0.beta3'
 gem 'sassc-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails'
-gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jb', github: "amatsuda/jb"
 gem 'pg', '< 2.0.0'
