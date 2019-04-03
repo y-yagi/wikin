@@ -1,16 +1,16 @@
-import { Controller } from "stimulus"
+import { Controller } from "stimulus";
 
 export default class extends Controller {
   connect() {
-    $('#page_parent_name').autocomplete({
-      serviceUrl: '/pages/titles.json',
+    $("#page_parent_name").autocomplete({
+      serviceUrl: "/pages/titles.json",
       triggerSelectOnValidInput: false,
       onSelect: function(suggestion) {
-        return $('#page_parent_id').val(suggestion.data);
+        return $("#page_parent_id").val(suggestion.data);
       }
     });
 
-    var tagsInput = require('tags-input');
+    var tagsInput = require("tags-input");
     tagsInput(document.querySelector('input[type="tags"]'));
   }
 
@@ -21,10 +21,10 @@ export default class extends Controller {
   }
 
   edit() {
-    $('#page_body').show();
-    $('#preview_link').show();
-    $('#preview_body').hide();
-    return $('#edit_link').hide();
+    $("#page_body").show();
+    $("#preview_link").show();
+    $("#preview_body").hide();
+    return $("#edit_link").hide();
   }
 
   search(body) {
@@ -32,7 +32,7 @@ export default class extends Controller {
     defer = $.Deferred();
     $.ajax({
       url: "/pages/preview",
-      type: 'POST',
+      type: "POST",
       success: defer.resolve,
       error: defer.reject,
       data: {

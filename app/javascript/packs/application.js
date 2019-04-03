@@ -1,10 +1,10 @@
-require("@rails/ujs").start()
-require("turbolinks").start()
+require("@rails/ujs").start();
+require("turbolinks").start();
 
-var $ = require("jquery")
+var $ = require("jquery");
 window.$ = $;
 
-require("bootstrap")
-require("devbridge-autocomplete")
+require("bootstrap");
+require("devbridge-autocomplete");
 
-import "controllers"
+import "controllers";
