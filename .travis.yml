@@ -16,7 +16,8 @@ addons:
   postgresql: 9.6
 script:
   - RAILS_ENV=test bin/rails db:migrate
-  - xvfb-run bin/rails test
+  - bin/rails test
+  - bin/rails test:system
 before_script:
   - export TZ=Asia/Tokyo
   - cp config/database.yml.travis config/database.yml
