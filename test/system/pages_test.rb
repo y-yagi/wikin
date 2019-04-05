@@ -1,8 +1,13 @@
-require 'test_helper'
+require "application_system_test_case"
 
-class PageIntegrationTest < ActionDispatch::IntegrationTest
-  def setup
-    page.driver.browser.authorize(ENV["BASIC_AUTH_USER"], ENV["BASIC_AUTH_PASSWORD"])
+class PagesTest < ApplicationSystemTestCase
+  def host!(_host)
+    super
+    auth = "#{ENV["BASIC_AUTH_USER"]}:#{ENV["BASIC_AUTH_PASSWORD"]}"
+    Capybara.app_host = "http://#{auth}@127.0.0.1"
+  end
+
+  setup do
     visit root_path
   end
 
@@ -36,7 +41,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     fill_in 'page_body', with: '新規ページ本文'
     click_button '登録する'
 
-    assert_match 'error', page.text
+    assert_not_empty page.find("#page_title").native.attribute('validationMessage')
   end
 
   test 'update page' do
@@ -74,7 +79,7 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
     fill_in 'page_body', with: ''
     click_button '更新する'
 
-    assert_match 'error', page.text
+    assert_not_empty page.find("#page_body").native.attribute('validationMessage')
   end
 
   test 'search pages' do
@@ -89,39 +94,29 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   test 'destroy page' do
     page_data = pages(:child)
     visit page_data.to_path
-    assert_equal 200, page.status_code
 
-    first("a[title='削除']").click
+    accept_alert { first("a[title='削除']").click }
 
     visit page_data.to_path
-    assert_equal 404, page.status_code
+    assert_match 'not found', page.text
   end
 
   test 'cannot destroy page when page has child page' do
     page_data = pages(:grandparents)
     visit page_data.to_path
-    first("a[title='削除']").click
+    accept_alert { first("a[title='削除']").click }
 
-    assert_equal 200, page.status_code
     assert_match 'ページの削除は出来ません', page.text
   end
 
   test 'restore page' do
     page_data = pages(:child)
     visit page_data.to_path
-    assert_equal 200, page.status_code
-    first("a[title='削除']").click
+    accept_alert { first("a[title='削除']").click }
 
     click_link '削除の取り消し'
     visit page_data.to_path
-    assert_equal 200, page.status_code
     assert_match 'child_title', page.text
-  end
-
-  test 'invalid basic auth' do
-    page.driver.browser.authorize('invalid_name', 'invalid_password')
-    visit root_path
-    assert_equal 401, page.status_code
   end
 
   test 'page index' do
@@ -141,9 +136,8 @@ class PageIntegrationTest < ActionDispatch::IntegrationTest
   test 'archive page' do
     page_data = pages(:child)
     visit page_data.to_path
-    assert_equal 200, page.status_code
 
-    first("a[title='アーカイブ']").click
+    accept_alert { first("a[title='アーカイブ']").click }
     assert_match 'ページをアーカイブしました', page.text
   end
 end
