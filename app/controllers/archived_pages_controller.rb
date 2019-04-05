@@ -7,7 +7,8 @@ class ArchivedPagesController < ApplicationController
   def show
     set_redcarpet
 
-    @page = ArchivedPage.find(params[:id])
+    @page = ArchivedPage.find_by(id: params[:id])
+    render '404', status: :not_found unless @page
   end
 
   def destroy
