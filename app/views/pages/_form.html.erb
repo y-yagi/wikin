@@ -1,4 +1,4 @@
-<%= form_for(@page) do |f| %>
+<%= form_for(@page, html: { "data-controller": "page" }) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2 class="text-danger"><%= pluralize(@page.errors.count, "error") %></h2>
@@ -17,7 +17,7 @@
     <% end %>
   </div>
   <div class="form-group"  data-turbolinks="false">
-    <%= f.label :body %> (<%= link_to 'プレビュー', '#', id: 'preview_link' %><%= link_to '編集', '#', id: 'edit_link', style: 'display: none;' %>)<br>
+    <%= f.label :body %> (<%= link_to 'プレビュー', '#', id: 'preview_link', "data-action": "click->page#preview" %><%= link_to '編集', '#', id: 'edit_link', style: 'display: none;', "data-action": "click->page#edit" %>)<br>
     <%= f.text_area :body, class: "form-control", style: 'height: 350px', required: true%>
     <div id="preview_body" class="card border-info card-body" style="display: none;"></div><br>
   </div>
