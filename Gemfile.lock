@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/amatsuda/jb.git
-  revision: 7fca2c721fc6f70a5b4b7f8d43024a50388aa33c
-  specs:
-    jb (0.6.1)
-      multi_json
-
-GIT
   remote: git://github.com/y-yagi/models-to-sql-rails.git
   revision: 23c32025ceb5f0161d0197df98eee2c8328d6fa7
   specs:
@@ -113,6 +106,8 @@ GEM
     http_accept_language (2.1.1)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    jb (0.7.0)
+      multi_json
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -251,7 +246,7 @@ DEPENDENCIES
   graphiql-rails
   graphql
   http_accept_language
-  jb!
+  jb
   listen
   minitest
   minitest-slow_test
