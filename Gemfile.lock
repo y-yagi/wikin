@@ -192,8 +192,6 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
-    serviceworker-rails (0.5.5)
-      railties (>= 3.1)
     skylight (3.1.5)
       skylight-core (= 3.1.5)
     skylight-core (3.1.5)
@@ -262,7 +260,6 @@ DEPENDENCIES
   rouge
   sassc-rails
   selenium-webdriver
-  serviceworker-rails
   skylight
   spring
   sprockets (~> 4.beta8)
