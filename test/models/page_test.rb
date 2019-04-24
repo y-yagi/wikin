@@ -29,7 +29,7 @@ class PageTest < ActiveSupport::TestCase
     assert_match page.parent.title, page.to_path
   end
 
-  sub_test_case 'validation' do
+  Validation = sub_test_case 'validation' do
     test 'validate error when set invalid title' do
       page = Page.new(title: 'admin', body: 'test')
 
