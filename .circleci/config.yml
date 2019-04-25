@@ -1,0 +1,73 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.2-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: root
+          DISABLE_SPRING: 1
+      - image: circleci/postgres:11.0-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test_test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - restore_cache:
+          keys:
+          - v1-npm-dependencies-{{ checksum "package.json" }}
+          - v1-npm-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: install JS dependencies
+          command: |
+            bin/yarn
+
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-npm-dependencies-{{ checksum "package.json" }}
+
+      - run: bin/rails db:create
+      - run: bin/rails db:schema:load
+
+      - run:
+          name: run tests
+          command: |
+            bin/rails t
+
+      - run:
+          name: Download driver
+          command: |
+            bin/rails r Webdrivers::Chromedriver.update
+
+      - run:
+          name: run system test
+          command: |
+            bin/rails test:system
+
+      - save_cache:
+          paths:
+            - ./client/node_modules
+          key: v1-npm-dependencies-{{ checksum "package.json" }}
