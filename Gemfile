@@ -2,7 +2,7 @@ ruby '2.6.2'
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.0.beta3'
+gem 'rails', '>= 6.0.0.rc1'
 gem 'sassc-rails'
 gem 'turbolinks'
 gem 'jb'
