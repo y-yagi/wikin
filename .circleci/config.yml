@@ -63,6 +63,11 @@ jobs:
             bin/rails r Webdrivers::Chromedriver.update
 
       - run:
+          name: Compile assets
+          command: |
+            RAILS_ENV=test bin/rails assets:precompile
+
+      - run:
           name: run system test
           command: |
             bin/rails test:system
