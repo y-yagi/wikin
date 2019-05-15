@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   add_flash_types :info, :warning
   before_action :set_locale
 
-  if ENV['BASIC_AUTH_USER'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
-    http_basic_authenticate_with name: ENV['BASIC_AUTH_USER'],
-      password: ENV['BASIC_AUTH_PASSWORD'], realm: 'Enter username and password.'
+  if Rails.application.credentials.basic_auth
+    http_basic_authenticate_with name: Rails.application.credentials.basic_auth[:user],
+      password: Rails.application.credentials.basic_auth[:password], realm: 'Enter username and password.'
   end
 
   def set_redcarpet
