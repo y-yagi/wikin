@@ -116,9 +116,9 @@ class PagesController < ApplicationController
 
   def search
     @pages = []
+    set_redcarpet if request.format.json?
     return if params[:query].blank?
 
-    set_redcarpet if request.format.json?
     @pages = Page::Search.new(params[:query]).matches
   end
 
