@@ -88,6 +88,9 @@ module Page::InstanceMethods
   sig { params(args: T.untyped).returns(T::Boolean) }
   def updated_at?(*args); end
 
+  sig { returns(T.nilable(String)) }
+  def to_path(); end
+
 end
 
 class Page
