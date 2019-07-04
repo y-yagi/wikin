@@ -51,7 +51,7 @@ class Page < ApplicationRecord
       pages.to_a.sort_by(&:full_title)
     end
 
-    sig { params(id: Integer).returns(Page) }
+    sig { params(id: T.any(Integer,String)).returns(Page) }
     def restore!(id)
       old_page = OldPage.find_by!(page_id: id)
       Page.create!(
