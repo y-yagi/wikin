@@ -1,3 +1,4 @@
+# typed: false
 ENV['RAILS_ENV'] ||= 'test'
 
 def Warning.warn(str)

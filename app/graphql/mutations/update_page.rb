@@ -1,3 +1,4 @@
+# typed: true
 module Mutations
   class UpdatePage < GraphQL::Schema::RelayClassicMutation
     field :id, ID, null: false

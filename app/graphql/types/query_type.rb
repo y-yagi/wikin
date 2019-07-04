@@ -1,3 +1,4 @@
+# typed: false
 module Types
   class QueryType < Types::BaseObject
     field :page, Types::PageType, null: true do

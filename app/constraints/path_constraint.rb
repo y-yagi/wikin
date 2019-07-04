@@ -1,3 +1,4 @@
+# typed: true
 class PathConstraint
   def matches?(request)
     path = request.path.split('/').reject(&:empty?).first

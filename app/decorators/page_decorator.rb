@@ -1,3 +1,4 @@
+# typed: false
 module PageDecorator
   def link
     link_to(title, to_url)

@@ -1,3 +1,4 @@
+# typed: true
 class ArchivedPage < ApplicationRecord
   def restore!
     attr = self.attributes

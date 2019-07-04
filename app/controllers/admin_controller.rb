@@ -1,3 +1,4 @@
+# typed: false
 class AdminController < ApplicationController
   def dump
     sio = StringIO.new('', 'r+')

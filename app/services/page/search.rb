@@ -1,3 +1,4 @@
+# typed: false
 class Page::Search
   def initialize(query)
     @query = query

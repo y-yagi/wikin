@@ -1,3 +1,4 @@
+# typed: true
 require 'models_to_sql'
 require 'webrick'
 
