@@ -91,6 +91,7 @@ class Page < ApplicationRecord
         return
       end
     end
+    return
   end
 
   sig { returns(NilClass) }
@@ -103,6 +104,7 @@ class Page < ApplicationRecord
       return
     end
     errors.add(:parent_id, :parent_cannnot_appoint_self) if parent_page.id == self.id
+    return
   end
 
   sig { returns(NilClass) }
@@ -110,6 +112,7 @@ class Page < ApplicationRecord
     return if title.blank? || !title_changed?
 
     errors.add(:title, :taken) if Page.find_by(parent_id: parent_id, title: title)
+    return
   end
 
   sig { returns(T::Boolean) }
@@ -127,7 +130,7 @@ class Page < ApplicationRecord
     full_title
   end
 
-  sig { returns(NilClass) }
+  sig { returns(T.nilable(T::Boolean)) }
   def create_old_page
     OldPage.find_or_initialize_by(page: self).update!(
       body: body_was, title: title, tags: tags_was,
@@ -139,6 +142,7 @@ class Page < ApplicationRecord
   def undo!
     return unless old_page
     update!(body: T.must(old_page).body)
+    return
   end
 
   sig { returns(NilClass) }
@@ -153,5 +157,6 @@ class Page < ApplicationRecord
       ArchivedPage.create!(attr)
       destroy!
     end
+    return
   end
 end
