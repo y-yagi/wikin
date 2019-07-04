@@ -199,6 +199,7 @@ GEM
       activesupport (>= 4.2.0)
     sorbet (0.4.4379)
       sorbet-static (= 0.4.4379)
+    sorbet-rails (0.3.0)
     sorbet-runtime (0.4.4379)
     sorbet-static (0.4.4379-x86_64-linux)
     spring (2.1.0)
@@ -265,6 +266,7 @@ DEPENDENCIES
   selenium-webdriver
   skylight
   sorbet
+  sorbet-rails
   sorbet-runtime
   spring
   sprockets (~> 4.beta9)
