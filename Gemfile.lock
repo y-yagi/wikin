@@ -197,6 +197,10 @@ GEM
       skylight-core (= 4.1.2)
     skylight-core (4.1.2)
       activesupport (>= 4.2.0)
+    sorbet (0.4.4379)
+      sorbet-static (= 0.4.4379)
+    sorbet-runtime (0.4.4379)
+    sorbet-static (0.4.4379-x86_64-linux)
     spring (2.1.0)
     sprockets (4.0.0.beta9)
       concurrent-ruby (~> 1.0)
@@ -260,6 +264,8 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   skylight
+  sorbet
+  sorbet-runtime
   spring
   sprockets (~> 4.beta9)
   turbolinks
