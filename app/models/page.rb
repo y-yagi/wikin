@@ -80,7 +80,7 @@ class Page < ApplicationRecord
     WEBrick::HTTPUtils.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
   end
 
-  sig { returns(NilClass) }
+  sig { returns(Object) }
   def check_valid_title
     errors.add(:title, :cannot_use, invalid: title) if INVALID_TITLE_PATTERN.include?(title)
 
@@ -91,10 +91,9 @@ class Page < ApplicationRecord
         return
       end
     end
-    return
   end
 
-  sig { returns(NilClass) }
+  sig { returns(Object) }
   def check_parent_id
     return if parent_name.blank? && parent_id.blank?
     parent_page = Page.find_by(id: parent_id)
@@ -104,15 +103,13 @@ class Page < ApplicationRecord
       return
     end
     errors.add(:parent_id, :parent_cannnot_appoint_self) if parent_page.id == self.id
-    return
   end
 
-  sig { returns(NilClass) }
+  sig { returns(Object) }
   def check_title_uniqueness
     return if title.blank? || !title_changed?
 
     errors.add(:title, :taken) if Page.find_by(parent_id: parent_id, title: title)
-    return
   end
 
   sig { returns(T::Boolean) }
