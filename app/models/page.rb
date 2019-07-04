@@ -3,6 +3,8 @@ require 'models_to_sql'
 require 'webrick'
 
 class Page < ApplicationRecord
+  extend T::Sig
+
   acts_as_forest
 
   has_one :old_page
@@ -26,6 +28,9 @@ class Page < ApplicationRecord
   attr_accessor :parent_name
 
   class << self
+    extend T::Sig
+
+    sig { params(titles: T::Array[String]).returns(T.nilable(Page)) }
     def find_by_titles(titles)
       root = Page.root.find_by(title: titles.shift)
       return nil unless root
@@ -35,15 +40,18 @@ class Page < ApplicationRecord
       root.find_child(titles)
     end
 
+    sig { returns(T::Array[[T.untyped, T::Array[Page]]] ) }
     def recently_updated
       pages = order('updated_at DESC').limit(RECENT_PAGE_COUNT)
       pages.group_by{ |p| p.updated_at.to_date }.sort_by{ |k, v| k }.reverse
     end
 
+    sig { params(pages: T::Array[Page]).returns(T::Array[Page]) }
     def sort_by_full_title(pages)
       pages.to_a.sort_by(&:full_title)
     end
 
+    sig { params(id: Integer).returns(Page) }
     def restore!(id)
       old_page = OldPage.find_by!(page_id: id)
       Page.create!(
@@ -55,6 +63,7 @@ class Page < ApplicationRecord
     end
   end
 
+  sig { params(titles: T::Array[String]).returns(T.nilable(Page)) }
   def find_child(titles)
     title = titles.shift
     page = children.find{|p| p.title == title}
@@ -66,10 +75,12 @@ class Page < ApplicationRecord
     end
   end
 
+  sig { returns(String) }
   def to_path
     WEBrick::HTTPUtils.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
   end
 
+  sig { returns(NilClass) }
   def check_valid_title
     errors.add(:title, :cannot_use, invalid: title) if INVALID_TITLE_PATTERN.include?(title)
 
@@ -82,6 +93,7 @@ class Page < ApplicationRecord
     end
   end
 
+  sig { returns(NilClass) }
   def check_parent_id
     return if parent_name.blank? && parent_id.blank?
     parent_page = Page.find_by(id: parent_id)
@@ -93,16 +105,19 @@ class Page < ApplicationRecord
     errors.add(:parent_id, :parent_cannnot_appoint_self) if parent_page.id == self.id
   end
 
+  sig { returns(NilClass) }
   def check_title_uniqueness
     return if title.blank? || !title_changed?
 
     errors.add(:title, :taken) if Page.find_by(parent_id: parent_id, title: title)
   end
 
+  sig { returns(T::Boolean) }
   def can_destory?
     children.empty?
   end
 
+  sig { params(include_self: T::Boolean).returns(String) }
   def full_title(include_self: true)
     return title if ancestors.empty?
 
@@ -112,6 +127,7 @@ class Page < ApplicationRecord
     full_title
   end
 
+  sig { returns(NilClass) }
   def create_old_page
     OldPage.find_or_initialize_by(page: self).update!(
       body: body_was, title: title, tags: tags_was,
@@ -119,11 +135,13 @@ class Page < ApplicationRecord
     )
   end
 
+  sig { returns(NilClass) }
   def undo!
     return unless old_page
     update!(body: T.must(old_page).body)
   end
 
+  sig { returns(NilClass) }
   def archive!
     attr = self.attributes
 
