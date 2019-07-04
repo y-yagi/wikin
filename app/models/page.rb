@@ -1,4 +1,6 @@
 require 'models_to_sql'
+require 'webrick'
+
 class Page < ApplicationRecord
   acts_as_forest
 
@@ -64,7 +66,7 @@ class Page < ApplicationRecord
   end
 
   def to_path
-    URI.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
+    WEBrick::HTTPUtils.escape('/' + (ancestors.reverse.map(&:title) + [title]).join('/'))
   end
 
   def check_valid_title
