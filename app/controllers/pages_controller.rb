@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 class PagesController < ApplicationController
   before_action :set_page, only: [:edit, :update, :destroy, :undo]
   protect_from_forgery with: :null_session

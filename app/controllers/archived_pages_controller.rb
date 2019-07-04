@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 class ArchivedPagesController < ApplicationController
   def index
     @pages = ArchivedPage.order(created_at: :DESC)

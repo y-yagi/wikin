@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 class ApplicationController < ActionController::Base
   add_flash_types :info, :warning
   before_action :set_locale
