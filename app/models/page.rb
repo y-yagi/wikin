@@ -121,7 +121,7 @@ class Page < ApplicationRecord
 
   def undo!
     return unless old_page
-    update!(body: old_page.body)
+    update!(body: T.must(old_page).body)
   end
 
   def archive!
