@@ -111,14 +111,14 @@ class PagesController < ApplicationController
     @pages = []
     return if params[:query].blank?
 
-    @pages = Page.where('title like ?', "%#{params[:query]}%")
+    @pages = Page.where('title like ?', "%" + Page.sanitize_sql_like(params[:query]) + "%")
   end
 
   def search
     @pages = []
+    set_redcarpet if request.format.json?
     return if params[:query].blank?
 
-    set_redcarpet if request.format.json?
     @pages = Page::Search.new(params[:query]).matches
   end
 
