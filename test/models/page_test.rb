@@ -4,8 +4,8 @@ class PageTest < ActiveSupport::TestCase
   test 'recently updated pages group by date' do
     pages = Page.recently_updated
     assert_equal 2, pages.count
-    assert_equal (Date.today + 2), pages.first[0]
-    assert_equal (Date.today), pages.second[0]
+    assert_equal (2.days.after.to_date), pages.first[0]
+    assert_equal (Date.current), pages.second[0]
   end
 
   test 'find page when use valid title' do
