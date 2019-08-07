@@ -38,7 +38,7 @@ class PagesTest < ApplicationSystemTestCase
     fill_in 'page_body', with: '新規ページ本文'
     click_button '登録する'
 
-    assert_not_empty page.find("#page_title").native.attribute('validationMessage')
+    assert_not_empty page.find("#page_title").native.property('validationMessage')
   end
 
   test 'update page' do
@@ -76,7 +76,7 @@ class PagesTest < ApplicationSystemTestCase
     fill_in 'page_body', with: ''
     click_button '更新する'
 
-    assert_not_empty page.find("#page_body").native.attribute('validationMessage')
+    assert_not_empty page.find("#page_body").native.property('validationMessage')
   end
 
   test 'search pages' do
