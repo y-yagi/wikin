@@ -65,7 +65,7 @@ jobs:
       - run:
           name: run system test
           command: |
-            bin/rails test:system
+            bin/rails t test/system/pages_test.rb:12
 
       - save_cache:
           paths:
