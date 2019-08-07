@@ -8,6 +8,7 @@ end
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'capybara/apparition'
 require 'minitest/slow_test'
 
 Minitest::SlowTest.long_test_time = 0.5
