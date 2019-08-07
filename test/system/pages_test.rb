@@ -29,7 +29,7 @@ class PagesTest < ApplicationSystemTestCase
     visit Page.last.to_path
     assert_text "新規ページタイトル"
     assert_text "新規ページ本文"
-    assert_text "新規ページタグ"
+    assert_text "タグ"
   end
 
   test 'display error message when going to make it with unjust data' do
@@ -113,7 +113,7 @@ class PagesTest < ApplicationSystemTestCase
 
     click_link '削除の取り消し'
     visit page_data.to_path
-    assert_text "child_titleの削除は出来ません"
+    assert_text "child_title"
   end
 
   test 'page index' do
