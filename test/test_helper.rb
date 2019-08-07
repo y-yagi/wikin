@@ -17,7 +17,7 @@ ENV["BASIC_AUTH_USER"] = 'basic_auth_name'
 ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
 
 class ActiveSupport::TestCase
-  parallelize
+  # parallelize
   fixtures :all
 
   def assert_valid(record, message = nil)
