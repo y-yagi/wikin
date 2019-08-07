@@ -37,7 +37,6 @@ group :test, :development do
   gem 'minitest-sub_test_case'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'rack-mini-profiler'
   gem 'listen'
   gem 'apparition'

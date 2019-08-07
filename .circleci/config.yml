@@ -58,11 +58,6 @@ jobs:
             bin/rails t
 
       - run:
-          name: Download driver
-          command: |
-            bin/rails r Webdrivers::Chromedriver.update
-
-      - run:
           name: Compile assets
           command: |
             RAILS_ENV=test bin/rails assets:precompile
