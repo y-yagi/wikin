@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Compile assets
           command: |
-            RAILS_ENV=test bin/rails assets:precompile
+            NODE_ENV=test RAILS_ENV=test bin/rails assets:precompile
 
       - run:
           name: run system test
