@@ -92,7 +92,7 @@ class PagesTest < ApplicationSystemTestCase
     page_data = pages(:child)
     visit page_data.to_path
 
-    accept_alert { first("a[title='削除']").click }
+    accept_confirm { first("a[title='削除']").click }
 
     visit page_data.to_path
     assert_text "not found"
@@ -101,7 +101,7 @@ class PagesTest < ApplicationSystemTestCase
   test 'cannot destroy page when page has child page' do
     page_data = pages(:grandparents)
     visit page_data.to_path
-    accept_alert { first("a[title='削除']").click }
+    accept_confirm { first("a[title='削除']").click }
 
     assert_text "ページの削除は出来ません"
   end
@@ -109,7 +109,7 @@ class PagesTest < ApplicationSystemTestCase
   test 'restore page' do
     page_data = pages(:child)
     visit page_data.to_path
-    accept_alert { first("a[title='削除']").click }
+    accept_confirm { first("a[title='削除']").click }
 
     click_link '削除の取り消し'
     visit page_data.to_path
@@ -134,7 +134,7 @@ class PagesTest < ApplicationSystemTestCase
     page_data = pages(:child)
     visit page_data.to_path
 
-    accept_alert { first("a[title='アーカイブ']").click }
+    accept_confirm { first("a[title='アーカイブ']").click }
     assert_text "ページをアーカイブしました"
   end
 end
