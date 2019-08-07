@@ -1,3 +1,4 @@
+# typed: true
 class CreateArchivedPages < ActiveRecord::Migration[5.2]
   def change
     create_table :archived_pages, id: :serial do |t|

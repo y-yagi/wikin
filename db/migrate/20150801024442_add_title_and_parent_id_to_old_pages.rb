@@ -1,3 +1,4 @@
+# typed: true
 class AddTitleAndParentIdToOldPages < ActiveRecord::Migration[4.2]
   def change
     add_column :old_pages, :parent_id, :integer

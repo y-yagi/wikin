@@ -1,3 +1,4 @@
+# typed: true
 module Types
   class PageType < Types::BaseObject
     field :id, ID, null: false

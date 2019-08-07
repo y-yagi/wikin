@@ -1,3 +1,4 @@
+# typed: strict
 if Rails.env.development?
   logger = ActiveSupport::Logger.new(File.join(Rails.root, "log", "notifications.log"))
   ActiveSupport::Notifications.subscribe "instantiation.active_record" do |*args|

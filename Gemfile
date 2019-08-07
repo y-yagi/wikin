@@ -20,12 +20,15 @@ gem 'graphql'
 gem 'puma'
 gem 'bootsnap'
 gem 'webpacker'
+gem 'sorbet-runtime'
 
 group :development do
   gem 'spring'
   gem 'graphiql-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'sorbet'
+  gem 'sorbet-rails'
 end
 
 group :test, :development do

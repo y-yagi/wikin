@@ -1,3 +1,4 @@
+# typed: true
 class IndexController < ApplicationController
   layout 'top'
 
