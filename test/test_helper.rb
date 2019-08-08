@@ -11,6 +11,10 @@ require 'capybara/rails'
 require 'capybara/apparition'
 require 'minitest/slow_test'
 
+Capybara.register_driver :apparition_debug do |app|
+  Capybara::Apparition::Driver.new(app, { debug: true, headless: false, url_whitelist: %w(127.0.0.1) })
+end
+
 Minitest::SlowTest.long_test_time = 0.5
 
 ENV["BASIC_AUTH_USER"] = 'basic_auth_name'

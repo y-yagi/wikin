@@ -5,5 +5,6 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   setup do
     Capybara.current_driver = :apparition
+    page.driver.browser.url_whitelist = %w(127.0.0.1)
   end
 end
