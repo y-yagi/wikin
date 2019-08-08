@@ -12,7 +12,7 @@ require 'capybara/apparition'
 require 'minitest/slow_test'
 
 Capybara.register_driver :apparition_debug do |app|
-  Capybara::Apparition::Driver.new(app, { debug: true, headless: false, url_whitelist: %w(127.0.0.1) })
+  Capybara::Apparition::Driver.new(app, { debug: true, url_whitelist: %w(127.0.0.1) })
 end
 
 Minitest::SlowTest.long_test_time = 0.5
