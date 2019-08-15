@@ -8,7 +8,12 @@ end
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'capybara/apparition'
 require 'minitest/slow_test'
+
+Capybara.register_driver :apparition_debug do |app|
+  Capybara::Apparition::Driver.new(app, { debug: true, url_whitelist: %w(127.0.0.1) })
+end
 
 Minitest::SlowTest.long_test_time = 0.5
 
@@ -16,7 +21,7 @@ ENV["BASIC_AUTH_USER"] = 'basic_auth_name'
 ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
 
 class ActiveSupport::TestCase
-  parallelize
+  # parallelize
   fixtures :all
 
   def assert_valid(record, message = nil)
