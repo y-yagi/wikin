@@ -1,0 +1,13 @@
+version: '3'
+services:
+  wikin_db:
+    container_name: wikin_db
+    build: ./docker/db/
+    ports:
+      - "5442:5432"
+    volumes:
+      - wikin_db:/var/lib/postgresql/data
+
+volumes:
+  wikin_db:
+    driver: local
