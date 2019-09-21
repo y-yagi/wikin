@@ -7,7 +7,7 @@ window.$ = $;
 require("bootstrap");
 require("devbridge-autocomplete");
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 serviceWorker.register();
 
 import "controllers";
