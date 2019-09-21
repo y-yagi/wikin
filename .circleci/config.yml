@@ -44,6 +44,11 @@ jobs:
           command: |
             bin/yarn
 
+      - run:
+          name: prettier check
+          command: |
+            bin/yarn pretty-check
+
       - save_cache:
           paths:
             - ./node_modules
