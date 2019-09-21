@@ -18,6 +18,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "scripts": {
-    "pretty": "yarn prettier app/javascript/**/*.js --write"
+    "pretty": "yarn prettier app/javascript/**/*.js --write",
+    "pretty-check": "yarn prettier app/javascript/**/*.js --check"
   }
 }
