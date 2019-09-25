@@ -1,13 +1,11 @@
 <div class="card border-primary" id="headings">
-  <div class="card-header">TOP</div>
+  <div class="card-header">最近更新されたページ</div>
   <div class="card-body">
-    <h3>About Wikin</h3>
-    <div class="card-text">
-      <p>wikiっぽいものです. 以下の特徴があります.</p>
-      <ul>
-        <li>Markdown記法対応</li>
-        <li><a href="https://github.com/y-yagi/WikinClient" target="_blank">専用のAndroidアプリ</a></li>
-      </ul>
-    </div>
+    <% @recently_updated_pages.each do |date, pages| %>
+      <strong><%= date %></strong>
+      <% pages.each do |page| %>
+        <div class="mb-2"><%= page.link %></div>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -12,7 +12,7 @@ class PagesTest < ApplicationSystemTestCase
   end
 
   test 'page include "TOP" when visit to root path' do
-    assert_match 'TOP', page.text
+    assert_match '最近更新されたページ', page.text
   end
 
   test 'page include recent update page titles when visit to root path' do

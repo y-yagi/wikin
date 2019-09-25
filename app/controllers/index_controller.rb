@@ -1,6 +1,4 @@
 class IndexController < ApplicationController
-  layout 'top'
-
   def index
     set_recently_updated_pages
   end
