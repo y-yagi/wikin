@@ -2,7 +2,7 @@
   "name": "wikin",
   "dependencies": {
     "@rails/ujs": "^6.0.1",
-    "@rails/webpacker": "^4.0.7",
+    "@rails/webpacker": "^4.2.0",
     "@types/webpack-env": "^1.14.1",
     "autocomplete.js": "^0.37.0",
     "bootstrap": "*",
