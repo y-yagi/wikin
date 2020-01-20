@@ -105,7 +105,7 @@ GEM
       sprockets-rails
     graphql (1.9.17)
     http_accept_language (2.1.1)
-    i18n (1.7.0)
+    i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     jb (0.7.0)
       multi_json
@@ -191,9 +191,9 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    skylight (4.2.0)
-      skylight-core (= 4.2.0)
-    skylight-core (4.2.0)
+    skylight (4.2.1)
+      skylight-core (= 4.2.1)
+    skylight-core (4.2.1)
       activesupport (>= 4.2.0)
     spring (2.1.0)
     sprockets (4.0.0)
