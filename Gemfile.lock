@@ -103,7 +103,7 @@ GEM
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
-    graphql (1.9.17)
+    graphql (1.9.18)
     http_accept_language (2.1.1)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
