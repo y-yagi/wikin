@@ -4,7 +4,7 @@
     "@rails/ujs": "^6.0.2",
     "@rails/webpacker": "^4.2.2",
     "@types/webpack-env": "^1.15.0",
-    "autocomplete.js": "^0.37.0",
+    "autocomplete.js": "^0.37.1",
     "bootstrap": "*",
     "devbridge-autocomplete": "^1.4.10",
     "jquery": "^3.4.1",
