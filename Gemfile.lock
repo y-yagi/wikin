@@ -191,9 +191,9 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    skylight (4.2.2)
-      skylight-core (= 4.2.2)
-    skylight-core (4.2.2)
+    skylight (4.2.3)
+      skylight-core (= 4.2.3)
+    skylight-core (4.2.3)
       activesupport (>= 4.2.0)
     spring (2.1.0)
     sprockets (4.0.0)
@@ -224,7 +224,7 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.2)
+    zeitwerk (2.3.0)
 
 PLATFORMS
   ruby
