@@ -17,7 +17,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "prettier": "1.19.1",
+    "prettier": "2.0.1",
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
