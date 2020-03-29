@@ -5,9 +5,9 @@ export default class extends Controller {
     $("#page_parent_name").autocomplete({
       serviceUrl: "/pages/titles.json",
       triggerSelectOnValidInput: false,
-      onSelect: function(suggestion) {
+      onSelect: function (suggestion) {
         return $("#page_parent_id").val(suggestion.data);
-      }
+      },
     });
 
     var tagsInput = require("tags-input");
@@ -36,8 +36,8 @@ export default class extends Controller {
       success: defer.resolve,
       error: defer.reject,
       data: {
-        page_body: body
-      }
+        page_body: body,
+      },
     });
     return defer.promise();
   }
