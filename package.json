@@ -7,7 +7,7 @@
     "autocomplete.js": "^0.37.1",
     "bootstrap": "*",
     "devbridge-autocomplete": "^1.4.11",
-    "jquery": "^3.5.0",
+    "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
     "tags-input": "^1.1.1",
