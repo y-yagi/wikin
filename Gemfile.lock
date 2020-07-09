@@ -192,9 +192,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
-    skylight (4.3.0)
-      skylight-core (= 4.3.0)
-    skylight-core (4.3.0)
+    skylight (4.3.1)
+      skylight-core (= 4.3.1)
+    skylight-core (4.3.1)
       activesupport (>= 4.2.0)
     spring (2.1.0)
     sprockets (4.0.2)
@@ -226,7 +226,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
