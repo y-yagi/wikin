@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/y-yagi/models-to-sql-rails.git
+  remote: https://github.com/y-yagi/models-to-sql-rails.git
   revision: 23c32025ceb5f0161d0197df98eee2c8328d6fa7
   specs:
     models-to-sql-rails (1.0.1)
@@ -267,7 +267,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.7.1p83
 
 BUNDLED WITH
-   1.17.3
+   2.1.4
