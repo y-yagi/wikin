@@ -12,11 +12,11 @@ class PagesTest < ApplicationSystemTestCase
   end
 
   test 'page include "TOP" when visit to root path' do
-    assert_match '最近更新されたページ', page.text
+    assert_text '最近更新されたページ'
   end
 
   test 'page include recent update page titles when visit to root path' do
-    assert_match 'latest_page', page.text
+    assert_text 'latest_page'
   end
 
   test 'create new page' do
@@ -25,20 +25,22 @@ class PagesTest < ApplicationSystemTestCase
     fill_in 'page_title', with: '新規ページタイトル'
     fill_in 'page_body', with: '新規ページ本文'
     fill_in 'page_tags', with: 'タグ'
+    find_button '登録する'
     click_button '登録する'
 
     assert_equal Page.count, before_count + 1
 
     visit Page.last.to_path
-    assert_match '新規ページタイトル', page.text
-    assert_match '新規ページ本文', page.text
-    assert_match 'タグ', page.text
+    assert_text '新規ページタイトル'
+    assert_text '新規ページ本文'
+    assert_text 'タグ'
   end
 
   test 'display error message when going to make it with unjust data' do
     click_link 'ページ作成'
     fill_in 'page_title', with: ''
     fill_in 'page_body', with: '新規ページ本文'
+    find_button '登録する'
     click_button '登録する'
 
     assert_not_empty page.find("#page_title").native.attribute('validationMessage')
@@ -50,11 +52,12 @@ class PagesTest < ApplicationSystemTestCase
     visit old_page.to_path
     first("a[title='編集']").click
     fill_in 'page_body', with: 'child-body-update'
+    find_button '更新する'
     click_button '更新する'
 
     old_page.reload
     visit old_page.to_path
-    assert_match 'child-body-update', page.text
+    assert_text 'child-body-update'
   end
 
   test 'undo update' do
@@ -63,12 +66,13 @@ class PagesTest < ApplicationSystemTestCase
     visit old_page.to_path
     first("a[title='編集']").click
     fill_in 'page_body', with: 'child-body-update'
+    find_button '更新する'
     click_button '更新する'
     click_link '更新の取り消し'
     visit old_page.to_path
 
     assert_no_match 'child-body-update', page.text
-    assert_match title, page.text
+    assert_text title
   end
 
 
@@ -77,6 +81,7 @@ class PagesTest < ApplicationSystemTestCase
     visit old_page.to_path
     first("a[title='編集']").click
     fill_in 'page_body', with: ''
+    find_button '更新する'
     click_button '更新する'
 
     assert_not_empty page.find("#page_body").native.attribute('validationMessage')
@@ -87,8 +92,8 @@ class PagesTest < ApplicationSystemTestCase
     click_button '検索'
     result_text = find(:css, '.search-result').text
 
-    assert_match 'parents_title', result_text
-    assert_match 'grandparents_title', result_text
+    assert_text 'parents_title'
+    assert_text 'grandparents_title'
   end
 
   test 'destroy page' do
@@ -96,9 +101,10 @@ class PagesTest < ApplicationSystemTestCase
     visit page_data.to_path
 
     accept_alert { first("a[title='削除']").click }
+    assert_text 'ページの削除が完了しました'
 
     visit page_data.to_path
-    assert_match 'not found', page.text
+    assert_text 'not found'
   end
 
   test 'cannot destroy page when page has child page' do
@@ -106,30 +112,31 @@ class PagesTest < ApplicationSystemTestCase
     visit page_data.to_path
     accept_alert { first("a[title='削除']").click }
 
-    assert_match 'ページの削除は出来ません', page.text
+    assert_text 'ページの削除は出来ません'
   end
 
   test 'restore page' do
     page_data = pages(:child)
     visit page_data.to_path
     accept_alert { first("a[title='削除']").click }
+    assert_text 'ページの削除が完了しました'
 
     click_link '削除の取り消し'
     visit page_data.to_path
-    assert_match 'child_title', page.text
+    assert_text 'child_title'
   end
 
   test 'page index' do
     visit pages_path
 
-    assert_match 'search_text_include_title', page.text
-    assert_match 'grandparents_title / parents_title / child_title', page.text
+    assert_text 'search_text_include_title'
+    assert_text 'grandparents_title / parents_title / child_title'
   end
 
   test 'page index with tag parameter' do
     visit pages_path(tag: 'tag1')
 
-    assert_match 'tags_page_title', page.text
+    assert_text 'tags_page_title'
     assert_no_match 'search_text_include_title', page.text
   end
 
@@ -138,6 +145,6 @@ class PagesTest < ApplicationSystemTestCase
     visit page_data.to_path
 
     accept_alert { first("a[title='アーカイブ']").click }
-    assert_match 'ページをアーカイブしました', page.text
+    assert_text 'ページをアーカイブしました'
   end
 end
