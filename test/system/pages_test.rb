@@ -25,8 +25,8 @@ class PagesTest < ApplicationSystemTestCase
     fill_in 'page_title', with: '新規ページタイトル'
     fill_in 'page_body', with: '新規ページ本文'
     fill_in 'page_tags', with: 'タグ'
-    find_button '登録する'
-    click_button '登録する'
+    find_button i18n_button(:create)
+    click_button i18n_button(:create)
 
     assert_equal Page.count, before_count + 1
 
@@ -40,8 +40,8 @@ class PagesTest < ApplicationSystemTestCase
     click_link 'ページ作成'
     fill_in 'page_title', with: ''
     fill_in 'page_body', with: '新規ページ本文'
-    find_button '登録する'
-    click_button '登録する'
+    find_button i18n_button(:create)
+    click_button i18n_button(:create)
 
     assert_not_empty page.find("#page_title").native.attribute('validationMessage')
   end
@@ -52,8 +52,8 @@ class PagesTest < ApplicationSystemTestCase
     visit old_page.to_path
     first("a[title='編集']").click
     fill_in 'page_body', with: 'child-body-update'
-    find_button '更新する'
-    click_button '更新する'
+    find_button i18n_button(:update)
+    click_button i18n_button(:update)
 
     old_page.reload
     visit old_page.to_path
@@ -66,9 +66,9 @@ class PagesTest < ApplicationSystemTestCase
     visit old_page.to_path
     first("a[title='編集']").click
     fill_in 'page_body', with: 'child-body-update'
-    find_button '更新する'
-    click_button '更新する'
-    click_link '更新の取り消し'
+    find_button i18n_button(:update)
+    click_button i18n_button(:update)
+    click_link i18n_messages(:undo_page_link)
     visit old_page.to_path
 
     assert_no_match 'child-body-update', page.text
@@ -81,8 +81,8 @@ class PagesTest < ApplicationSystemTestCase
     visit old_page.to_path
     first("a[title='編集']").click
     fill_in 'page_body', with: ''
-    find_button '更新する'
-    click_button '更新する'
+    find_button i18n_button(:update)
+    click_button i18n_button(:update)
 
     assert_not_empty page.find("#page_body").native.attribute('validationMessage')
   end
@@ -101,7 +101,7 @@ class PagesTest < ApplicationSystemTestCase
     visit page_data.to_path
 
     accept_alert { first("a[title='削除']").click }
-    assert_text 'ページの削除が完了しました'
+    assert_text i18n_messages(:destroy_page)
 
     visit page_data.to_path
     assert_text 'not found'
@@ -112,16 +112,16 @@ class PagesTest < ApplicationSystemTestCase
     visit page_data.to_path
     accept_alert { first("a[title='削除']").click }
 
-    assert_text 'ページの削除は出来ません'
+    assert_text i18n_messages(:have_child_page)
   end
 
   test 'restore page' do
     page_data = pages(:child)
     visit page_data.to_path
     accept_alert { first("a[title='削除']").click }
-    assert_text 'ページの削除が完了しました'
+    assert_text i18n_messages(:destroy_page)
 
-    click_link '削除の取り消し'
+    click_link i18n_messages(:restore_page_link)
     visit page_data.to_path
     assert_text 'child_title'
   end
@@ -145,6 +145,6 @@ class PagesTest < ApplicationSystemTestCase
     visit page_data.to_path
 
     accept_alert { first("a[title='アーカイブ']").click }
-    assert_text 'ページをアーカイブしました'
+    assert_text i18n_messages(:archive_page)
   end
 end
