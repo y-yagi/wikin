@@ -51,3 +51,10 @@ if !ENV["DISABLE_MINITEST_SOUND"]
   Minitest::Sound.during_test = '/home/yaginuma/Dropbox/tmp/music/other/rs1_25_beatthemup.mp3'
 end
 
+def i18n_messages(key, message_values = {})
+  I18n.t(key, message_values, scope: [:messages])
+end
+
+def i18n_button(key, message_values = {})
+  I18n.t(key, message_values, scope: [:helpers, :submit])
+end
