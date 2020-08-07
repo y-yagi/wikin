@@ -14,14 +14,14 @@ class ArchivedPagesTest < ApplicationSystemTestCase
   test 'archived pages' do
     click_link 'アーカイブページ一覧'
 
-    assert_match 'archive_paged_include_tags', page.text
+    assert_text 'archive_paged_include_tags'
   end
 
   test 'show archived page' do
     archived_page = archived_pages(:include_tags)
     visit archived_page_path(archived_page)
 
-    assert_match 'archive_paged_include_tags', page.text
+    assert_text 'archive_paged_include_tags'
   end
 
   test 'destroy archived page' do
@@ -29,9 +29,10 @@ class ArchivedPagesTest < ApplicationSystemTestCase
     visit archived_page_path(archived_page)
 
     accept_alert { first("a[title='削除']").click }
+    assert_text i18n_messages(:destroy_page)
 
     visit archived_page_path(archived_page)
-    assert_match 'not found', page.text
+    assert_text 'not found'
   end
 
   test 'restore archived page' do
@@ -39,12 +40,13 @@ class ArchivedPagesTest < ApplicationSystemTestCase
     visit archived_page_path(archived_page)
 
     accept_alert { first("a[title='リストア']").click }
+    assert_text i18n_messages(:restore_page)
 
     visit pages_path
-    assert_match 'archive_paged_include_tags', page.text
+    assert_text 'archive_paged_include_tags'
 
     click_link 'アーカイブページ一覧'
-    assert_no_match 'archive_paged_include_tags', page.text
+    assert_no_text 'archive_paged_include_tags'
   end
 end
 
