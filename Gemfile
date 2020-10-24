@@ -40,6 +40,7 @@ group :test, :development do
   gem 'webdrivers'
   gem 'rack-mini-profiler'
   gem 'listen'
+  gem 'test-recorder'
 end
 
 group :production do

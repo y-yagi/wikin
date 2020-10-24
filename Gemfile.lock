@@ -104,6 +104,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.11.5)
+    headless (2.3.1)
     http_accept_language (2.1.1)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
@@ -204,6 +205,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    test-recorder (0.1.0)
+      headless
+      railties
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -262,6 +266,7 @@ DEPENDENCIES
   skylight
   spring
   sprockets (~> 4)
+  test-recorder
   turbolinks
   webdrivers
   webpacker
