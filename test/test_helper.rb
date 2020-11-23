@@ -15,7 +15,9 @@ Minitest::SlowTest.long_test_time = 0.5
 ENV["BASIC_AUTH_USER"] = 'basic_auth_name'
 ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
 
+pp system("df -Th")
 pp Sys::Filesystem.stat(".")
+File.write("tmp/#{'a'*230}.txt", 'ok')
 
 class ActiveSupport::TestCase
   parallelize
