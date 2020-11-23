@@ -15,6 +15,8 @@ Minitest::SlowTest.long_test_time = 0.5
 ENV["BASIC_AUTH_USER"] = 'basic_auth_name'
 ENV["BASIC_AUTH_PASSWORD"] = 'basic_auth_password'
 
+pp Sys::Filesystem.stat(".")
+
 class ActiveSupport::TestCase
   parallelize
   fixtures :all
