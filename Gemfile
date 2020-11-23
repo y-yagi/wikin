@@ -20,6 +20,7 @@ gem 'graphql'
 gem 'puma'
 gem 'bootsnap'
 gem 'webpacker'
+gem 'sys-filesystem'
 
 group :development do
   gem 'spring'
