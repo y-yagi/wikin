@@ -18,7 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "prettier": "2.1.2",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.1"
   },
   "scripts": {
     "pretty": "yarn prettier app/javascript/**/*.*s --write",
