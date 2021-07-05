@@ -3,7 +3,7 @@
   "dependencies": {
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "^5.2.1",
-    "@types/webpack-env": "^1.16.0",
+    "@types/webpack-env": "^1.16.2",
     "autocomplete.js": "^0.38.0",
     "bootstrap": "*",
     "devbridge-autocomplete": "^1.4.11",
